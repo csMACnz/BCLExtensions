@@ -5,11 +5,20 @@ Base Class Library Extensions for C# base class library classes, across .Net, Si
 
 Proposed Extensions
 -------------------
-* String FormatWith(this String format, params object[] parameters);
-* String ValueOrEmptyIfNull(this String value)
-* String ValueOrEmptyIfNullOrWhiteSpace(this String value)
-* String ValueOrIfNull(this String value, String replacement)
-* String ValueOrIfNullOrWhitespace(this String value, String replacement)
+* string FormatWith(this string format, params object[] parameters);
+* string ValueOrEmptyIfNull(this string value)
+* string ValueOrEmptyIfNullOrWhiteSpace(this string value)
+* string ValueOrIfNull(this string value, String replacement)
+* string ValueOrIfNullOrWhitespace(this string value, String replacement)
+* string Left(this string value, int length)
+* string Right(this string value, int length)
+* string SafeLeft(this string value, int length)
+* string SafeRight(this string value, int length)
+* string SafeToString<T>(this T item)
+* string SafeTrim(this string value)
+* string SafeTrimStart(this string value)
+* string SafeTrimEnd(this string value)
+* string SafeTruncate(this string value)
 * bool IsNullOrWhitespace(this String s);
 * bool IsNotNullOrWhitespace(this String s);
 * bool IsNull<T>(this T item) where T : object
