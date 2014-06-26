@@ -3,9 +3,22 @@ BCLExtensions
 
 Base Class Library Extensions for C# base class library classes, across .Net, Silverlight, WinRT.
 
+For now, this is build upon the most generic PCL possible, but may explore specific additional components if required.
+
+PCL Profile(Profile328)
+-----------------------
+* .Net Framework 4
+* Silverlight 5
+* Windows 8/8.1(winrt)
+* Windows Phone 8.1
+* Window Phone Silverlight 8
+* Xamarin.Android
+* Xamarin.iOS
+
+At some point this can include nuget packages.
+
 Proposed Extensions
 -------------------
-* string FormatWith(this string format, params object[] parameters);
 * string ValueOrEmptyIfNull(this string value)
 * string ValueOrEmptyIfNullOrWhiteSpace(this string value)
 * string ValueOrIfNull(this string value, String replacement)
@@ -37,4 +50,4 @@ Proposed Extensions
 
 Completed Extensions
 --------------------
-[Nothing Yet]
+* string FormatWith(this string format, params object[] parameters);

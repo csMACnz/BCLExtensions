@@ -2,5 +2,9 @@
 bin
 obj
 
+#User Preference Files
+*.suo
+*.userprefs
+
 # mstest test results
 TestResults
