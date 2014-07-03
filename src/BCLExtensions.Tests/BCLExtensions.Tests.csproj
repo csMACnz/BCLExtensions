@@ -50,6 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ObjectExtensions\EnsureIsNotNullTests.cs" />
+    <Compile Include="ObjectExtensions\IsNotNullTests.cs" />
+    <Compile Include="ObjectExtensions\IsNullTests.cs" />
     <Compile Include="StringExtensions\FormatWithTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -59,6 +62,7 @@
       <Name>BCLExtensions</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

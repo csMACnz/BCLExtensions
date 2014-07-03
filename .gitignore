@@ -5,6 +5,8 @@ obj
 #User Preference Files
 *.suo
 *.userprefs
+*.user
+*.sln.DotSettings.user
 
 # mstest test results
 TestResults
