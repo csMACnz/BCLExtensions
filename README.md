@@ -32,7 +32,7 @@ String Extensions
 * string Right(this string value, int length)
 * string SafeLeft(this string value, int length)
 * string SafeRight(this string value, int length)
-* string SafeToString<T>(this T item)
+* string SafeToString&lt;T&gt;(this T item)
 * string SafeTrim(this string value)
 * string SafeTrimStart(this string value)
 * string SafeTrimEnd(this string value)
@@ -43,9 +43,9 @@ String Extensions
 
 Generic Extensions
 -----------------
-* bool IsNull<T>(this T item) where T : object
-* bool IsNotNull<T>(this T item) where T : object
-* T GetValueOrDefault<T>(this T item, T default) where T : object
+* bool IsNull&lt;T&gt;(this T item) where T : object
+* bool IsNotNull&lt;T&gt;(this T item) where T : object
+* T GetValueOrDefault&lt;T&gt;(this T item, T default) where T : object
 
 Timespan Extensions
 -------------------
@@ -66,18 +66,18 @@ DateTime Extensions
 
 (Mutable)Collection Extensions
 -------------------
-ICollection<T> RemoveEach<T>(this ICollection<T> collecton)
-ICollection<T> RemoveEach<T>(this ICollection<T> collecton, Func<T, bool> whereExpression)
-ICollection<T> RemoveEach<T>(this ICollection<T> collecton, Func<T, int, bool> whereExpression)
-ICollection<T> RemoveEachInReverse<T>(this ICollection<T> collection)
-ICollection<T> RemoveEachInReverse<T>(this ICollection<T> collection, Func<T, bool> whereExpression)
-ICollection<T> RemoveEachInReverse<T>(this ICollection<T> collection, Func<T, int, bool> whereExpression)
-ICollection<T> RemoveEachByIndex<T>(this ICollection<T> collection)
-ICollection<T> RemoveEachByIndex<T>(this ICollection<T> collection, Func<T, bool> whereExpression)
-ICollection<T> RemoveEachByIndex<T>(this ICollection<T> collection, Func<T, int, bool> whereExpression)
-ICollection<T> RemoveEachByIndexInReverse<T>(this ICollection<T> collection)
-ICollection<T> RemoveEachByIndexInReverse<T>(this ICollection<T> collection, Func<T, bool> whereExpression)
-ICollection<T> RemoveEachByIndexInReverse<T>(this ICollection<T> collection, Func<T, int, bool> whereExpression)
+* ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collecton)
+* ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collecton, Func&lt;T, bool&gt; whereExpression)
+* ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collecton, Func&lt;T, int, bool&gt; whereExpression)
+* ICollection&lt;T&gt; RemoveEachInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection)
+* ICollection&lt;T&gt; RemoveEachInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, bool&gt; whereExpression)
+* ICollection&lt;T&gt; RemoveEachInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, int, bool&gt; whereExpression)
+* ICollection&lt;T&gt; RemoveEachByIndex&lt;T&gt;(this ICollection&lt;T&gt; collection)
+* ICollection&lt;T&gt; RemoveEachByIndex&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, bool&gt; whereExpression)
+* ICollection&lt;T&gt; RemoveEachByIndex&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, int, bool&gt; whereExpression)
+* ICollection&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection)
+* ICollection&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, bool&gt; whereExpression)
+* ICollection&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, int, bool&gt; whereExpression)
 
 Completed Extensions
 ====================
