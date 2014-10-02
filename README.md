@@ -66,18 +66,18 @@ DateTime Extensions
 
 (Mutable)Collection Extensions
 -------------------
-T RemoveEach<T>(this ICollection<T> collecton)
-T RemoveEach<T>(this ICollection<T> collecton, Func<T, bool> whereExpression)
-T RemoveEach<T>(this ICollection<T> collecton, Func<T, int, bool> whereExpression)
-T RemoveEachInReverse<T>(this ICollection<T> collection)
-T RemoveEachInReverse<T>(this ICollection<T> collection, Func<T, bool> whereExpression)
-T RemoveEachInReverse<T>(this ICollection<T> collection, Func<T, int, bool> whereExpression)
-T RemoveEachByIndex<T>(this ICollection<T> collection)
-T RemoveEachByIndex<T>(this ICollection<T> collection, Func<T, bool> whereExpression)
-T RemoveEachByIndex<T>(this ICollection<T> collection, Func<T, int, bool> whereExpression)
-T RemoveEachByIndexInReverse<T>(this ICollection<T> collection)
-T RemoveEachByIndexInReverse<T>(this ICollection<T> collection, Func<T, bool> whereExpression)
-T RemoveEachByIndexInReverse<T>(this ICollection<T> collection, Func<T, int, bool> whereExpression)
+ICollection<T> RemoveEach<T>(this ICollection<T> collecton)
+ICollection<T> RemoveEach<T>(this ICollection<T> collecton, Func<T, bool> whereExpression)
+ICollection<T> RemoveEach<T>(this ICollection<T> collecton, Func<T, int, bool> whereExpression)
+ICollection<T> RemoveEachInReverse<T>(this ICollection<T> collection)
+ICollection<T> RemoveEachInReverse<T>(this ICollection<T> collection, Func<T, bool> whereExpression)
+ICollection<T> RemoveEachInReverse<T>(this ICollection<T> collection, Func<T, int, bool> whereExpression)
+ICollection<T> RemoveEachByIndex<T>(this ICollection<T> collection)
+ICollection<T> RemoveEachByIndex<T>(this ICollection<T> collection, Func<T, bool> whereExpression)
+ICollection<T> RemoveEachByIndex<T>(this ICollection<T> collection, Func<T, int, bool> whereExpression)
+ICollection<T> RemoveEachByIndexInReverse<T>(this ICollection<T> collection)
+ICollection<T> RemoveEachByIndexInReverse<T>(this ICollection<T> collection, Func<T, bool> whereExpression)
+ICollection<T> RemoveEachByIndexInReverse<T>(this ICollection<T> collection, Func<T, int, bool> whereExpression)
 
 Completed Extensions
 ====================
