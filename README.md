@@ -20,7 +20,10 @@ PCL Profile(Profile328)
 At some point this can include nuget packages.
 
 Proposed Extensions
--------------------
+===================
+
+String Extensions
+-----------------
 * string ValueOrEmptyIfNull(this string value)
 * string ValueOrEmptyIfNullOrWhiteSpace(this string value)
 * string ValueOrIfNull(this string value, String replacement)
@@ -36,9 +39,16 @@ Proposed Extensions
 * string SafeTruncate(this string value)
 * bool IsNullOrWhitespace(this String s);
 * bool IsNotNullOrWhitespace(this String s);
+
+
+Generic Extensions
+-----------------
 * bool IsNull<T>(this T item) where T : object
 * bool IsNotNull<T>(this T item) where T : object
 * T GetValueOrDefault<T>(this T item, T default) where T : object
+
+Timespan Extensions
+-------------------
 * TimeSpan Years(this int value)
 * TimeSpan Months(this int value)
 * TimeSpan Weeks(this int value)
@@ -47,9 +57,28 @@ Proposed Extensions
 * TimeSpan Minutes(this int value)
 * TimeSpan Seconds(this int value)
 * TimeSpan Milliseconds(this int value)
+
+DateTime Extensions
+-------------------
 * DateTime Ago(this TimeSpan interval)
 * DateTime Since(this TimeSpan interval, DateTime origin)
 
+
+(Mutable)Collection Extensions
+-------------------
+T RemoveEach<T>(this ICollection<T> collecton)
+T RemoveEach<T>(this ICollection<T> collecton, Func<T, bool> whereExpression)
+T RemoveEach<T>(this ICollection<T> collecton, Func<T, int, bool> whereExpression)
+T RemoveEachInReverse<T>(this ICollection<T> collection)
+T RemoveEachInReverse<T>(this ICollection<T> collection, Func<T, bool> whereExpression)
+T RemoveEachInReverse<T>(this ICollection<T> collection, Func<T, int, bool> whereExpression)
+T RemoveEachByIndex<T>(this ICollection<T> collection)
+T RemoveEachByIndex<T>(this ICollection<T> collection, Func<T, bool> whereExpression)
+T RemoveEachByIndex<T>(this ICollection<T> collection, Func<T, int, bool> whereExpression)
+T RemoveEachByIndexInReverse<T>(this ICollection<T> collection)
+T RemoveEachByIndexInReverse<T>(this ICollection<T> collection, Func<T, bool> whereExpression)
+T RemoveEachByIndexInReverse<T>(this ICollection<T> collection, Func<T, int, bool> whereExpression)
+
 Completed Extensions
---------------------
+====================
 * string FormatWith(this string format, params object[] parameters);
