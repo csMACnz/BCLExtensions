@@ -96,8 +96,8 @@ IEnumerable Extensions
 
 Dictionary Extensions
 ---------------------
-* Dictionary<&lt;TKey, TValue&gt; OrNullIfEmpty(this Dictionary<&lt;TKey, TValue&gt; dictionary);
-* Dictionary<&lt;TKey, TValue&gt; OrEmptyIfNull(this Dictionary<&lt;TKey, TValue&gt; dictionary);
+* Dictionary&lt;TKey, TValue&gt; OrNullIfEmpty(this Dictionary&lt;TKey, TValue&gt; dictionary);
+* Dictionary&lt;TKey, TValue&gt; OrEmptyIfNull(this Dictionary&lt;TKey, TValue&gt; dictionary);
 
 Completed Extensions
 ====================
