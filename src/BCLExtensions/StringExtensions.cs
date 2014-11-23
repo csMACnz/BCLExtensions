@@ -20,5 +20,14 @@ namespace BCLExtensions
         {
             return String.Format(input, stringParameter);
         }
+
+        public static string ValueOrEmptyIfNull(this string input)
+        {
+            if (input == null)
+            {
+                return string.Empty;
+            }
+            return input;
+        }
     }
 }
