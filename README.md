@@ -99,7 +99,7 @@ Completed Extensions
 ====================
 * string FormatWith(this string format, params object[] parameters);
 * string ValueOrEmptyIfNull(this string value)
-* string ValueOrEmptyIfNullOrWhiteSpace(this string value)
+* string ValueOrEmptyIfNullOrWhitespace(this string value)
 * string ValueOrNullIfWhitespace(this string value)
 * string ValueOrIfNull(this string value, String replacement)
 * string ValueOrIfNullOrWhitespace(this string value, String replacement)
