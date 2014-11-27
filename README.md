@@ -24,10 +24,6 @@ Proposed Extensions
 
 String Extensions
 -----------------
-* string ValueOrEmptyIfNull(this string value)
-* string ValueOrEmptyIfNullOrWhiteSpace(this string value)
-* string ValueOrIfNull(this string value, String replacement)
-* string ValueOrIfNullOrWhitespace(this string value, String replacement)
 * string Left(this string value, int length)
 * string Right(this string value, int length)
 * string SafeLeft(this string value, int length)
@@ -102,3 +98,8 @@ Dictionary Extensions
 Completed Extensions
 ====================
 * string FormatWith(this string format, params object[] parameters);
+* string ValueOrEmptyIfNull(this string value)
+* string ValueOrEmptyIfNullOrWhiteSpace(this string value)
+* string ValueOrNullIfWhitespace(this string value)
+* string ValueOrIfNull(this string value, String replacement)
+* string ValueOrIfNullOrWhitespace(this string value, String replacement)

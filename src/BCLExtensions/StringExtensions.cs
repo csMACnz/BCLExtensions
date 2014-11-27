@@ -38,5 +38,25 @@ namespace BCLExtensions
             }
             return input;
         }
+
+        public static string ValueOrNullIfWhitespace(this string value)
+        {
+            if (value == null || String.IsNullOrWhiteSpace(value)) return null;
+            return value;
+        }
+
+        public static string ValueOrIfNull(this string value, string replacement)
+        {
+            if (replacement == null) throw new ArgumentNullException("replacement");
+            if (value == null) return replacement;
+            return value;
+        }
+
+        public static string ValueOrIfNullOrWhitespace(this string value, string replacement)
+        {
+            if (replacement == null) throw new ArgumentNullException("replacement");
+            if (String.IsNullOrWhiteSpace(value)) return replacement;
+            return value;
+        }
     }
 }
