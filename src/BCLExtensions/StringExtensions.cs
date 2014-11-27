@@ -29,5 +29,14 @@ namespace BCLExtensions
             }
             return input;
         }
+
+        public static string ValueOrEmptyIfNullOrWhitespace(this string input)
+        {
+            if (String.IsNullOrWhiteSpace(input))
+            {
+                return string.Empty;
+            }
+            return input;
+        }
     }
 }

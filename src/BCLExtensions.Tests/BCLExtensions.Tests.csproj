@@ -55,6 +55,7 @@
     <Compile Include="ObjectExtensions\IsNullTests.cs" />
     <Compile Include="StringExtensions\FormatWithTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringExtensions\ValueOrEmptyIfNullOrWhitespaceTests.cs" />
     <Compile Include="StringExtensions\ValueOrEmptyIfNullTests.cs" />
   </ItemGroup>
   <ItemGroup>
