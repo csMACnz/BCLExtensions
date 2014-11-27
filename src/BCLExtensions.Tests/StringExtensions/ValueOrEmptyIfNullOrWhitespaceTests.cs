@@ -27,7 +27,7 @@ namespace BCLExtensions.Tests.StringExtensions
         }
 
         [TestMethod]
-        public void WithNewLineInputStringReturnsOriginalString()
+        public void WithNewLineInputStringReturnsEmptyString()
         {
             string input = "\n";
             var result = input.ValueOrEmptyIfNullOrWhitespace();
@@ -35,7 +35,7 @@ namespace BCLExtensions.Tests.StringExtensions
         }
 
         [TestMethod]
-        public void WithEmptySpacesInputStringReturnsOriginalString()
+        public void WithEmptySpacesInputStringReturnsEmptyString()
         {
             string input = "   ";
             var result = input.ValueOrEmptyIfNullOrWhitespace();
