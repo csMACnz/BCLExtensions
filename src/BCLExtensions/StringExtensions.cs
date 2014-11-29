@@ -21,6 +21,16 @@ namespace BCLExtensions
             return String.Format(input, stringParameter);
         }
 
+        public static bool IsNotNullOrWhitespace(this string s)
+        {
+            return !string.IsNullOrWhiteSpace(s);
+        }
+
+        public static bool IsNullOrWhitespace(this string s)
+        {
+            return string.IsNullOrWhiteSpace(s);
+        }
+        
         public static string ValueOrEmptyIfNull(this string input)
         {
             if (input == null)

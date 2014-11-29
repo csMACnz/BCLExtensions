@@ -33,8 +33,6 @@ String Extensions
 * string SafeTrimStart(this string value)
 * string SafeTrimEnd(this string value)
 * string SafeTruncate(this string value)
-* bool IsNullOrWhitespace(this String s);
-* bool IsNotNullOrWhitespace(this String s);
 
 
 Generic Extensions
@@ -76,28 +74,30 @@ DateTime Extensions
 * ICollection&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection)
 * ICollection&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, bool&gt; whereExpression)
 * ICollection&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, int, bool&gt; whereExpression)
-* ICollection&lt;T&gt; OrNullIfEmpty(this ICollection&lt;T&gt; items);
-* ICollection&lt;T&gt; OrEmptyIfNull(this ICollection&lt;T&gt; items);
-* IList&lt;T&gt; OrNullIfEmpty(this IList&lt;T&gt; items);
-* IList&lt;T&gt; OrEmptyIfNull(this IList&lt;T&gt; items);
-* List&lt;T&gt; OrNullIfEmpty(this List&lt;T&gt; items);
-* List&lt;T&gt; OrEmptyIfNull(this List&lt;T&gt; items);
-* T[] OrNullIfEmpty(this T[] items);
-* T[] OrEmptyIfNull(this T[] items);
+* ICollection&lt;T&gt; OrNullIfEmpty(this ICollection&lt;T&gt; items)
+* ICollection&lt;T&gt; OrEmptyIfNull(this ICollection&lt;T&gt; items)
+* IList&lt;T&gt; OrNullIfEmpty(this IList&lt;T&gt; items)
+* IList&lt;T&gt; OrEmptyIfNull(this IList&lt;T&gt; items)
+* List&lt;T&gt; OrNullIfEmpty(this List&lt;T&gt; items)
+* List&lt;T&gt; OrEmptyIfNull(this List&lt;T&gt; items)
+* T[] OrNullIfEmpty(this T[] items)
+* T[] OrEmptyIfNull(this T[] items)
 
 IEnumerable Extensions
 ----------------------
-* IEnumerable&lt;T&gt; OrNullIfEmpty(this IEnumerable&lt;T&gt; items);
-* IEnumerable&lt;T&gt; OrEmptyIfNull(this IEnumerable&lt;T&gt; items);
+* IEnumerable&lt;T&gt; OrNullIfEmpty(this IEnumerable&lt;T&gt; items)
+* IEnumerable&lt;T&gt; OrEmptyIfNull(this IEnumerable&lt;T&gt; items)
 
 Dictionary Extensions
 ---------------------
-* Dictionary&lt;TKey, TValue&gt; OrNullIfEmpty(this Dictionary&lt;TKey, TValue&gt; dictionary);
-* Dictionary&lt;TKey, TValue&gt; OrEmptyIfNull(this Dictionary&lt;TKey, TValue&gt; dictionary);
+* Dictionary&lt;TKey, TValue&gt; OrNullIfEmpty(this Dictionary&lt;TKey, TValue&gt; dictionary)
+* Dictionary&lt;TKey, TValue&gt; OrEmptyIfNull(this Dictionary&lt;TKey, TValue&gt; dictionary)
 
 Completed Extensions
 ====================
-* string FormatWith(this string format, params object[] parameters);
+* string FormatWith(this string format, params object[] parameters)
+* bool IsNullOrWhitespace(this String s)
+* bool IsNotNullOrWhitespace(this String s)
 * string ValueOrEmptyIfNull(this string value)
 * string ValueOrEmptyIfNullOrWhitespace(this string value)
 * string ValueOrNullIfWhitespace(this string value)
