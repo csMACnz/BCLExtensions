@@ -70,31 +70,19 @@ namespace BCLExtensions
         }
 
         /// <summary>
-        /// Takes the input string and returns the same string, or null if the string 
-        /// has no non-whitespace characters
-        /// </summary>
-        /// <param name="input">The string to process</param>
-        /// <returns>input if it contains non-whitespace characters; otherwise null</returns>
-        public static string ValueOrNullIfWhitespace(this string value)
-        {
-            if (value == null || String.IsNullOrWhiteSpace(value)) return null;
-            return value;
-        }
-
-        /// <summary>
         /// Takes the input string and returns the same string, or the replacement 
         /// string if input is null
         /// </summary>
         /// <param name="value">The string to process</param>
         /// <param name="replacement">A replacement string if required</param>
         /// <returns>input if it is not null; otherwise replacement</returns>
+        /// <exception cref="System.ArgumentNullException">thrown when replacement is null, since it is required.</exception>
         public static string ValueOrIfNull(this string value, string replacement)
         {
             if (replacement == null) throw new ArgumentNullException("replacement");
             if (value == null) return replacement;
             return value;
         }
-
 
         /// <summary>
         /// Takes the input string and returns the same string, or the replacement 
@@ -103,10 +91,23 @@ namespace BCLExtensions
         /// <param name="value">The string to process</param>
         /// <param name="replacement">A replacement string if required</param>
         /// <returns>input if it is not null and not whitespace; otherwise replacement</returns>
+        /// <exception cref="System.ArgumentNullException">thrown when replacement is null, since it is required.</exception>
         public static string ValueOrIfNullOrWhitespace(this string value, string replacement)
         {
             if (replacement == null) throw new ArgumentNullException("replacement");
             if (String.IsNullOrWhiteSpace(value)) return replacement;
+            return value;
+        }
+
+        /// <summary>
+        /// Takes the input string and returns the same string, or null if the string 
+        /// has no non-whitespace characters
+        /// </summary>
+        /// <param name="input">The string to process</param>
+        /// <returns>input if it contains non-whitespace characters; otherwise null</returns>
+        public static string ValueOrNullIfWhitespace(this string value)
+        {
+            if (value == null || String.IsNullOrWhiteSpace(value)) return null;
             return value;
         }
     }

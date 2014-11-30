@@ -95,11 +95,21 @@ Dictionary Extensions
 
 Completed Extensions
 ====================
+
+Object Extensions
+-----------------
+* void EnsureIsNotNull(this object instance)
+* void EnsureIsNotNull(this object instance, string argumentName)
+* bool IsNotNull(this object instance)
+* bool IsNull(this object instance)
+
+String Extensions
+-----------------
 * string FormatWith(this string format, params object[] parameters)
-* bool IsNullOrWhitespace(this String s)
 * bool IsNotNullOrWhitespace(this String s)
+* bool IsNullOrWhitespace(this String s)
 * string ValueOrEmptyIfNull(this string value)
 * string ValueOrEmptyIfNullOrWhitespace(this string value)
-* string ValueOrNullIfWhitespace(this string value)
 * string ValueOrIfNull(this string value, String replacement)
 * string ValueOrIfNullOrWhitespace(this string value, String replacement)
+* string ValueOrNullIfWhitespace(this string value)
