@@ -37,8 +37,6 @@ String Extensions
 
 Generic Extensions
 -----------------
-* bool IsNull&lt;T&gt;(this T item) where T : object
-* bool IsNotNull&lt;T&gt;(this T item) where T : object
 * T GetValueOrDefault&lt;T&gt;(this T item, T default) where T : object
 
 
