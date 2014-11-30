@@ -35,11 +35,6 @@ String Extensions
 * string SafeTruncate(this string value)
 
 
-Generic Extensions
------------------
-* T GetValueOrDefault&lt;T&gt;(this T item, T default) where T : object
-
-
 Timespan Extensions
 -------------------
 * TimeSpan Years(this int value)
@@ -100,6 +95,12 @@ Object Extensions
 * void EnsureIsNotNull(this object instance, string argumentName)
 * bool IsNotNull(this object instance)
 * bool IsNull(this object instance)
+
+
+Generic Extensions
+-----------------
+* T GetValueOrDefault&lt;T&gt;(this T item, T defaultValue) where T : object
+
 
 String Extensions
 -----------------

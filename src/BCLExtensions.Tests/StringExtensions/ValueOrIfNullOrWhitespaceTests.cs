@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BCLExtensions.Tests.StringExtensions
 {
     [TestClass]
-    public class ValueOrIfNullOrWhitespaceOrWhitespaceTests
+    public class ValueOrIfNullOrWhitespaceTests
     {
         [TestClass]
         public abstract class WithInputStringBase
@@ -73,6 +73,7 @@ namespace BCLExtensions.Tests.StringExtensions
                 get { return "\n"; }
             }
         }
+
         [TestClass]
         public class WithNonNullNonWhitespaceInputString
         {
