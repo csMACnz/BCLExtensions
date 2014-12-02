@@ -12,6 +12,19 @@ namespace BCLExtensions
     public static class IEnumerableExtensions
     {
         /// <summary>
+        /// Determines whether a sequence is non-empty
+        /// </summary>
+        /// <typeparam name="TItem">The type contained in the collection</typeparam>
+        /// <param name="items">The collection to check</param>
+        /// <returns>false if items is null or empty, otherwise true</returns>
+        public static bool IsNotEmpty<TItem>(this IEnumerable<TItem> items)
+        {
+            if (items == null) return false;
+
+            return items.Any();
+        }
+
+        /// <summary>
         /// Determines whether a sequence is null or empty
         /// </summary>
         /// <typeparam name="TItem">The type contained in the collection</typeparam>
@@ -37,6 +50,18 @@ namespace BCLExtensions
             }
 
             return !items.Any();
+        }
+
+        /// <summary>
+        /// Take a collection, and returns it if it has items, or returns empty collection.
+        /// </summary>
+        /// <typeparam name="TItem">The type contained in the collection</typeparam>
+        /// <param name="items">The collection to check</param>
+        /// <returns>null if null or empty, otherwise the original collection</returns>
+        public static IEnumerable<TItem> OrEmptyIfNull<TItem>(this IEnumerable<TItem> items)
+        {
+            if (items == null) return Enumerable.Empty<TItem>();
+            return items;
         }
 
         /// <summary>

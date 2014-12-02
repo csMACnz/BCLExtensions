@@ -76,13 +76,9 @@ DateTime Extensions
 * T[] OrNullIfEmpty(this T[] items)
 * T[] OrEmptyIfNull(this T[] items)
 
-IEnumerable Extensions
-----------------------
-* IEnumerable&lt;T&gt; OrNullIfEmpty(this IEnumerable&lt;T&gt; items)
-* IEnumerable&lt;T&gt; OrEmptyIfNull(this IEnumerable&lt;T&gt; items)
-
 Dictionary Extensions
 ---------------------
+* Dictionary&lt;TKey, TValue&gt; OrNullIfEmpty(this Dictionary&lt;TKey, TValue&gt; dictionary)
 * Dictionary&lt;TKey, TValue&gt; OrEmptyIfNull(this Dictionary&lt;TKey, TValue&gt; dictionary)
 
 Completed Extensions
@@ -103,8 +99,10 @@ Generic Extensions
 
 IEnumerable Extensions
 ----------------------
-* bool IsNullOrEmpty(this IEnumerable&lt;T&gt; items)
-* IEnumerable&lt;T&gt; OrNullIfEmpty(this IEnumerable&lt;T&gt; items)
+* bool IsNotEmpty&lt;TItem&gt;(this IEnumerable&lt;TItem&gt; items)
+* bool IsNullOrEmpty&lt;TItem&gt;(this IEnumerable&lt;TItem&gt; items)
+* IEnumerable&lt;TItem&gt; OrEmptyIfNull&lt;TItem&gt;(this IEnumerable&lt;TItem&gt; items)
+* IEnumerable&lt;TItem&gt; OrNullIfEmpty&lt;TItem&gt;(this IEnumerable&lt;TItem&gt; items)
 
 
 String Extensions
