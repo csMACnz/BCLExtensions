@@ -19,6 +19,7 @@ PCL Profile(Profile328)
 
 At some point this can include nuget packages.
 
+
 Proposed Extensions
 ===================
 
@@ -69,17 +70,40 @@ DateTime Extensions
 * ICollection&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, int, bool&gt; whereExpression)
 * ICollection&lt;T&gt; OrNullIfEmpty(this ICollection&lt;T&gt; items)
 * ICollection&lt;T&gt; OrEmptyIfNull(this ICollection&lt;T&gt; items)
+
+
+IList Extensions
+----------------------
 * IList&lt;T&gt; OrNullIfEmpty(this IList&lt;T&gt; items)
 * IList&lt;T&gt; OrEmptyIfNull(this IList&lt;T&gt; items)
+
+
+List Extensions
+----------------------
 * List&lt;T&gt; OrNullIfEmpty(this List&lt;T&gt; items)
 * List&lt;T&gt; OrEmptyIfNull(this List&lt;T&gt; items)
+
+
+Array Extensions
+----------------------
 * T[] OrNullIfEmpty(this T[] items)
 * T[] OrEmptyIfNull(this T[] items)
+
+
+IEnumerable Extensions
+----------------------
+* SafeToList&lt;T&gt;(this IEnumerable&lt;T&gt; items)
+* SafeToArray&lt;T&gt;(this IEnumerable&lt;T&gt; items)
+* SafeToDictionary&lt;TItem TKey&gt;(this IEnumerable&lt;T&gt; items, Func&lt;TItem TKey&gt; keySelector)
+* SafeToHashSet&lt;TItem TKey&gt;(this IEnumerable&lt;T&gt; items)
+* SafeToHashSet&lt;TItem TKey&gt;(this IEnumerable&lt;T&gt; items, IEqualityComparer<T> equalityComparer)
+
 
 Dictionary Extensions
 ---------------------
 * Dictionary&lt;TKey, TValue&gt; OrNullIfEmpty(this Dictionary&lt;TKey, TValue&gt; dictionary)
 * Dictionary&lt;TKey, TValue&gt; OrEmptyIfNull(this Dictionary&lt;TKey, TValue&gt; dictionary)
+
 
 Completed Extensions
 ====================
