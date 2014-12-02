@@ -110,14 +110,14 @@ Dictionary Extensions
 
 Type Extensions
 ---------------
-* bool IsOfType&lt;T&gt(this object item) where T: class
+* bool IsOfType&lt;T&gt;(this object item) where T: class
 * bool IsNullable(this Type itemType)
 
 
 EnumExtensions
 --------------
-* void EnsureIsEnum&lt;T&gt() where T : struct, IComparable, IConvertible, IFormattable
-* bool IsEnum&lt;T&gt() where T : struct, IComparable, IConvertible, IFormattable
+* void EnsureIsEnum&lt;T&gt;() where T : struct, IComparable, IConvertible, IFormattable
+* bool IsEnum&lt;T&gt;() where T : struct, IComparable, IConvertible, IFormattable
 * void EnsureIsEnum(this object enumerationValue)
 * bool IsEnum(this object enumerationValue)
 
