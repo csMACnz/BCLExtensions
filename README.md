@@ -56,6 +56,7 @@ DateTime Extensions
 
 (Mutable)Collection Extensions
 -------------------
+* void AddRange<T>(this ICollection&lt;T&gt; collecton, IEnumerable<T> itemsToAppend)
 * ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collecton)
 * ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collecton, Func&lt;T, bool&gt; whereExpression)
 * ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collecton, Func&lt;T, int, bool&gt; whereExpression)
@@ -103,7 +104,22 @@ Dictionary Extensions
 ---------------------
 * Dictionary&lt;TKey, TValue&gt; OrNullIfEmpty(this Dictionary&lt;TKey, TValue&gt; dictionary)
 * Dictionary&lt;TKey, TValue&gt; OrEmptyIfNull(this Dictionary&lt;TKey, TValue&gt; dictionary)
+* T GetValueOrDefault&lt;TKey, TValue&gt;(this Dictionary&lt;TKey, TValue&gt; dictionary, TKey key) where TValue : struct
+* T GetValueOrDefault&lt;TKey, TValue&gt;(this Dictionary&lt;TKey, TValue&gt; dictionary, TKey key, TValue defaultValue)
 
+
+Type Extensions
+---------------
+* bool IsOfType&lt;T&gt(this object item) where T: class
+* bool IsNullable(this Type itemType)
+
+
+EnumExtensions
+--------------
+* void EnsureIsEnum&lt;T&gt() where T : struct, IComparable, IConvertible, IFormattable
+* bool IsEnum&lt;T&gt() where T : struct, IComparable, IConvertible, IFormattable
+* void EnsureIsEnum(this object enumerationValue)
+* bool IsEnum(this object enumerationValue)
 
 Completed Extensions
 ====================
@@ -118,7 +134,7 @@ Object Extensions
 
 Generic Extensions
 -----------------
-* T GetValueOrDefault&lt;T&gt;(this T item, T defaultValue) where T : object
+* T GetValueOrDefault&lt;T&gt;(this T item, T defaultValue) where T : class
 
 
 IEnumerable Extensions
