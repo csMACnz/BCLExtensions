@@ -83,7 +83,6 @@ IEnumerable Extensions
 
 Dictionary Extensions
 ---------------------
-* Dictionary&lt;TKey, TValue&gt; OrNullIfEmpty(this Dictionary&lt;TKey, TValue&gt; dictionary)
 * Dictionary&lt;TKey, TValue&gt; OrEmptyIfNull(this Dictionary&lt;TKey, TValue&gt; dictionary)
 
 Completed Extensions
@@ -100,6 +99,12 @@ Object Extensions
 Generic Extensions
 -----------------
 * T GetValueOrDefault&lt;T&gt;(this T item, T defaultValue) where T : object
+
+
+IEnumerable Extensions
+----------------------
+* bool IsNullOrEmpty(this IEnumerable&lt;T&gt; items)
+* IEnumerable&lt;T&gt; OrNullIfEmpty(this IEnumerable&lt;T&gt; items)
 
 
 String Extensions

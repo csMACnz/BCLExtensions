@@ -53,6 +53,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="GenericExtensions\ValueOrDefaultTests.cs" />
+    <Compile Include="IEnumerableExtensions\IsNullOrEmptyTests.cs" />
+    <Compile Include="IEnumerableExtensions\OrNullIfEmptyTests.cs" />
     <Compile Include="ObjectExtensions\EnsureIsNotNullTests.cs" />
     <Compile Include="ObjectExtensions\IsNotNullTests.cs" />
     <Compile Include="ObjectExtensions\IsNullTests.cs" />
