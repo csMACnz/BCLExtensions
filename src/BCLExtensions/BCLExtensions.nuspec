@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <id>BCLExtensions</id>
+    <version>0.1.0.0</version>
+    <title>BCLExtensions</title>
+    <authors>csmacnz</authors>
+    <owners>csmacnz</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>Base Class Library Extensions for C# base class library classes</description>
     <releaseNotes>Initial Release.</releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>BCLExtensions, PCL</tags>
