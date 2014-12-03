@@ -167,6 +167,18 @@ DecimalExtensions
 Example: (5m).IsBetween((2m).Exclusive(), (5m).Inclusive())
 
 
+ExpressionExtensions
+--------------------
+* string GetMemberName&lt;TExpressionBody&gt;(this Expression&lt;TExpressionBody&gt; expression)
+
+
+Example: ExpressionExtensions.GetMemberName(() =&gt; MyProperty)
+
+
+Other
+-----
+* Build implementation of ContractAnnotation
+
 Completed Extensions
 ====================
 
