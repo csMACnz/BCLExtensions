@@ -121,6 +121,52 @@ EnumExtensions
 * void EnsureIsEnum(this object enumerationValue)
 * bool IsEnum(this object enumerationValue)
 
+
+IntExtensions
+-------------
+* bool IsBetween(this int value, int lowerLimit, int upperLimit)
+* bool IsBetweenExclusive(this int value, int lowerLimit, int upperLimit)
+* bool IsBetween(this int value, ExclusiveInteger lowerLimit, ExclusiveInteger upperLimit)
+* bool IsBetween(this int value, InclusiveInteger lowerLimit, ExclusiveInteger upperLimit)
+* bool IsBetween(this int value, ExclusiveInteger lowerLimit, InclusiveInteger upperLimit)
+* bool IsBetween(this int value, InclusiveInteger lowerLimit, InclusiveInteger upperLimit)
+* InclusiveInteger Inclusive(this int value)
+* ExclusiveInteger Exclusive(this int value)
+
+
+Example : 5.IsBetween(2.Exclusive(), 5.Inclusive())
+
+
+LongExtensions
+-------------
+* bool IsBetween(this long value, long lowerLimit, long upperLimit)
+* bool IsBetweenExclusive(this long value, long lowerLimit, long upperLimit)
+* bool IsBetween(this long value, ExclusiveLongInteger lowerLimit, ExclusiveLongInteger upperLimit)
+* bool IsBetween(this long value, InclusiveLongInteger lowerLimit, ExclusiveLongInteger upperLimit)
+* bool IsBetween(this long value, ExclusiveLongInteger lowerLimit, InclusiveLongInteger upperLimit)
+* bool IsBetween(this long value, InclusiveLongInteger lowerLimit, InclusiveLongInteger upperLimit)
+* InclusiveLongInteger Inclusive(this long value)
+* ExclusiveLongInteger Exclusive(this long value)
+
+
+Example: 5.IsBetween(2.Exclusive(), 5.Inclusive())
+
+
+DecimalExtensions
+-------------
+* bool IsBetween(this decimal value, decimal lowerLimit, decimal upperLimit)
+* bool IsBetweenExclusive(this decimal value, decimal lowerLimit, decimal upperLimit)
+* bool IsBetween(this decimal value, ExclusiveDecimal lowerLimit, ExclusiveDecimal upperLimit)
+* bool IsBetween(this decimal value, InclusiveDecimal lowerLimit, ExclusiveDecimal upperLimit)
+* bool IsBetween(this decimal value, ExclusiveDecimal lowerLimit, InclusiveDecimal upperLimit)
+* bool IsBetween(this decimal value, InclusiveDecimal lowerLimit, InclusiveDecimal upperLimit)
+* InclusiveDecimal Inclusive(this decimal value)
+* ExclusiveDecimal Exclusive(this decimal value)
+
+
+Example: (5m).IsBetween((2m).Exclusive(), (5m).Inclusive())
+
+
 Completed Extensions
 ====================
 
