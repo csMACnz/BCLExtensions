@@ -1,0 +1,20 @@
+{
+  "name": "BCLExtensions",
+  "version": "0.1.0",
+  "description": "Base Class Library Extensions for C# base class library classes",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csmacnz/BCLExtensions.git"
+  },
+  "author": "csmacnz",
+  "bugs": {
+    "url": "https://github.com/csmacnz/BCLExtensions/issues"
+  },
+  "homepage": "https://github.com/csmacnz/BCLExtensions",
+  "dependencies": {
+    "gulp": "^3.8.10",
+    "gulp-dotnet-assembly-info": "^0.1.10",
+    "gulp-msbuild": "^0.2.4",
+    "mstest": "^0.2.0"
+  }
+}

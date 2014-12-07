@@ -10,3 +10,7 @@ obj
 
 # mstest test results
 TestResults
+
+#node/gulp
+node_modules
+npm-debug.log
