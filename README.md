@@ -6,7 +6,8 @@ Base Class Library Extensions for C# base class library classes, across .Net, Si
 For now, this is build upon the most generic PCL possible, but may explore specific additional components if required.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/j06g6b18e976wx3b)](https://ci.appveyor.com/project/MarkClearwater/bclextensions)
-[![Coverage Status](https://img.shields.io/coveralls/csmacnz/BCLExtensions.svg)](https://coveralls.io/r/csmacnz/BCLExtensions)
+[![Build Status](https://travis-ci.org/csmacnz/BCLExtensions.svg?branch=master)](https://travis-ci.org/csmacnz/BCLExtensions)
+[![Coverage Status](https://coveralls.io/repos/csmacnz/BCLExtensions/badge.png?branch=master)](https://coveralls.io/r/csmacnz/BCLExtensions?branch=master)
 
 PCL Profile(Profile328)
 -----------------------
