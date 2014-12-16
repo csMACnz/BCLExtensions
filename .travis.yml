@@ -1,7 +1,6 @@
 language: csharp
 solution: ./src/BCLExtensions.sln
 install:
-  - ls /usr/lib/mono/
-  - ls /usr/lib/mono/xbuild-frameworks/
-  - sudo apt-get install fsharp
-  - ls /usr/lib/mono/xbuild-frameworks/
+  - curl -sS http://storage.bos.xamarin.com/bot-provisioning/PortableReferenceAssemblies-2014-04-14.zip > /tmp/pcl-assemblies.zip
+  - unzip /tmp/pcl-assemblies.zip -d /tmp/pcl-assemblies && mv /tmp/pcl-assemblies/PortableReferenceAssemblies-2014-04-14 /tmp/pcl-assemblies/.NETPortable
+  - export XBUILD_FRAMEWORK_FOLDERS_PATH=/tmp/pcl-assemblies/
