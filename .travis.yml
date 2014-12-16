@@ -3,6 +3,5 @@ solution: ./src/BCLExtensions.sln
 install:
   - ls /usr/lib/mono/
   - ls /usr/lib/mono/xbuild-frameworks/
-  - ls /usr/lib/mono/xbuild-frameworks/.NETPortable/
-  - ls /usr/lib/mono/xbuild-frameworks/.NETPortable/v4.0/
-  - ls /usr/lib/mono/xbuild-frameworks/.NETPortable/v4.0/Profile/
+  - sudo apt-get install fsharp
+  - ls /usr/lib/mono/xbuild-frameworks/
