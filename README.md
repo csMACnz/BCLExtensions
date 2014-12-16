@@ -35,7 +35,13 @@ String Extensions
 * string SafeTrimStart(this string value)
 * string SafeTrimEnd(this string value)
 * string SafeTruncate(this string value)
-
+* string ToLines(this string value)
+* string ToNoBlankLines(this string value)
+* string JoinWith(this string value, string delimiter)
+* string JoinAsLines(this string value)
+* long NumberOfLines(this string s);
+* long NumberOfNonBlankLines(this string s);
+* bool IsNumeric(this string value, bool trimWhitespace = true)
 
 Timespan Extensions
 -------------------
