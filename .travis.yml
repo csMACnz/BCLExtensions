@@ -2,5 +2,7 @@ language: csharp
 solution: ./src/BCLExtensions.sln
 install:
   - ls /usr/lib/mono/
-  - echo $XBUILD_FRAMEWORK_FOLDERS_PATH
-  - ls $XBUILD_FRAMEWORK_FOLDERS_PATH
+  - ls /usr/lib/mono/xbuild-frameworks/
+  - ls /usr/lib/mono/xbuild-frameworks/.NETPortable/
+  - ls /usr/lib/mono/xbuild-frameworks/.NETPortable/v4.0/
+  - ls /usr/lib/mono/xbuild-frameworks/.NETPortable/v4.0/Profile/
