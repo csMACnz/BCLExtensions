@@ -2,6 +2,5 @@ language: csharp
 solution: ./src/BCLExtensions.sln
 install:
   - ls /usr/lib/mono/
-  - ls /usr/lib/mono/xbuild-framework
   - echo $XBUILD_FRAMEWORK_FOLDERS_PATH
   - ls $XBUILD_FRAMEWORK_FOLDERS_PATH
