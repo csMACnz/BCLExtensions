@@ -5,3 +5,8 @@ install:
   - sudo sh -c 'echo "deb http://download.mono-project.com/repo/debian wheezy main" > /etc/apt/sources.list.d/mono-xamarin.list'
   - sudo apt-get update
   - sudo apt-get install mono-complete
+  - mono --version
+  - ls /usr/lib/mono/xbuild-frameworks
+  - ls /usr/lib/mono/xbuild-frameworks/.NETPortable/v4.0/Profile/
+  - echo $XBUILD_FRAMEWORK_FOLDERS_PATH
+  - ls $XBUILD_FRAMEWORK_FOLDERS_PATH
