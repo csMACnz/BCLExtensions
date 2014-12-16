@@ -1,2 +1,4 @@
 language: csharp
 solution: ./src/BCLExtensions.sln
+install:
+- sudo apt-get install -qq mono-complete
