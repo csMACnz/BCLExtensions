@@ -16,9 +16,7 @@ namespace BCLExtensions.Tests.GenericExtensions
             {
                 T input = null;
                 Assert.Throws<ArgumentNullException>(
-                    () => {
-                        var result = input.GetValueOrDefault(null);
-                    });
+                    () => input.GetValueOrDefault(null));
             }
 
             [Fact]
@@ -26,10 +24,7 @@ namespace BCLExtensions.Tests.GenericExtensions
             {
                 T input = ValidInput;
                 Assert.Throws<ArgumentNullException>(
-                    () =>
-                    {
-                        var result = input.GetValueOrDefault(null);
-                    });
+                    () => input.GetValueOrDefault(null));
             }
 
             [Fact]
