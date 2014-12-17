@@ -1,61 +1,55 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Xunit;
 
 namespace BCLExtensions.Tests.StringExtensions
 {
-    [TestClass]
     public class IsNotNullOrWhitespaceTests
     {
-        [TestMethod]
+        [Fact]
         public void WhenInputHasContentThenReturnsTrue()
         {
             string input = "Test";
             var result = input.IsNotNullOrWhitespace();
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenInputNullThenReturnsFalse()
         {
             string input = null;
             var result= input.IsNotNullOrWhitespace();
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenInputIsStringEmptyThenReturnsFalse()
         {
             string input = string.Empty;
             var result = input.IsNotNullOrWhitespace();
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenInputIsEmptyStringThenReturnsFalse()
         {
             string input = "";
             var result = input.IsNotNullOrWhitespace();
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenInputIsWhitespaceThenReturnsFalse()
         {
             string input = "    ";
             var result = input.IsNotNullOrWhitespace();
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenInputIsNewlineThenReturnsFalse()
         {
             string input = "\n";
             var result = input.IsNotNullOrWhitespace();
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
     }
 }

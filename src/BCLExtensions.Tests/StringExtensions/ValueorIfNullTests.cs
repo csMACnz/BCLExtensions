@@ -1,73 +1,65 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Xunit;
 
 namespace BCLExtensions.Tests.StringExtensions
 {
-    [TestClass]
     public class ValueorIfNullTests
     {
-        [TestClass]
         public class WithNullInputString
         {
             private readonly string input = null;
 
-            [TestMethod]
+            [Fact]
             public void DefaultStringReturnsDefaultString()
             {
                 string expected = "(Default)";
                 var result = input.ValueOrIfNull(expected);
-                Assert.AreEqual(expected, result);
+                Assert.Equal(expected, result);
             }
 
-            [TestMethod]
-            [ExpectedException(typeof(ArgumentNullException))]
+            [Fact]
             public void NullDefaultStringThrowsException()
             {
-                var result = input.ValueOrIfNull(null);
+                Assert.Throws<ArgumentNullException>(() => input.ValueOrIfNull(null));
             }
 
-            [TestMethod]
+            [Fact]
             public void EmptyDefaultStringReturnsEmptyString()
             {
                 var result = input.ValueOrIfNull(string.Empty);
-                Assert.AreEqual(string.Empty, result);
+                Assert.Equal(string.Empty, result);
             }
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
+        [Fact]
         public void WithNonNullInputAndNullDefaultStringThrowsException()
         {
             var input = "Test";
-            var result = input.ValueOrIfNull(null);
+            Assert.Throws<ArgumentNullException>(() => input.ValueOrIfNull(null));
         }
 
-        [TestMethod]
+        [Fact]
         public void WithEmptyStringReturnsEmptyString()
         {
             string input = "";
             var result = input.ValueOrIfNull("(Default)");
-            Assert.AreEqual(string.Empty, result);
+            Assert.Equal(string.Empty, result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WithStringEmptyReturnsEmptyString()
         {
             string input = string.Empty;
             var result = input.ValueOrIfNull("(Default)");
-            Assert.AreEqual(string.Empty, result);
+            Assert.Equal(string.Empty, result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WithWhitespaceReturnsInputString()
         {
             string input = "   ";
             var result = input.ValueOrIfNull("(Default)");
-            Assert.AreEqual(input, result);
+            Assert.Equal(input, result);
         }
     }
 }

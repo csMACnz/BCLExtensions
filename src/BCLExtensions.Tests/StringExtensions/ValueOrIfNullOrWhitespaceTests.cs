@@ -1,44 +1,36 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Xunit;
 
 namespace BCLExtensions.Tests.StringExtensions
 {
-    [TestClass]
     public class ValueOrIfNullOrWhitespaceTests
     {
-        [TestClass]
         public abstract class WithInputStringBase
         {
             protected abstract string input{ get; }
 
-            [TestMethod]
+            [Fact]
             public void DefaultStringReturnsDefaultString()
             {
                 string expected = "(Default)";
                 var result = input.ValueOrIfNullOrWhitespace(expected);
-                Assert.AreEqual(expected, result);
+                Assert.Equal(expected, result);
             }
 
-            [TestMethod]
-            [ExpectedException(typeof(ArgumentNullException))]
+            [Fact]
             public void NullDefaultStringThrowsException()
             {
-                var result = input.ValueOrIfNullOrWhitespace(null);
+                Assert.Throws<ArgumentNullException>(() => input.ValueOrIfNullOrWhitespace(null));
             }
 
-            [TestMethod]
+            [Fact]
             public void EmptyDefaultStringReturnsEmptyString()
             {
                 var result = input.ValueOrIfNullOrWhitespace(string.Empty);
-                Assert.AreEqual(string.Empty, result);
+                Assert.Equal(string.Empty, result);
             }
         }
 
-        [TestClass]
         public class WithNullInputString : WithInputStringBase
         {
             protected override string input
@@ -47,7 +39,6 @@ namespace BCLExtensions.Tests.StringExtensions
             }
         }
 
-        [TestClass]
         public class WithEmptyInputString : WithInputStringBase
         {
             protected override string input
@@ -56,7 +47,6 @@ namespace BCLExtensions.Tests.StringExtensions
             }
         }
 
-        [TestClass]
         public class WithWhitespaceInputString : WithInputStringBase
         {
             protected override string input
@@ -65,7 +55,6 @@ namespace BCLExtensions.Tests.StringExtensions
             }
         }
 
-        [TestClass]
         public class WithNewlineInputString : WithInputStringBase
         {
             protected override string input
@@ -74,29 +63,27 @@ namespace BCLExtensions.Tests.StringExtensions
             }
         }
 
-        [TestClass]
         public class WithNonNullNonWhitespaceInputString
         {
             private readonly string input = "Test";
 
-            [TestMethod]
-            [ExpectedException(typeof(ArgumentNullException))]
+            [Fact]
             public void NullReplacementThrowsArgumentNullException()
             {
-                var result = input.ValueOrIfNullOrWhitespace(null);
+                Assert.Throws<ArgumentNullException>(() => input.ValueOrIfNullOrWhitespace(null));
             }
 
-            [TestMethod]
+            [Fact]
             public void WithStringEmptyReplacementReturnsInputString()
             {
                 var result = input.ValueOrIfNullOrWhitespace(string.Empty);
-                Assert.AreEqual(input, result);
+                Assert.Equal(input, result);
             }
-            [TestMethod]
+            [Fact]
             public void WithNonNullNonWhitespaceReplacementReturnsInputString()
-            {   
+            {
                 var result = input.ValueOrIfNullOrWhitespace("(Default)");
-                Assert.AreEqual(input, result);
+                Assert.Equal(input, result);
             }
         }
     }

@@ -1,70 +1,63 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace BCLExtensions.Tests.StringExtensions
 {
     public class FormatWithTests
     {
-        [TestClass]
         public class WithNullInputString
         {
             private readonly string _myString = null;
 
-            [TestMethod]
-            [ExpectedException(typeof(ArgumentNullException))]
+            [Fact]
             public void NoParametersProvidedThowsArgumentNullException()
             {
-                _myString.FormatWith();
+                Assert.Throws<ArgumentNullException>(() => _myString.FormatWith());
             }
         }
 
-        [TestClass]
         public class WithEmptyInputString
         {
             readonly string _myString = string.Empty;
 
-            [TestMethod]
+            [Fact]
             public void NoParametersProvidedReturnsEmptyOutput()
             {
-                
                 var formattedString = _myString.FormatWith();
-                Assert.AreEqual(string.Empty, formattedString);
+                Assert.Equal(string.Empty, formattedString);
             }
-           
+
         }
 
-        [TestClass]
         public class WithInputStringContainingNoParameters
         {
             readonly string _myString = "my string with no parameters";
 
-            [TestMethod]
+            [Fact]
             public void NoParametersProvidedReturnsOriginalString()
             {
                 var formattedString = _myString.FormatWith();
-                Assert.AreEqual(_myString, formattedString);
+                Assert.Equal(_myString, formattedString);
             }
 
         }
 
-        [TestClass]
         public class WithInputStringContainingOneParameter
         {
             readonly string _myString = "my string has {0}";
 
-            [TestMethod]
-            [ExpectedException(typeof(FormatException))]
+            [Fact]
             public void NoParametersProvidedThrowsFormatException()
             {
-                _myString.FormatWith();
+                Assert.Throws<FormatException>(() => _myString.FormatWith());
             }
 
-            [TestMethod]
+            [Fact]
             public void OneStringParametersProvidedReturnsWithContainingParameter()
             {
                 var stringParameter = "FizzBuzz";
                 var formattedString = _myString.FormatWith(stringParameter);
-                Assert.IsTrue(formattedString.Contains(stringParameter));
+                Assert.True(formattedString.Contains(stringParameter));
             }
         }
     }

@@ -1,53 +1,47 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Xunit;
 
 namespace BCLExtensions.Tests.StringExtensions
 {
-    [TestClass]
     public class ValueOrEmptyIfNullTests
     {
-        [TestMethod]
+        [Fact]
         public void WithEmptyInputStringReturnsEmptyString()
         {
             string input = "";
             var result = input.ValueOrEmptyIfNull();
-            Assert.AreEqual(string.Empty, result);
+            Assert.Equal(string.Empty, result);
         }
         
-        [TestMethod]
+        [Fact]
         public void WithNullInputStringReturnsEmptyString()
         {
             string input = null;
             var result = input.ValueOrEmptyIfNull();
-            Assert.AreEqual(string.Empty, result);
+            Assert.Equal(string.Empty, result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WithNewLineInputStringReturnsOriginalString()
         {
             string input = "\n";
             var result = input.ValueOrEmptyIfNull();
-            Assert.AreEqual(input, result);
+            Assert.Equal(input, result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WithEmptySpacesInputStringReturnsOriginalString()
         {
             string input = "   ";
             var result = input.ValueOrEmptyIfNull();
-            Assert.AreEqual(input, result);
+            Assert.Equal(input, result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WithNonEmptyInputStringReturnsOriginalString()
         {
             string input = "The quick brown fox jumps over the lazy dog.";
             var result = input.ValueOrEmptyIfNull();
-            Assert.AreEqual(input, result);
+            Assert.Equal(input, result);
         }
     }
 }

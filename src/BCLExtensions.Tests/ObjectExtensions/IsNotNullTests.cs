@@ -1,27 +1,26 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace BCLExtensions.Tests.ObjectExtensions
 {
-    [TestClass]
     public class IsNotNullTests
     {
-        [TestMethod]
+        [Fact]
         public void WhenInstanceIsNullReturnsFalse()
         {
             object instance = null;
             var result = instance.IsNotNull();
 
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenInstanceIsNotNullReturnsTrue()
         {
             var instance = new Object();
             var result = instance.IsNotNull();
 
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
     }
 }

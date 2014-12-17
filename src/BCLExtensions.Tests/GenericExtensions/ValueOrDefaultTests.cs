@@ -1,68 +1,67 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xunit;
 
 namespace BCLExtensions.Tests.GenericExtensions
 {
     public class ValueOrDefaultTests
     {
-        [TestClass]
         public abstract class GivenATOfBase<T> where T : class
         {
             protected abstract T DefaultValue { get; }
             protected abstract T ValidInput { get; }
 
-            [TestMethod]
-            [ExpectedException(typeof(ArgumentNullException))]
+            [Fact]
             public void WhenInputNullAndDefaultValueIsNullThrowsException()
             {
                 T input = null;
-                var result = input.GetValueOrDefault(null);
+                Assert.Throws<ArgumentNullException>(
+                    () => {
+                        var result = input.GetValueOrDefault(null);
+                    });
             }
 
-            [TestMethod]
-            [ExpectedException(typeof(ArgumentNullException))]
+            [Fact]
             public void WhenValidInputAndDefaultValueIsNullThrowsException()
             {
                 T input = ValidInput;
-                var result = input.GetValueOrDefault(null);
+                Assert.Throws<ArgumentNullException>(
+                    () =>
+                    {
+                        var result = input.GetValueOrDefault(null);
+                    });
             }
 
-            [TestMethod]
+            [Fact]
             public void WhenInputIsNotNullThenReturnsInputValue()
             {
                 T input = ValidInput;
                 var result = input.GetValueOrDefault(DefaultValue);
-                Assert.AreEqual(ValidInput, result);
+                Assert.Equal(ValidInput, result);
             }
 
-            [TestMethod]
+            [Fact]
             public void WhenInputIsNullThenReturnsDefaultValue()
             {
                 T input = null;
                 var result = input.GetValueOrDefault(DefaultValue);
-                Assert.AreEqual(DefaultValue, result);
+                Assert.Equal(DefaultValue, result);
             }
         }
 
-        [TestClass]
         public class GivenATOfString : GivenATOfBase<string>
         {
             protected override string DefaultValue
             {
                 get { return "(Default)"; }
             }
-            
+
             protected override string ValidInput
             {
                 get { return "Valid Non-null string"; }
             }
         }
 
-        [TestClass]
         public class GivenATOfListOfInt : GivenATOfBase<List<int>>
         {
             private List<int> _defaultList = new List<int>();
@@ -78,7 +77,6 @@ namespace BCLExtensions.Tests.GenericExtensions
             }
         }
 
-        [TestClass]
         public class GivenATOfObject : GivenATOfBase<object>
         {
             private object _defaultObject = new Object();

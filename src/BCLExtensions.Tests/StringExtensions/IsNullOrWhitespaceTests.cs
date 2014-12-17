@@ -1,61 +1,55 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Xunit;
 
 namespace BCLExtensions.Tests.StringExtensions
 {
-    [TestClass]
     public class IsNullOrWhitespaceTests
     {
-        [TestMethod]
+        [Fact]
         public void WhenInputHasContentThenReturnsFalse()
         {
             string input = "Test";
             var result = input.IsNullOrWhitespace();
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenInputNullThenReturnsTrue()
         {
             string input = null;
             var result= input.IsNullOrWhitespace();
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenInputIsStringEmptyThenReturnsTrue()
         {
             string input = string.Empty;
             var result = input.IsNullOrWhitespace();
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenInputIsEmptyStringThenReturnsTrue()
         {
             string input = "";
             var result = input.IsNullOrWhitespace();
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenInputIsWhitespaceThenReturnsTrue()
         {
             string input = "    ";
             var result = input.IsNullOrWhitespace();
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenInputIsNewlineThenReturnsTrue()
         {
             string input = "\n";
             var result = input.IsNullOrWhitespace();
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
     }
 }
