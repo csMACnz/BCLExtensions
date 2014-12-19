@@ -8,27 +8,26 @@ namespace BCLExtensions.Tests.GenericExtensions
 {
     public class ValueOrDefaultTests
     {
-
         [Theory]
-        [InlineData((string) null)]
-        [InlineData((List<int>) null)]
-        [InlineData((object) null)]
-        public void WhenInputNullAndDefaultValueIsNullThrowsException<T>(T input) where T : class
+        [StringData(inputIsNull:true)]
+        [ListData(inputIsNull:true)]
+        [ObjectData(inputIsNull:true)]
+        public void WhenInputNullAndDefaultValueIsNullThrowsException<T>(T input, T defaultValue) where T : class
         {
             Assert.Throws<ArgumentNullException>(() => input.GetValueOrDefault(null));
         }
 
         [Theory]
-        [InlineData("Valid Non-null string")]
+        [StringData]
         [ListData]
         [ObjectData]
-        public void WhenValidInputAndDefaultValueIsNullThrowsException<T>(T input) where T : class
+        public void WhenValidInputAndDefaultValueIsNullThrowsException<T>(T input, T defaultValue) where T : class
         {
             Assert.Throws<ArgumentNullException>(() => input.GetValueOrDefault(null));
         }
 
         [Theory]
-        [InlineData("Valid Non-null string", "(Default)")]
+        [StringData]
         [ListData]
         [ObjectData]
         public void WhenInputIsNotNullThenReturnsInputValue<T>(T input, T defaultValue) where T : class
@@ -38,13 +37,32 @@ namespace BCLExtensions.Tests.GenericExtensions
         }
 
         [Theory]
-        [InlineData((string) null, "(Default)")]
+        [StringData(inputIsNull:true)]
         [ListData(inputIsNull:true)]
         [ObjectData(inputIsNull: true)]
         public void WhenInputIsNullThenReturnsDefaultValue<T>(T input, T defaultValue) where T : class
         {
             var result = input.GetValueOrDefault(defaultValue);
             Assert.Equal(defaultValue, result);
+        }
+
+        public class StringDataAttribute : DataAttribute
+        {
+            private readonly bool _inputIsNull;
+
+            public StringDataAttribute(bool inputIsNull = false)
+            {
+                _inputIsNull = inputIsNull;
+            }
+
+            public override IEnumerable<object[]> GetData(MethodInfo methodUnderTest, Type[] parameterTypes)
+            {
+                yield return new object[]
+                {
+                    _inputIsNull ? null : "Valid Non-null string",
+                    "(Default)"
+                };
+            }
         }
 
         public class ListDataAttribute : DataAttribute
@@ -62,21 +80,11 @@ namespace BCLExtensions.Tests.GenericExtensions
 
             public override IEnumerable<object[]> GetData(MethodInfo methodUnderTest, Type[] parameterTypes)
             {
-                if (parameterTypes.Length == 1)
+                yield return new object[]
                 {
-                    yield return new object[]
-                    {
-                        _inputIsNull ? null : _validList
-                    };
-                }
-                else
-                {
-                    yield return new object[]
-                    {
-                        _inputIsNull ? null : _validList,
-                        _defaultList
-                    };
-                }
+                    _inputIsNull ? null : _validList,
+                    _defaultList
+                };
             }
         }
 
@@ -95,21 +103,11 @@ namespace BCLExtensions.Tests.GenericExtensions
 
             public override IEnumerable<object[]> GetData(MethodInfo methodUnderTest, Type[] parameterTypes)
             {
-                if (parameterTypes.Length == 1)
+                yield return new[]
                 {
-                    yield return new[]
-                    {
-                        _inputIsNull ? null : _validObject,
-                    };
-                }
-                else
-                {
-                    yield return new[]
-                    {
-                        _inputIsNull ? null : _validObject,
-                        _defaultObject
-                    };
-                }
+                    _inputIsNull ? null : _validObject,
+                    _defaultObject
+                };
             }
         }
     }
