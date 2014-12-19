@@ -5,7 +5,7 @@ install:
   - unzip /tmp/pcl-assemblies.zip -d /tmp/pcl-assemblies && mv /tmp/pcl-assemblies/PortableReferenceAssemblies-2014-04-14 /tmp/pcl-assemblies/.NETPortable
   - export XBUILD_FRAMEWORK_FOLDERS_PATH=/tmp/pcl-assemblies/
   - nuget restore ./src/BCLExtensions.sln
-  - chmod +x ./src/packages/xunit.runners.2.0.0-beta5-build2785/tools/xunit.console.exe
+  - chmod +x ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe
 script:
   - xbuild /p:Configuration=Release ./src/BCLExtensions.sln
-  - mono ./src/packages/xunit.runners.2.0.0-beta5-build2785/tools/xunit.console.exe ./src/BCLExtensions.Tests/bin/Release/BCLExtensions.Tests.dll
+  - mono ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./src/BCLExtensions.Tests/bin/Release/BCLExtensions.Tests.dll
