@@ -8,4 +8,4 @@ install:
   - chmod +x ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe
 script:
   - xbuild /p:Configuration=Release ./src/BCLExtensions.sln
-  - mono ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./src/BCLExtensions.Tests/bin/Release/BCLExtensions.Tests.dll
+  - mono ./src/packages/xunit.runners.2.0.0-beta5-build2785/tools/xunit.console.exe ./src/BCLExtensions.Tests/bin/Release/BCLExtensions.Tests.dll
