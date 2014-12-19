@@ -102,11 +102,13 @@ Array Extensions
 
 IEnumerable Extensions
 ----------------------
-* SafeToList&lt;T&gt;(this IEnumerable&lt;T&gt; items)
-* SafeToArray&lt;T&gt;(this IEnumerable&lt;T&gt; items)
-* SafeToDictionary&lt;TItem TKey&gt;(this IEnumerable&lt;T&gt; items, Func&lt;TItem TKey&gt; keySelector)
-* SafeToHashSet&lt;TItem TKey&gt;(this IEnumerable&lt;T&gt; items)
-* SafeToHashSet&lt;TItem TKey&gt;(this IEnumerable&lt;T&gt; items, IEqualityComparer<T> equalityComparer)
+* List&lt;T&gt; ToListOf&lt;T&gt;(this IEnumerable items)
+* List&lt;T&gt; SafeToListOf&lt;T&gt;(this IEnumerable items)
+* List&lt;T&gt; SafeToList&lt;T&gt;(this IEnumerable&lt;T&gt; items)
+* T[] SafeToArray&lt;T&gt;(this IEnumerable&lt;T&gt; items)
+* Dictionary&lt;TKey, TItem&gt; SafeToDictionary&lt;TItem, TKey&gt;(this IEnumerable&lt;T&gt; items, Func&lt;TItem, TKey&gt; keySelector)
+* HashSet&lt;T&gt; SafeToHashSet&lt;T&gt;(this IEnumerable&lt;T&gt; items)
+* HashSet&lt;T&gt; SafeToHashSet&lt;T&gt;(this IEnumerable&lt;T&gt; items, IEqualityComparer&lt;T&gt; equalityComparer)
 
 
 Dictionary Extensions
