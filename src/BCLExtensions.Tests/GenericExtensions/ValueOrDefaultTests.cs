@@ -1,89 +1,115 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Xunit;
+using Xunit.Extensions;
 
 namespace BCLExtensions.Tests.GenericExtensions
 {
     public class ValueOrDefaultTests
     {
-        public abstract class GivenATOfBase<T> where T : class
+
+        [Theory]
+        [InlineData((string) null)]
+        [InlineData((List<int>) null)]
+        [InlineData((object) null)]
+        public void WhenInputNullAndDefaultValueIsNullThrowsException<T>(T input) where T : class
         {
-            protected abstract T DefaultValue { get; }
-            protected abstract T ValidInput { get; }
+            Assert.Throws<ArgumentNullException>(() => input.GetValueOrDefault(null));
+        }
 
-            [Fact]
-            public void WhenInputNullAndDefaultValueIsNullThrowsException()
+        [Theory]
+        [InlineData("Valid Non-null string")]
+        [ListData]
+        [ObjectData]
+        public void WhenValidInputAndDefaultValueIsNullThrowsException<T>(T input) where T : class
+        {
+            Assert.Throws<ArgumentNullException>(() => input.GetValueOrDefault(null));
+        }
+
+        [Theory]
+        [InlineData("Valid Non-null string", "(Default)")]
+        [ListData]
+        [ObjectData]
+        public void WhenInputIsNotNullThenReturnsInputValue<T>(T input, T defaultValue) where T : class
+        {
+            var result = input.GetValueOrDefault(defaultValue);
+            Assert.Equal(input, result);
+        }
+
+        [Theory]
+        [InlineData((string) null, "(Default)")]
+        [ListData(inputIsNull:true)]
+        [ObjectData(inputIsNull: true)]
+        public void WhenInputIsNullThenReturnsDefaultValue<T>(T input, T defaultValue) where T : class
+        {
+            var result = input.GetValueOrDefault(defaultValue);
+            Assert.Equal(defaultValue, result);
+        }
+
+        public class ListDataAttribute : DataAttribute
+        {
+            private readonly bool _inputIsNull;
+
+            private readonly List<int> _defaultList = new List<int>();
+
+            private readonly List<int> _validList = new List<int>();
+
+            public ListDataAttribute(bool inputIsNull = false)
             {
-                T input = null;
-                Assert.Throws<ArgumentNullException>(
-                    () => input.GetValueOrDefault(null));
+                _inputIsNull = inputIsNull;
             }
 
-            [Fact]
-            public void WhenValidInputAndDefaultValueIsNullThrowsException()
+            public override IEnumerable<object[]> GetData(MethodInfo methodUnderTest, Type[] parameterTypes)
             {
-                T input = ValidInput;
-                Assert.Throws<ArgumentNullException>(
-                    () => input.GetValueOrDefault(null));
-            }
-
-            [Fact]
-            public void WhenInputIsNotNullThenReturnsInputValue()
-            {
-                T input = ValidInput;
-                var result = input.GetValueOrDefault(DefaultValue);
-                Assert.Equal(ValidInput, result);
-            }
-
-            [Fact]
-            public void WhenInputIsNullThenReturnsDefaultValue()
-            {
-                T input = null;
-                var result = input.GetValueOrDefault(DefaultValue);
-                Assert.Equal(DefaultValue, result);
+                if (parameterTypes.Length == 1)
+                {
+                    yield return new object[]
+                    {
+                        _inputIsNull ? null : _validList
+                    };
+                }
+                else
+                {
+                    yield return new object[]
+                    {
+                        _inputIsNull ? null : _validList,
+                        _defaultList
+                    };
+                }
             }
         }
 
-        public class GivenATOfString : GivenATOfBase<string>
+        public class ObjectDataAttribute : DataAttribute
         {
-            protected override string DefaultValue
+            private readonly bool _inputIsNull;
+
+            private readonly object _defaultObject = new Object();
+
+            private readonly object _validObject = new Object();
+
+            public ObjectDataAttribute(bool inputIsNull = false)
             {
-                get { return "(Default)"; }
+                _inputIsNull = inputIsNull;
             }
 
-            protected override string ValidInput
+            public override IEnumerable<object[]> GetData(MethodInfo methodUnderTest, Type[] parameterTypes)
             {
-                get { return "Valid Non-null string"; }
-            }
-        }
-
-        public class GivenATOfListOfInt : GivenATOfBase<List<int>>
-        {
-            private List<int> _defaultList = new List<int>();
-            protected override List<int> DefaultValue
-            {
-                get { return _defaultList; }
-            }
-
-            private List<int> _validInput = new List<int>();
-            protected override List<int> ValidInput
-            {
-                get { return _validInput; }
-            }
-        }
-
-        public class GivenATOfObject : GivenATOfBase<object>
-        {
-            private object _defaultObject = new Object();
-            protected override object DefaultValue
-            {
-                get { return _defaultObject; }
-            }
-
-            private object _validInput = new Object();
-            protected override object ValidInput
-            {
-                get { return _validInput; }
+                if (parameterTypes.Length == 1)
+                {
+                    yield return new[]
+                    {
+                        _inputIsNull ? null : _validObject,
+                    };
+                }
+                else
+                {
+                    yield return new[]
+                    {
+                        _inputIsNull ? null : _validObject,
+                        _defaultObject
+                    };
+                }
             }
         }
     }
