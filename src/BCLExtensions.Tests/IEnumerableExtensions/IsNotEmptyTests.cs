@@ -1,58 +1,102 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+using Xunit.Extensions;
 
 namespace BCLExtensions.Tests.IEnumerableExtensions
 {
     public class IsNotEmptyTests
     {
-        public abstract class GivenABase<T>
+        public interface IDataProvider
         {
-            protected abstract IEnumerable<T> GetEmptyEnumerable();
+            object GetPlaceholder();
+        }
 
-            protected abstract IEnumerable<T> GetEnumerableWithOneNonNullItem();
+        public interface IDataProvider<out T> : IDataProvider
+        {
+            IEnumerable<T> GetEmptyEnumerable();
 
-            [Fact]
-            public void WhenNullThenReturnsTrue()
+            IEnumerable<T> GetEnumerableWithOneNonNullItem();
+        }
+
+        [Theory]
+        [ClassData(typeof(TestPermutations))]
+        public void WhenNullThenReturnsTrue<T>(T placeholder, IDataProvider<T> dataProvider)
+        {
+            IEnumerable<T> input = null;
+            var result = input.IsNotEmpty();
+            Assert.False(result);
+        }
+
+        [Theory]
+        [ClassData(typeof(TestPermutations))]
+        public void WhenEmptyThenReturnsTrue<T>(T placeholder, IDataProvider<T> dataProvider)
+        {
+            IEnumerable<T> input = dataProvider.GetEmptyEnumerable();
+            var result = input.IsNotEmpty();
+            Assert.False(result);
+        }
+
+        [Theory]
+        [ClassData(typeof(TestPermutations))]
+        public void WhenNonEmptyThenReturnsFalse<T>(T placeholder, IDataProvider<T> dataProvider)
+        {
+            IEnumerable<T> input = dataProvider.GetEnumerableWithOneNonNullItem();
+            var result = input.IsNotEmpty();
+            Assert.True(result);
+        }
+
+        public class TestPermutations : IEnumerable<object[]>
+        {
+            private readonly List<IDataProvider> _providers = new List<IDataProvider>();
+            public TestPermutations()
             {
-                IEnumerable<T> input = null;
-                var result = input.IsNotEmpty();
-                Assert.False(result);
+                _providers.Add(new EnumerableProviderString());
+                _providers.Add(new EnumerableProviderInt());
+                _providers.Add(new ArrayProviderString());
+                _providers.Add(new ArrayProviderInt());
+                _providers.Add(new ListProviderString());
+                _providers.Add(new ListProviderInt());
+                _providers.Add(new DictionaryProviderObjectString());
+                _providers.Add(new DictionaryProviderObjectInt());
             }
 
-            [Fact]
-            public void WhenEmptyThenReturnsTrue()
+            public IEnumerator<object[]> GetEnumerator()
             {
-                IEnumerable<T> input = GetEmptyEnumerable();
-                var result = input.IsNotEmpty();
-                Assert.False(result);
+                foreach (var provider in _providers)
+                {
+                    yield return new[] {provider.GetPlaceholder(), provider};
+                }
             }
 
-            [Fact]
-            public void WhenNonEmptyThenReturnsFalse()
+            IEnumerator IEnumerable.GetEnumerator()
             {
-                IEnumerable<T> input = GetEnumerableWithOneNonNullItem();
-                var result = input.IsNotEmpty();
-                Assert.True(result);
+                return this.GetEnumerator();
             }
         }
 
-        public abstract class GivenAnEnumerableOfBase<T> : GivenABase<T>
+        public abstract class EnumerableProviderBase<T> : IDataProvider<T>
         {
-            protected override IEnumerable<T> GetEmptyEnumerable()
+            public IEnumerable<T> GetEmptyEnumerable()
             {
                 return Enumerable.Empty<T>();
             }
 
-            protected override IEnumerable<T> GetEnumerableWithOneNonNullItem()
+            public IEnumerable<T> GetEnumerableWithOneNonNullItem()
             {
                 return Enumerable.Range(1, 1).Select(n => CreateItem());
             }
 
+            public object GetPlaceholder()
+            {
+                return CreateItem();
+            }
+
             protected abstract T CreateItem();
         }
 
-        public class GivenAnEnumerableOfString : GivenAnEnumerableOfBase<string>
+        public class EnumerableProviderString : EnumerableProviderBase<string>
         {
             protected override string CreateItem()
             {
@@ -60,7 +104,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             }
         }
 
-        public class GivenAnEnumerableOfInt : GivenAnEnumerableOfBase<int>
+        public class EnumerableProviderInt : EnumerableProviderBase<int>
         {
             protected override int CreateItem()
             {
@@ -68,22 +112,27 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             }
         }
 
-        public abstract class GivenAnArrayOfBase<T> : GivenABase<T>
+        public abstract class ArrayProviderBase<T> : IDataProvider<T>
         {
-            protected override IEnumerable<T> GetEmptyEnumerable()
+            public IEnumerable<T> GetEmptyEnumerable()
             {
                 return new T[0];
             }
 
-            protected override IEnumerable<T> GetEnumerableWithOneNonNullItem()
+            public IEnumerable<T> GetEnumerableWithOneNonNullItem()
             {
                 return new[] { CreateItem() };
+            }
+
+            public object GetPlaceholder()
+            {
+                return CreateItem();
             }
 
             protected abstract T CreateItem();
         }
 
-        public class GivenAnArrayOfString : GivenAnArrayOfBase<string>
+        public class ArrayProviderString : ArrayProviderBase<string>
         {
             protected override string CreateItem()
             {
@@ -91,7 +140,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             }
         }
 
-        public class GivenAnArrayOfInt : GivenAnArrayOfBase<int>
+        public class ArrayProviderInt : ArrayProviderBase<int>
         {
             protected override int CreateItem()
             {
@@ -99,22 +148,27 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             }
         }
 
-        public abstract class GivenAListOfBase<T> : GivenABase<T>
+        public abstract class ListProviderBase<T> : IDataProvider<T>
         {
-            protected override IEnumerable<T> GetEmptyEnumerable()
+            public IEnumerable<T> GetEmptyEnumerable()
             {
                 return new List<T>();
             }
 
-            protected override IEnumerable<T> GetEnumerableWithOneNonNullItem()
+            public IEnumerable<T> GetEnumerableWithOneNonNullItem()
             {
                 return new[] { CreateItem() };
+            }
+
+            public object GetPlaceholder()
+            {
+                return CreateItem();
             }
 
             protected abstract T CreateItem();
         }
 
-        public class GivenAListOfString : GivenAListOfBase<string>
+        public class ListProviderString : ListProviderBase<string>
         {
             protected override string CreateItem()
             {
@@ -122,7 +176,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             }
         }
 
-        public class GivenAListOfInt : GivenAListOfBase<int>
+        public class ListProviderInt : ListProviderBase<int>
         {
             protected override int CreateItem()
             {
@@ -130,22 +184,27 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             }
         }
 
-        public abstract class GivenADictionaryOfBase<T> : GivenABase<KeyValuePair<object, T>>
+        public abstract class DictionaryProviderBase<T> : IDataProvider<KeyValuePair<object, T>>
         {
-            protected override IEnumerable<KeyValuePair<object, T>> GetEmptyEnumerable()
+            public IEnumerable<KeyValuePair<object, T>> GetEmptyEnumerable()
             {
                 return new Dictionary<object, T>();
             }
 
-            protected override IEnumerable<KeyValuePair<object, T>> GetEnumerableWithOneNonNullItem()
+            public IEnumerable<KeyValuePair<object, T>> GetEnumerableWithOneNonNullItem()
             {
                 return new Dictionary<object, T> { { new object(), CreateItem() } };
+            }
+
+            public object GetPlaceholder()
+            {
+                return new KeyValuePair<object, T>(new object(), CreateItem());
             }
 
             protected abstract T CreateItem();
         }
 
-        public class GivenADictionaryOfObjectString : GivenADictionaryOfBase<string>
+        public class DictionaryProviderObjectString : DictionaryProviderBase<string>
         {
             protected override string CreateItem()
             {
@@ -153,7 +212,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             }
         }
 
-        public class GivenADictionaryOfObjectInt : GivenADictionaryOfBase<int>
+        public class DictionaryProviderObjectInt : DictionaryProviderBase<int>
         {
             protected override int CreateItem()
             {
