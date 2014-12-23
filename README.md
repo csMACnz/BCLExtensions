@@ -1,11 +1,12 @@
-[![License](http://img.shields.io/:license-mit-blue.svg)](http://csmacnz.mit-license.org)
-[![Build status](https://ci.appveyor.com/api/projects/status/j06g6b18e976wx3b)](https://ci.appveyor.com/project/MarkClearwater/bclextensions)
-[![Build Status](https://travis-ci.org/csmacnz/BCLExtensions.svg?branch=master)](https://travis-ci.org/csmacnz/BCLExtensions)
-[![Coverage Status](https://coveralls.io/repos/csmacnz/BCLExtensions/badge.png?branch=master)](https://coveralls.io/r/csmacnz/BCLExtensions?branch=master)
-[![Coverity Scan Build Status](https://scan.coverity.com/projects/3770/badge.svg)](https://scan.coverity.com/projects/3770)
-[![Stories in Ready](https://badge.waffle.io/csmacnz/BCLExtensions.png?label=ready&title=Ready)](https://waffle.io/csmacnz/BCLExtensions)
 BCLExtensions
 =============
+
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://csmacnz.mit-license.org)
+[![AppVeyor Build status](https://img.shields.io/appveyor/ci/MarkClearwater/bclextensions.svg)](https://ci.appveyor.com/project/MarkClearwater/bclextensions)
+[![Travis Build Status](https://img.shields.io/travis/csmacnz/BCLExtensions.svg)](https://travis-ci.org/csmacnz/BCLExtensions)
+[![Coverage Status](https://img.shields.io/coveralls/csmacnz/BCLExtensions.svg)](https://coveralls.io/r/csmacnz/BCLExtensions?branch=master)
+[![Coverity Scan Build Status](https://scan.coverity.com/projects/3770/badge.svg)](https://scan.coverity.com/projects/3770)
+[![Stories in Ready](https://badge.waffle.io/csmacnz/BCLExtensions.png?label=ready&title=Ready)](https://waffle.io/csmacnz/BCLExtensions)
 
 Base Class Library Extensions for C# base class library classes, across .Net, Silverlight, WinRT.
 
