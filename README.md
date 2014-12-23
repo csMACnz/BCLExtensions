@@ -65,7 +65,7 @@ DateTime Extensions
 
 (Mutable)Collection Extensions
 -------------------
-* void AddRange<T>(this ICollection&lt;T&gt; collecton, IEnumerable<T> itemsToAppend)
+* void AddRange&lt;T&gt;(this ICollection&lt;T&gt; collecton, IEnumerable&lt;T&gt; itemsToAppend)
 * ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collecton)
 * ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collecton, Func&lt;T, bool&gt; whereExpression)
 * ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collecton, Func&lt;T, int, bool&gt; whereExpression)
