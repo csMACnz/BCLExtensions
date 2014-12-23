@@ -1,7 +1,8 @@
-
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://csmacnz.mit-license.org)
 [![Build status](https://ci.appveyor.com/api/projects/status/j06g6b18e976wx3b)](https://ci.appveyor.com/project/MarkClearwater/bclextensions)
 [![Build Status](https://travis-ci.org/csmacnz/BCLExtensions.svg?branch=master)](https://travis-ci.org/csmacnz/BCLExtensions)
 [![Coverage Status](https://coveralls.io/repos/csmacnz/BCLExtensions/badge.png?branch=master)](https://coveralls.io/r/csmacnz/BCLExtensions?branch=master)
+[![Coverity Scan Build Status](https://scan.coverity.com/projects/3770/badge.svg)](https://scan.coverity.com/projects/3770)
 [![Stories in Ready](https://badge.waffle.io/csmacnz/BCLExtensions.png?label=ready&title=Ready)](https://waffle.io/csmacnz/BCLExtensions)
 BCLExtensions
 =============
