@@ -67,37 +67,56 @@ DateTime Extensions
 
 (Mutable)Collection Extensions
 -------------------
-* void AddRange&lt;T&gt;(this ICollection&lt;T&gt; collecton, IEnumerable&lt;T&gt; itemsToAppend)
-* ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collecton)
-* ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collecton, Func&lt;T, bool&gt; whereExpression)
-* ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collecton, Func&lt;T, int, bool&gt; whereExpression)
+* void AddRange&lt;T&gt;(this ICollection&lt;T&gt; collection, IEnumerable&lt;T&gt; itemsToAppend)
+* ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collection)
+* ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, bool&gt; whereExpression)
+* ICollection&lt;T&gt; RemoveEach&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, int, bool&gt; whereExpression)
 * ICollection&lt;T&gt; RemoveEachInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection)
 * ICollection&lt;T&gt; RemoveEachInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, bool&gt; whereExpression)
 * ICollection&lt;T&gt; RemoveEachInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, int, bool&gt; whereExpression)
-* ICollection&lt;T&gt; RemoveEachByIndex&lt;T&gt;(this ICollection&lt;T&gt; collection)
-* ICollection&lt;T&gt; RemoveEachByIndex&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, bool&gt; whereExpression)
-* ICollection&lt;T&gt; RemoveEachByIndex&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, int, bool&gt; whereExpression)
-* ICollection&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection)
-* ICollection&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, bool&gt; whereExpression)
-* ICollection&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this ICollection&lt;T&gt; collection, Func&lt;T, int, bool&gt; whereExpression)
-* ICollection&lt;T&gt; OrNullIfEmpty(this ICollection&lt;T&gt; items)
-* ICollection&lt;T&gt; OrEmptyIfNull(this ICollection&lt;T&gt; items)
+* ICollection&lt;T&gt; OrNullIfEmpty(this ICollection&lt;T&gt; collection)
+* ICollection&lt;T&gt; OrEmptyIfNull(this ICollection&lt;T&gt; collection)
 
 
 IList Extensions
 ----------------------
+* IList&lt;T&gt; RemoveEach&lt;T&gt;(this IList&lt;T&gt; items)
+* IList&lt;T&gt; RemoveEach&lt;T&gt;(this IList&lt;T&gt; items, Func&lt;T, bool&gt; whereExpression)
+* IList&lt;T&gt; RemoveEach&lt;T&gt;(this IList&lt;T&gt; items, Func&lt;T, int, bool&gt; whereExpression)
+* IList&lt;T&gt; RemoveEachInReverse&lt;T&gt;(this IList&lt;T&gt; items)
+* IList&lt;T&gt; RemoveEachInReverse&lt;T&gt;(this IList&lt;T&gt; items, Func&lt;T, bool&gt; whereExpression)
+* IList&lt;T&gt; RemoveEachInReverse&lt;T&gt;(this IList&lt;T&gt; items, Func&lt;T, int, bool&gt; whereExpression)
+* IList&lt;T&gt; RemoveEachByIndex&lt;T&gt;(this IList&lt;T&gt; items)
+* IList&lt;T&gt; RemoveEachByIndex&lt;T&gt;(this IList&lt;T&gt; items, Func&lt;T, bool&gt; whereExpression)
+* IList&lt;T&gt; RemoveEachByIndex&lt;T&gt;(this IList&lt;T&gt; items, Func&lt;T, int, bool&gt; whereExpression)
+* IList&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this IList&lt;T&gt; items)
+* IList&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this IList&lt;T&gt; items, Func&lt;T, bool&gt; whereExpression)
+* IList&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this IList&lt;T&gt; items, Func&lt;T, int, bool&gt; whereExpression)
 * IList&lt;T&gt; OrNullIfEmpty(this IList&lt;T&gt; items)
 * IList&lt;T&gt; OrEmptyIfNull(this IList&lt;T&gt; items)
 
 
 List Extensions
 ----------------------
+* List&lt;T&gt; RemoveEach&lt;T&gt;(this List&lt;T&gt; items)
+* List&lt;T&gt; RemoveEach&lt;T&gt;(this List&lt;T&gt; items, Func&lt;T, bool&gt; whereExpression)
+* List&lt;T&gt; RemoveEach&lt;T&gt;(this List&lt;T&gt; items, Func&lt;T, int, bool&gt; whereExpression)
+* List&lt;T&gt; RemoveEachInReverse&lt;T&gt;(this List&lt;T&gt; items)
+* List&lt;T&gt; RemoveEachInReverse&lt;T&gt;(this List&lt;T&gt; items, Func&lt;T, bool&gt; whereExpression)
+* List&lt;T&gt; RemoveEachInReverse&lt;T&gt;(this List&lt;T&gt; items, Func&lt;T, int, bool&gt; whereExpression)
+* List&lt;T&gt; RemoveEachByIndex&lt;T&gt;(this List&lt;T&gt; items)
+* List&lt;T&gt; RemoveEachByIndex&lt;T&gt;(this List&lt;T&gt; items, Func&lt;T, bool&gt; whereExpression)
+* List&lt;T&gt; RemoveEachByIndex&lt;T&gt;(this List&lt;T&gt; items, Func&lt;T, int, bool&gt; whereExpression)
+* List&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this List&lt;T&gt; items)
+* List&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this List&lt;T&gt; items, Func&lt;T, bool&gt; whereExpression)
+* List&lt;T&gt; RemoveEachByIndexInReverse&lt;T&gt;(this List&lt;T&gt; items, Func&lt;T, int, bool&gt; whereExpression)
 * List&lt;T&gt; OrNullIfEmpty(this List&lt;T&gt; items)
 * List&lt;T&gt; OrEmptyIfNull(this List&lt;T&gt; items)
 
 
 Array Extensions
 ----------------------
+* void Clear&lt;T&gt;(this T[] items)
 * T[] OrNullIfEmpty(this T[] items)
 * T[] OrEmptyIfNull(this T[] items)
 
