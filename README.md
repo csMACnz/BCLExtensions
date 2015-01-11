@@ -144,6 +144,7 @@ Type Extensions
 ---------------
 * bool IsOfType&lt;T&gt;(this object item) where T: class
 * bool IsNullable(this Type itemType)
+* IEnumerable&lt;Type&gt; SafeGetTypes(this Assembly assembly)
 
 
 EnumExtensions
