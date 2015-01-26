@@ -1,0 +1,10 @@
+version: 0.1.{build}
+install:
+- ps: .\build.environment.ps1
+build_script:
+- ps: psake .\build.tasks.ps1 appveyor-build
+test_script:
+- ps: psake .\build.tasks.ps1 appveyor-test
+artifacts:
+- path: BCLExtensionsTests.xml
+  name: BCLExtensionsTests.xml
