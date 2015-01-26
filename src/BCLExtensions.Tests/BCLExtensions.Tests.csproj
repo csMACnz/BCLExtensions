@@ -56,6 +56,9 @@
   <ItemGroup>
     <Compile Include="GenericExtensions\ValueOrDefaultTests.cs" />
     <Compile Include="TestHelpers\ArrayProvider.cs" />
+    <Compile Include="TestHelpers\CollectionProvider.cs" />
+    <Compile Include="TestHelpers\CustomICollection.cs" />
+    <Compile Include="TestHelpers\CustomICollectionProvider.cs" />
     <Compile Include="TestHelpers\DictionaryProvider.cs" />
     <Compile Include="TestHelpers\EnumerablePermutationData.cs" />
     <Compile Include="TestHelpers\EnumerableProvider.cs" />

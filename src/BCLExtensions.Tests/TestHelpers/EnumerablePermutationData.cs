@@ -18,6 +18,10 @@ namespace BCLExtensions.Tests.TestHelpers
             _providers.Add(new ArrayProvider<int>(new IntProvider()));
             _providers.Add(new ListProvider<string>(new StringProvider()));
             _providers.Add(new ListProvider<int>(new IntProvider()));
+            _providers.Add(new CollectionProvider<string>(new StringProvider()));
+            _providers.Add(new CollectionProvider<int>(new IntProvider()));
+            _providers.Add(new CustomICollectionProvider<string>(new StringProvider()));
+            _providers.Add(new CustomICollectionProvider<int>(new IntProvider()));
             _providers.Add(new DictionaryProvider<string>(new StringProvider()));
             _providers.Add(new DictionaryProvider<int>(new IntProvider()));
         }
