@@ -3,7 +3,7 @@ BCLExtensions
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://csmacnz.mit-license.org)
 [![AppVeyor Build status](https://img.shields.io/appveyor/ci/MarkClearwater/bclextensions.svg)](https://ci.appveyor.com/project/MarkClearwater/bclextensions)
-[![Travis Build Status](https://img.shields.io/travis/csmacnz/BCLExtensions.svg)](https://travis-ci.org/csmacnz/BCLExtensions)
+[![Travis Build Status](https://img.shields.io/travis/csMACnz/BCLExtensions.svg)](https://travis-ci.org/csMACnz/BCLExtensions)
 [![Coverage Status](https://img.shields.io/coveralls/csmacnz/BCLExtensions.svg)](https://coveralls.io/r/csmacnz/BCLExtensions?branch=master)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/3770/badge.svg)](https://scan.coverity.com/projects/3770)
 [![Stories in Ready](https://badge.waffle.io/csmacnz/BCLExtensions.png?label=ready&title=Ready)](https://waffle.io/csmacnz/BCLExtensions)
