@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace BCLExtensions.Tests.TestHelpers
 {
@@ -13,12 +14,12 @@ namespace BCLExtensions.Tests.TestHelpers
 
         public IEnumerable<T> GetEmptyEnumerable()
         {
-            return new CustomICollection<T>();
+            return new CustomICollection<T>(new Collection<T>());
         }
 
         public IEnumerable<T> GetEnumerableWithOneNonNullItem()
         {
-            return new CustomICollection<T> { _provider.CreateItem() };
+            return new CustomICollection<T>(new Collection<T>()) { _provider.CreateItem() };
         }
 
         public object GetPlaceholder()

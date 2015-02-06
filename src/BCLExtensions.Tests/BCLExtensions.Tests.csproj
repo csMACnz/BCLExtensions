@@ -37,6 +37,9 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FakeItEasy">
+      <HintPath>..\packages\FakeItEasy.1.25.2\lib\net40\FakeItEasy.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="xunit">
       <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
@@ -83,6 +86,7 @@
     <Compile Include="StringExtensions\ValueOrIfNullOrWhitespaceTests.cs" />
     <Compile Include="StringExtensions\ValueorIfNullTests.cs" />
     <Compile Include="StringExtensions\ValueOrNullIfWhitespaceTests.cs" />
+    <Compile Include="TestHelperTests\CustomICollectionTests.cs" />
     <Compile Include="TypeExtensions\IsOfTypeTests.cs" />
   </ItemGroup>
   <ItemGroup>

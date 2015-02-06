@@ -7,7 +7,13 @@ namespace BCLExtensions.Tests.TestHelpers
 {
     public sealed class CustomICollection<T> : ICollection, IEnumerable<T>
     {
-        private readonly ICollection<T> _innerCollection = new Collection<T>();
+        private readonly ICollection<T> _innerCollection;
+
+        public CustomICollection(ICollection<T> innerCollection)
+        {
+            _innerCollection = innerCollection;
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             return _innerCollection.GetEnumerator();
