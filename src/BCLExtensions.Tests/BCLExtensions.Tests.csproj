@@ -83,6 +83,7 @@
     <Compile Include="StringExtensions\ValueOrIfNullOrWhitespaceTests.cs" />
     <Compile Include="StringExtensions\ValueorIfNullTests.cs" />
     <Compile Include="StringExtensions\ValueOrNullIfWhitespaceTests.cs" />
+    <Compile Include="TypeExtensions\IsOfTypeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BCLExtensions\BCLExtensions.csproj">
