@@ -142,7 +142,7 @@ Dictionary Extensions
 
 Type Extensions
 ---------------
-* bool IsOfType&lt;T&gt;(this object item) where T: class
+* bool DerivesFrom&lt;Type&gt;(this object item) where T : class
 * bool IsNullable(this Type itemType)
 * IEnumerable&lt;Type&gt; SafeGetTypes(this Assembly assembly)
 
@@ -246,3 +246,7 @@ String Extensions
 * string ValueOrIfNull(this string value, String replacement)
 * string ValueOrIfNullOrWhitespace(this string value, String replacement)
 * string ValueOrNullIfWhitespace(this string value)
+
+Type Extensions
+---------------
+* bool IsOfType&lt;T&gt;(this object item)
