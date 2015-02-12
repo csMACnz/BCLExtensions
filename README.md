@@ -114,13 +114,6 @@ List Extensions
 * List&lt;T&gt; OrEmptyIfNull(this List&lt;T&gt; items)
 
 
-Array Extensions
-----------------------
-* void Clear&lt;T&gt;(this T[] items)
-* T[] OrNullIfEmpty(this T[] items)
-* T[] OrEmptyIfNull(this T[] items)
-
-
 IEnumerable Extensions
 ----------------------
 * List&lt;T&gt; ToListOf&lt;T&gt;(this IEnumerable items)
