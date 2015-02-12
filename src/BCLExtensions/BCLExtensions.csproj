@@ -36,6 +36,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ArrayExtensions.cs" />
     <Compile Include="GenericExtensions.cs" />
     <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="ObjectExtensions.cs" />

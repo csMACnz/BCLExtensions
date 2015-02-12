@@ -247,6 +247,14 @@ String Extensions
 * string ValueOrIfNullOrWhitespace(this string value, String replacement)
 * string ValueOrNullIfWhitespace(this string value)
 
+
 Type Extensions
 ---------------
 * bool IsOfType&lt;T&gt;(this object item)
+
+
+Array Extensions
+----------------------
+* void Clear&lt;T&gt;(this T[] items)
+* T[] OrNullIfEmpty&lt;T&gt;(this T[] items)
+* T[] OrEmptyIfNull&lt;T&gt;(this T[] items)
