@@ -159,7 +159,6 @@ IntExtensions
 * InclusiveInteger Inclusive(this int value)
 * ExclusiveInteger Exclusive(this int value)
 
-
 Example : 5.IsBetween(2.Exclusive(), 5.Inclusive())
 
 
@@ -173,7 +172,6 @@ LongExtensions
 * bool IsBetween(this long value, InclusiveLongInteger lowerLimit, InclusiveLongInteger upperLimit)
 * InclusiveLongInteger Inclusive(this long value)
 * ExclusiveLongInteger Exclusive(this long value)
-
 
 Example: 5.IsBetween(2.Exclusive(), 5.Inclusive())
 
@@ -189,8 +187,29 @@ DecimalExtensions
 * InclusiveDecimal Inclusive(this decimal value)
 * ExclusiveDecimal Exclusive(this decimal value)
 
-
 Example: (5m).IsBetween((2m).Exclusive(), (5m).Inclusive())
+
+
+Func Extensions
+----------------------
+* Action AsActionUsing&lt;T1, T2, T3, TResult&gt;(this Func&lt;T1, T2, T3, TResult&gt; action, T1 parameter1, T2 parameter2, T3 parameter3)
+* Action AsActionUsing&lt;T1, T2, T3, T4, TResult&gt;(this Func&lt;T1, T2, T3, T4, TResult&gt; action, T1 parameter1, T2 parameter2, T3 parameter3, T4 parameter4)
+* Action AsActionUsing&lt;T1, T2, T3, T4, T5, TResult&gt;(this Func&lt;T1, T2, T3, T4, T5, TResult&gt; action, T1 parameter1, T2 parameter2, T3 parameter3, T4 parameter4, T5 parameter5)
+* Action AsActionUsing&lt;T1, T2, T3, T4, T5, T6, TResult&gt;(this Func&lt;T1, T2, T3, T4, T5, T6, TResult&gt; action, T1 parameter1, T2 parameter2, T3 parameter3, T4 parameter4, T5 parameter5, T6 parameter6)
+* Action AsActionUsing&lt;T1, T2, T3, T4, T5, T6, T7, TResult&gt;(this Func&lt;T1, T2, T3, T4, T5, T6, T7, TResult&gt; action, T1 parameter1, T2 parameter2, T3 parameter3, T4 parameter4, T5 parameter5, T6 parameter6, T7 parameter7)
+* Action AsActionUsing&lt;T1, T2, T3, T4, T5, T6, T7, T8, TResult&gt;(this Func&lt;T1, T2, T3, T4, T5, T6, T7, T8, TResult&gt; action, T1 parameter1, T2 parameter2, T3 parameter3, T4 parameter4, T5 parameter5, T6 parameter6, T7 parameter7, T8 parameter8)
+
+
+Action Extensions
+----------------------
+* Action AsActionUsing&lt;T1&gt;(this Action&lt;T1&gt; action, T1 parameter1)
+* Action AsActionUsing&lt;T1, T2&gt;(this Action&lt;T1, T2&gt; action, T1 parameter1, T2 parameter2)
+* Action AsActionUsing&lt;T1, T2, T3&gt;(this Action&lt;T1, T2, T3&gt; action, T1 parameter1, T2 parameter2, T3 parameter3)
+* Action AsActionUsing&lt;T1, T2, T3, T4&gt;(this Action&lt;T1, T2, T3, T4&gt; action, T1 parameter1, T2 parameter2, T3 parameter3, T4 parameter4)
+* Action AsActionUsing&lt;T1, T2, T3, T4, T5&gt;(this Action&lt;T1, T2, T3, T4, T5&gt; action, T1 parameter1, T2 parameter2, T3 parameter3, T4 parameter4, T5 parameter5)
+* Action AsActionUsing&lt;T1, T2, T3, T4, T5, T6&gt;(this Action&lt;T1, T2, T3, T4, T5, T6&gt; action, T1 parameter1, T2 parameter2, T3 parameter3, T4 parameter4, T5 parameter5, T6 parameter6)
+* Action AsActionUsing&lt;T1, T2, T3, T4, T5, T6, T7&gt;(this Action&lt;T1, T2, T3, T4, T5, T6, T7&gt; action, T1 parameter1, T2 parameter2, T3 parameter3, T4 parameter4, T5 parameter5, T6 parameter6, T7 parameter7)
+* Action AsActionUsing&lt;T1, T2, T3, T4, T5, T6, T7, T8&gt;(this Action&lt;T1, T2, T3, T4, T5, T6, T7, T8&gt; action, T1 parameter1, T2 parameter2, T3 parameter3, T4 parameter4, T5 parameter5, T6 parameter6, T7 parameter7, T8 parameter8)
 
 
 ExpressionExtensions
@@ -250,4 +269,11 @@ Array Extensions
 ----------------------
 * void Clear&lt;T&gt;(this T[] items)
 * T[] OrNullIfEmpty&lt;T&gt;(this T[] items)
-* T[] OrEmptyIfNull&lt;T&gt;(this T[] items)
+* T[] OrEmptyIfNull&lt;T&gt;(this T[] items) 
+
+
+Func Extensions
+----------------------
+* Action AsAction&lt;T&gt;(this Func&lt;T&gt; function)
+* Action AsActionUsing&lt;TOutput, TParameter&gt;(this Func&lt;TParameter, TOutput&gt; function, TParameter parameter)
+* Action AsActionUsing&lt;TOutput, TParameter1, TParameter2&gt;(this Func&lt;TParameter1, TParameter2, TOutput&gt; function, TParameter1 parameter1, TParameter2 parameter2)
