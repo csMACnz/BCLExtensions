@@ -1,4 +1,5 @@
 ﻿using System;
+using BCLExtensions.Tests.TestHelpers;
 using Xunit;
 
 namespace BCLExtensions.Tests.StringExtensions
@@ -12,7 +13,8 @@ namespace BCLExtensions.Tests.StringExtensions
             [Fact]
             public void NoParametersProvidedThowsArgumentNullException()
             {
-                Assert.Throws<ArgumentNullException>(() => _myString.FormatWith());
+                Func<string, object[], string> formatWith = BCLExtensions.StringExtensions.FormatWith;
+                Assert.Throws<ArgumentNullException>(formatWith.AsActionUsing(_myString, new object[0]).AsThrowsDelegate());
             }
         }
 
@@ -49,7 +51,8 @@ namespace BCLExtensions.Tests.StringExtensions
             [Fact]
             public void NoParametersProvidedThrowsFormatException()
             {
-                Assert.Throws<FormatException>(() => _myString.FormatWith());
+                Func<string, object[], string> formatWith = BCLExtensions.StringExtensions.FormatWith;
+                Assert.Throws<FormatException>(formatWith.AsActionUsing(_myString, new object[0]).AsThrowsDelegate());
             }
 
             [Fact]

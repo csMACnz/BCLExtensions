@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using BCLExtensions.Tests.TestHelpers;
 using Xunit;
 using Xunit.Extensions;
 
@@ -14,7 +15,8 @@ namespace BCLExtensions.Tests.GenericExtensions
         [ObjectData(inputIsNull:true)]
         public void WhenInputNullAndDefaultValueIsNullThrowsException<T>(T input, T defaultValue) where T : class
         {
-            Assert.Throws<ArgumentNullException>(() => input.GetValueOrDefault(null));
+            Func<T,T,T> valueOrDefault = BCLExtensions.GenericExtensions.GetValueOrDefault<T>;
+            Assert.Throws<ArgumentNullException>(valueOrDefault.AsActionUsing(input, null).AsThrowsDelegate());
         }
 
         [Theory]
@@ -23,7 +25,8 @@ namespace BCLExtensions.Tests.GenericExtensions
         [ObjectData]
         public void WhenValidInputAndDefaultValueIsNullThrowsException<T>(T input, T defaultValue) where T : class
         {
-            Assert.Throws<ArgumentNullException>(() => input.GetValueOrDefault(null));
+            Func<T, T, T> valueOrDefault = BCLExtensions.GenericExtensions.GetValueOrDefault<T>;
+            Assert.Throws<ArgumentNullException>(valueOrDefault.AsActionUsing(input, null).AsThrowsDelegate());
         }
 
         [Theory]

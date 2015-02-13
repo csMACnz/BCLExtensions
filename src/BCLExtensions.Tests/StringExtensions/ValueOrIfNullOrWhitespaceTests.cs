@@ -1,4 +1,5 @@
 ﻿using System;
+using BCLExtensions.Tests.TestHelpers;
 using Xunit;
 
 namespace BCLExtensions.Tests.StringExtensions
@@ -20,7 +21,8 @@ namespace BCLExtensions.Tests.StringExtensions
             [Fact]
             public void NullDefaultStringThrowsException()
             {
-                Assert.Throws<ArgumentNullException>(() => input.ValueOrIfNullOrWhitespace(null));
+                Func<string, string, string> valueOrIfNullOrWhitespace = BCLExtensions.StringExtensions.ValueOrIfNullOrWhitespace;
+                Assert.Throws<ArgumentNullException>(valueOrIfNullOrWhitespace.AsActionUsing(input, null).AsThrowsDelegate());
             }
 
             [Fact]
@@ -70,7 +72,8 @@ namespace BCLExtensions.Tests.StringExtensions
             [Fact]
             public void NullReplacementThrowsArgumentNullException()
             {
-                Assert.Throws<ArgumentNullException>(() => input.ValueOrIfNullOrWhitespace(null));
+                Func<string, string, string> valueOrIfNullOrWhitespace = BCLExtensions.StringExtensions.ValueOrIfNullOrWhitespace;
+                Assert.Throws<ArgumentNullException>(valueOrIfNullOrWhitespace.AsActionUsing(input, null).AsThrowsDelegate());
             }
 
             [Fact]

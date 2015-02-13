@@ -62,6 +62,9 @@
     <Compile Include="ArrayExtensions\ClearTests.cs" />
     <Compile Include="ArrayExtensions\OrEmptyIfNullTests.cs" />
     <Compile Include="ArrayExtensions\OrNullIfEmptyTests.cs" />
+    <Compile Include="FuncExtensions\AsActionUsingTests - Copy.cs" />
+    <Compile Include="FuncExtensions\AsActionUsingTests.cs" />
+    <Compile Include="FuncExtensions\AsActionTests.cs" />
     <Compile Include="GenericExtensions\ValueOrDefaultTests.cs" />
     <Compile Include="TestHelpers\ArrayProvider.cs" />
     <Compile Include="TestHelpers\CollectionProvider.cs" />
@@ -91,6 +94,7 @@
     <Compile Include="StringExtensions\ValueOrIfNullOrWhitespaceTests.cs" />
     <Compile Include="StringExtensions\ValueorIfNullTests.cs" />
     <Compile Include="StringExtensions\ValueOrNullIfWhitespaceTests.cs" />
+    <Compile Include="TestHelpers\ThrowsHelpers.cs" />
     <Compile Include="TestHelperTests\CustomICollectionTests.cs" />
     <Compile Include="TypeExtensions\IsOfTypeTests.cs" />
   </ItemGroup>

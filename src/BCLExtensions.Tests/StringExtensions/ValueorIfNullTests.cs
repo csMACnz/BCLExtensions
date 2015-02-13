@@ -1,4 +1,5 @@
 ﻿using System;
+using BCLExtensions.Tests.TestHelpers;
 using Xunit;
 
 namespace BCLExtensions.Tests.StringExtensions
@@ -7,26 +8,27 @@ namespace BCLExtensions.Tests.StringExtensions
     {
         public class WithNullInputString
         {
-            private readonly string input = null;
+            private readonly string _input = null;
 
             [Fact]
             public void DefaultStringReturnsDefaultString()
             {
                 string expected = "(Default)";
-                var result = input.ValueOrIfNull(expected);
+                var result = _input.ValueOrIfNull(expected);
                 Assert.Equal(expected, result);
             }
 
             [Fact]
             public void NullDefaultStringThrowsException()
             {
-                Assert.Throws<ArgumentNullException>(() => input.ValueOrIfNull(null));
+                Func<string, string, string> valueOrIfNull = BCLExtensions.StringExtensions.ValueOrIfNull;
+                Assert.Throws<ArgumentNullException>(valueOrIfNull.AsActionUsing(_input, null).AsThrowsDelegate());
             }
 
             [Fact]
             public void EmptyDefaultStringReturnsEmptyString()
             {
-                var result = input.ValueOrIfNull(string.Empty);
+                var result = _input.ValueOrIfNull(string.Empty);
                 Assert.Equal(string.Empty, result);
             }
         }
@@ -35,7 +37,8 @@ namespace BCLExtensions.Tests.StringExtensions
         public void WithNonNullInputAndNullDefaultStringThrowsException()
         {
             var input = "Test";
-            Assert.Throws<ArgumentNullException>(() => input.ValueOrIfNull(null));
+            Func<string, string, string> valueOrIfNull = BCLExtensions.StringExtensions.ValueOrIfNull;
+            Assert.Throws<ArgumentNullException>(valueOrIfNull.AsActionUsing(input, null).AsThrowsDelegate());
         }
 
         [Fact]
