@@ -64,7 +64,7 @@ task coverage-only {
 task coveralls -depends coverage, coveralls-only
 
 task coveralls-only {
-    exec { & ".\src\packages\coveralls.net.0.2.95\csmacnz.Coveralls.exe" --opencover -i BCLExtensionsTests.xml --repoToken "JnVjBzTw7uW2AwhUXpeCKUNHj41JbHSGu" --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID}
+    exec { & ".\src\packages\coveralls.net.0.4.0\csmacnz.Coveralls.exe" --opencover -i BCLExtensionsTests.xml --repoToken "JnVjBzTw7uW2AwhUXpeCKUNHj41JbHSGu" --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID}
 }
 
 task postbuild -depends coverage-only, coveralls-only
