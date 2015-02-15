@@ -13,9 +13,9 @@ BCLExtensions
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/3770/badge.svg)](https://scan.coverity.com/projects/3770)
 
 [![Stories in Ready](https://badge.waffle.io/csmacnz/BCLExtensions.png?label=ready&title=Ready)](https://waffle.io/csmacnz/BCLExtensions)
-[![Stories in progress](https://badge.waffle.io/csmacnz/coveralls.net.png?label=in%20progress&title=In%20Progress)](https://waffle.io/csmacnz/coveralls.net)
+[![Stories in progress](https://badge.waffle.io/csmacnz/BCLExtensions.png?label=in%20progress&title=In%20Progress)](https://waffle.io/csmacnz/BCLExtensions)
 [![Issue Stats](http://www.issuestats.com/github/csMACnz/BCLExtensions/badge/pr)](http://www.issuestats.com/github/csMACnz/BCLExtensions)
-[![Issue Stats](http://www.issuestats.com/github/csMACnz/coveralls.net/badge/issue)](http://www.issuestats.com/github/csMACnz/coveralls.net)
+[![Issue Stats](http://www.issuestats.com/github/csMACnz/BCLExtensions/badge/issue)](http://www.issuestats.com/github/csMACnz/BCLExtensions)
 
 Base Class Library Extensions for C# base class library classes, across .Net, Silverlight, WinRT.
 
