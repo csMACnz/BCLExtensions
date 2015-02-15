@@ -89,6 +89,7 @@ task build {
 task appveyor-checkCoverity {
   if($env:APPVEYOR_SCHEDULED_BUILD -eq "True") {
     $script:runCoverity = $true
+    $script:covbuild = (Resolve-Path ".\cov-analysis-win64-*\bin\cov-build.exe").ToString()
 
     #download coverity
     Invoke-WebRequest `
@@ -103,13 +104,43 @@ task appveyor-checkCoverity {
   }
 }
 
+task setup-coverity-local {
+  $script:runCoverity = $true
+  $script:covbuild = "cov-build"
+}
+
+task test-coverity -depends setup-coverity-local, coverity
+
 task coverity -precondition { return $script:runCoverity }{
-  $covbuild = (Resolve-Path ".\cov-analysis-win64-*\bin\cov-build.exe").ToString();
-  & $covbuild --dir cov-int msbuild "/t:Clean;Build" "/p:Configuration=$configuration" $sln_file
-
-  Write-Zip -Path "cov-int" -OutputPath BCLExtensions.coverity.$script:nugetVersion.zip
-
-  #TODO: Upload coverity
+  & $script:covbuild --dir cov-int msbuild "/t:Clean;Build" "/p:Configuration=$configuration" $sln_file
+  $coverityFileName = BCLExtensions.coverity.$script:nugetVersion.zip
+  Write-Zip -Path "cov-int" -OutputPath $coverityFileName
+  
+  #TODO an app for this:
+  Add-Type -AssemblyName "System.Net.Http"
+  $client = New-Object Net.Http.HttpClient
+  $client.Timeout = [TimeSpan]::FromMinutes(20)
+  $form = New-Object Net.Http.MultipartFormDataContent
+  [Net.Http.HttpContent]$formField = New-Object Net.Http.StringContent($env:Coverity_Token)
+  $form.Add($formField, "token")
+  $formField = New-Object Net.Http.StringContent($env:Coverity_Email)
+  $form.Add($formField, "email")
+  $fs = New-Object IO.FileStream("$env:APPVEYOR_BUILD_FOLDER\$coverityFileName", [IO.FileMode]::Open, [IO.FileAccess]::Read)
+  $formField = New-Object Net.Http.StreamContent($fs)
+  $form.Add($formField, "file", "$coverityFileName")
+  $formField = New-Object Net.Http.StringContent($script:nugetVersion)
+  $form.Add($formField, "version")
+  $formField = New-Object Net.Http.StringContent("AppVeyor scheduled build ($env:APPVEYOR_BUILD_VERSION).")
+  $form.Add($formField, "description")
+  $url = "https://scan.coverity.com/builds?project=$env:APPVEYOR_REPO_NAME"
+  $task = $client.PostAsync($url, $form)
+  try {
+    $task.Wait()  # throws AggregateException on time-out
+  } catch [AggregateException] {
+    throw $_.Exception.InnerException
+  }
+  $task.Result
+  $fs.Close()
 }
 
 task coverage -depends LocalTestSettings, build, coverage-only
