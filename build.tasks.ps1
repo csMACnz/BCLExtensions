@@ -88,15 +88,15 @@ task build {
 
 task appveyor-checkCoverity {
   if($env:APPVEYOR_SCHEDULED_BUILD -eq "True") {
-    $script:runCoverity = $true
-    $script:covbuild = (Resolve-Path ".\cov-analysis-win64-*\bin\cov-build.exe").ToString()
-
     #download coverity
     Invoke-WebRequest -Uri "https://scan.coverity.com/download/cxx/win_64" -Body @{ project = "$env:APPVEYOR_REPO_NAME"; token = "$env:COVERITY_TOKEN" } -OutFile "$env:APPVEYOR_BUILD_FOLDER\coverity.zip"
     
     # Unzip downloaded package.
     Add-Type -AssemblyName "System.IO.Compression.FileSystem" 
     IO.Compression.ZipFile]::ExtractToDirectory( "$env:APPVEYOR_BUILD_FOLDER\coverity.zip", "$env:APPVEYOR_BUILD_FOLDER")
+
+    $script:runCoverity = $true
+    $script:covbuild = (Resolve-Path ".\cov-analysis-win64-*\bin\cov-build.exe").ToString()
   }
 }
 
