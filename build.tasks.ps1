@@ -31,9 +31,6 @@ task RestoreNuGetPackages {
 
 task GitVersion {
     GitVersion /output buildserver /updateassemblyinfo true /assemblyVersionFormat Major
-     if($env:APPVEYOR_REPO_TAG) {
-        Update-AppveyorBuild -Version $env:GitVersion_FullSemVer
-    }
 }
 
 task LocalTestSettings {
