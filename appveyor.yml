@@ -1,4 +1,4 @@
-version: 1.0.0.{build}
+git version: 1.0.0.{build}
 os: Windows Server 2012 R2
 branches:
   except:
@@ -8,6 +8,8 @@ environment:
     secure: BBCvZzwY+hZfJFv/nnoi708GIAELA2a3gN2+D6xE14vejYrxjpWyAfhK4Kj0HSSy
   COVERITY_TOKEN:
     secure: ZbRwfjyUYFFxQEIjHf5kwFYzOWcw51aA0DRztbcM3OY=
+  COVERITY_EMAIL:
+    secure: YNNLrvdTPJBtXcWskGnutoOOXbWeulhguf0c7iX9Gis=
 install:
 - ps: .\build.environment.ps1
 - ps: psake .\build.tasks.ps1 appveyor-install

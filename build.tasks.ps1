@@ -121,9 +121,9 @@ task coverity -precondition { return $script:runCoverity }{
   $client = New-Object Net.Http.HttpClient
   $client.Timeout = [TimeSpan]::FromMinutes(20)
   $form = New-Object Net.Http.MultipartFormDataContent
-  [Net.Http.HttpContent]$formField = New-Object Net.Http.StringContent($env:Coverity_Token)
+  [Net.Http.HttpContent]$formField = New-Object Net.Http.StringContent($env:COVERITY_TOKEN)
   $form.Add($formField, "token")
-  $formField = New-Object Net.Http.StringContent($env:Coverity_Email)
+  $formField = New-Object Net.Http.StringContent($env:COVERITY_EMAIL)
   $form.Add($formField, "email")
   $fs = New-Object IO.FileStream("$env:APPVEYOR_BUILD_FOLDER\$coverityFileName", [IO.FileMode]::Open, [IO.FileAccess]::Read)
   $formField = New-Object Net.Http.StreamContent($fs)
