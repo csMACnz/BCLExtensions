@@ -92,11 +92,7 @@ task appveyor-checkCoverity {
     $script:covbuild = (Resolve-Path ".\cov-analysis-win64-*\bin\cov-build.exe").ToString()
 
     #download coverity
-    Invoke-WebRequest `
-    -Uri "https://scan.coverity.com/download/cxx/win_64" `
-    -Body @{ project = "$env:APPVEYOR_REPO_NAME";
-             token = "$env:COVERITY_TOKEN" } `
-    -OutFile "$env:APPVEYOR_BUILD_FOLDER\coverity.zip"
+    Invoke-WebRequest -Uri "https://scan.coverity.com/download/cxx/win_64" -Body @{ project = "$env:APPVEYOR_REPO_NAME"; token = "$env:COVERITY_TOKEN" } -OutFile "$env:APPVEYOR_BUILD_FOLDER\coverity.zip"
     
     # Unzip downloaded package.
     Add-Type -AssemblyName "System.IO.Compression.FileSystem" 
@@ -107,13 +103,17 @@ task appveyor-checkCoverity {
 task setup-coverity-local {
   $script:runCoverity = $true
   $script:covbuild = "cov-build"
+  $env:APPVEYOR_BUILD_FOLDER = "."
+  $env:APPVEYOR_BUILD_VERSION = $script:version
+  $env:APPVEYOR_REPO_NAME = "csmacnz/BCLExtensions"
+  "You should have set the COVERITY_TOKEN environment variable already"
 }
 
 task test-coverity -depends setup-coverity-local, coverity
 
 task coverity -precondition { return $script:runCoverity }{
   & $script:covbuild --dir cov-int msbuild "/t:Clean;Build" "/p:Configuration=$configuration" $sln_file
-  $coverityFileName = BCLExtensions.coverity.$script:nugetVersion.zip
+  $coverityFileName = "BCLExtensions.coverity.$script:nugetVersion.zip"
   Write-Zip -Path "cov-int" -OutputPath $coverityFileName
   
   #TODO an app for this:
