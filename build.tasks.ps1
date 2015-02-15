@@ -94,7 +94,7 @@ task appveyor-checkCoverity {
     Invoke-WebRequest `
     -Uri "https://scan.coverity.com/download/cxx/win_64" `
     -Body @{ project = "$env:APPVEYOR_REPO_NAME";
-             token = "$env:CoverityProjectToken" } `
+             token = "$env:COVERITY_TOKEN" } `
     -OutFile "$env:APPVEYOR_BUILD_FOLDER\coverity.zip"
     
     # Unzip downloaded package.
