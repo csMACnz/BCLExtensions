@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>BCLExtensions</id>
-    <version>1.0.0.0</version>
+    <version>{Version}</version>
     <title>BCLExtensions</title>
     <authors>csmacnz</authors>
     <owners>csmacnz</owners>
