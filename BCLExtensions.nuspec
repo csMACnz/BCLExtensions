@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>BCLExtensions</id>
+    <version>{Version}</version>
+    <title>BCLExtensions</title>
+    <authors>csmacnz</authors>
+    <owners>csmacnz</owners>
+    <licenseUrl>https://github.com/csMACnz/BCLExtensions/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/csMACnz/BCLExtensions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Base Class Library Extensions for C# base class library types like System.String.</description>
+    <summary>Base Class Library Extensions for C# base class library types like System.String.</summary>
+    <language>en-US</language>
+    <copyright>Copyright 2015</copyright>
+    <tags>BCLExtensions, PCL, Extensions, Extension Methods, Helpers, Base Class Library</tags>
+  </metadata>
+</package>
