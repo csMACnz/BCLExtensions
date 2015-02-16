@@ -22,6 +22,9 @@ TestResults
 
 #Build Script Artifacts
 Package
+coverity.zip
+cov-int
+cov-analysis-win64-*
 BCLExtensionsCoverage.xml
 BCLExtensions.*.zip
 BCLExtensions.*.nupkg
