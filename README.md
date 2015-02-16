@@ -4,18 +4,19 @@ BCLExtensions
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://csmacnz.mit-license.org)
 [![NuGet](https://img.shields.io/nuget/v/BCLExtensions.svg)](https://www.nuget.org/packages/BCLExtensions)
 [![NuGet](https://img.shields.io/nuget/dt/BCLExtensions.svg)](https://www.nuget.org/packages/BCLExtensions)
-[![Badges](http://img.shields.io/:badges-12/12-ff6799.svg)](https://github.com/badges/badgerbadgerbadger)
+[![Gratipay](http://img.shields.io/gratipay/csMACnz.svg)](https://gratipay.com/csMACnz/)
+[![Badges](http://img.shields.io/:badges-13/13-ff6799.svg)](https://github.com/badges/badgerbadgerbadger)
+
+[![Stories in Ready](https://badge.waffle.io/csmacnz/BCLExtensions.png?label=ready&title=Ready)](https://waffle.io/csmacnz/BCLExtensions)
+[![Stories in progress](https://badge.waffle.io/csmacnz/BCLExtensions.png?label=in%20progress&title=In%20Progress)](https://waffle.io/csmacnz/BCLExtensions)
+[![Issue Stats](http://www.issuestats.com/github/csMACnz/BCLExtensions/badge/pr)](http://www.issuestats.com/github/csMACnz/BCLExtensions)
+[![Issue Stats](http://www.issuestats.com/github/csMACnz/BCLExtensions/badge/issue)](http://www.issuestats.com/github/csMACnz/BCLExtensions)
 
 [![AppVeyor Build status](https://img.shields.io/appveyor/ci/MarkClearwater/bclextensions.svg)](https://ci.appveyor.com/project/MarkClearwater/bclextensions)
 [![Travis Build Status](https://img.shields.io/travis/csMACnz/BCLExtensions.svg)](https://travis-ci.org/csMACnz/BCLExtensions)
 
 [![Coverage Status](https://img.shields.io/coveralls/csMACnz/BCLExtensions.svg)](https://coveralls.io/r/csMACnz/BCLExtensions?branch=master)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/3770/badge.svg)](https://scan.coverity.com/projects/3770)
-
-[![Stories in Ready](https://badge.waffle.io/csmacnz/BCLExtensions.png?label=ready&title=Ready)](https://waffle.io/csmacnz/BCLExtensions)
-[![Stories in progress](https://badge.waffle.io/csmacnz/BCLExtensions.png?label=in%20progress&title=In%20Progress)](https://waffle.io/csmacnz/BCLExtensions)
-[![Issue Stats](http://www.issuestats.com/github/csMACnz/BCLExtensions/badge/pr)](http://www.issuestats.com/github/csMACnz/BCLExtensions)
-[![Issue Stats](http://www.issuestats.com/github/csMACnz/BCLExtensions/badge/issue)](http://www.issuestats.com/github/csMACnz/BCLExtensions)
 
 Base Class Library Extensions for C# base class library classes, across .Net, Silverlight, WinRT.
 
