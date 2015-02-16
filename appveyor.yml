@@ -1,8 +1,5 @@
 version: 1.0.0.{build}
 os: Windows Server 2012 R2
-branches:
-  except:
-  - master
 environment:
   COVERALLS_REPO_TOKEN:
     secure: BBCvZzwY+hZfJFv/nnoi708GIAELA2a3gN2+D6xE14vejYrxjpWyAfhK4Kj0HSSy
