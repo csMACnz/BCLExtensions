@@ -32,8 +32,6 @@ PCL Profile(Profile328)
 * Xamarin.Android
 * Xamarin.iOS
 
-At some point this can include nuget packages.
-
 Nuget
 -----
 
