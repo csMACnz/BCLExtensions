@@ -9,7 +9,7 @@ environment:
   COVERITY_TOKEN:
     secure: ZbRwfjyUYFFxQEIjHf5kwFYzOWcw51aA0DRztbcM3OY=
   COVERITY_EMAIL:
-    secure: YNNLrvdTPJBtXcWskGnutoOOXbWeulhguf0c7iX9Gis=
+    secure: YNNLrvdTPJBtXcWskGnutoOOXbWeulhguf0c7iX9Gis=
 install:
 - ps: .\build.environment.ps1
 - ps: psake .\build.tasks.ps1 appveyor-install
