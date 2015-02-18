@@ -7,7 +7,8 @@ BCLExtensions
 [![NuGet](https://img.shields.io/nuget/v/BCLExtensions.svg)](https://www.nuget.org/packages/BCLExtensions)
 [![NuGet](https://img.shields.io/nuget/dt/BCLExtensions.svg)](https://www.nuget.org/packages/BCLExtensions)
 [![Gratipay](http://img.shields.io/gratipay/csMACnz.svg)](https://gratipay.com/csMACnz/)
-[![Badges](http://img.shields.io/:badges-13/13-ff6799.svg)](https://github.com/badges/badgerbadgerbadger)
+[![Source Browser](https://img.shields.io/badge/Browse-Source-green.svg)](http://sourcebrowser.io/Browse/csMACnz/BCLExtensions)
+[![Badges](http://img.shields.io/:badges-14/14-ff6799.svg)](https://github.com/badges/badgerbadgerbadger)
 
 [![Stories in Ready](https://badge.waffle.io/csmacnz/BCLExtensions.png?label=ready&title=Ready)](https://waffle.io/csmacnz/BCLExtensions)
 [![Stories in progress](https://badge.waffle.io/csmacnz/BCLExtensions.png?label=in%20progress&title=In%20Progress)](https://waffle.io/csmacnz/BCLExtensions)
