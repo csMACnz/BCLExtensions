@@ -13,6 +13,6 @@
     <summary>Base Class Library Extensions for C# base class library types like System.String.</summary>
     <language>en-US</language>
     <copyright>Copyright 2015</copyright>
-    <tags>BCLExtensions, PCL, Extensions, Extension Methods, Helpers, Base Class Library</tags>
+    <tags>BCLExtensions PCL Extensions Extension Methods Helpers Portable Base Class Library</tags>
   </metadata>
 </package>
