@@ -40,7 +40,7 @@ namespace BCLExtensions
         {
             return string.IsNullOrWhiteSpace(input);
         }
-        
+
         /// <summary>
         /// Takes the input string and returns the same string, or empty string if null 
         /// </summary>
@@ -103,7 +103,7 @@ namespace BCLExtensions
         /// Takes the input string and returns the same string, or null if the string 
         /// has no non-whitespace characters
         /// </summary>
-        /// <param name="input">The string to process</param>
+        /// <param name="value">The string to process</param>
         /// <returns>input if it contains non-whitespace characters; otherwise null</returns>
         public static string ValueOrNullIfWhitespace(this string value)
         {

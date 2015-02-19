@@ -7,7 +7,7 @@ using System.Text;
 namespace BCLExtensions
 {
     /// <summary>
-    /// Extension methods for the <see cref="IEnumerable<T>"/> class.
+    /// Extension methods for the <see cref="IEnumerable{T}"/> class.
     /// </summary>
     public static class IEnumerableExtensions
     {

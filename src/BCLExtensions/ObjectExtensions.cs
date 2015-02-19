@@ -3,7 +3,7 @@
 namespace BCLExtensions
 {
     /// <summary>
-    /// Extension methods for the <see cref="system.object"/> class.
+    /// Extension methods for the <see cref="System.Object"/> class.
     /// </summary>
     public static class ObjectExtensions
     {
@@ -19,12 +19,12 @@ namespace BCLExtensions
                 throw new ArgumentNullException();
             }
         }
-        
+
         /// <summary>
         /// Ensures that the instance is not null, or throws an exception
         /// </summary>
         /// <param name="instance">The object to verify</param>
-        /// <param name="argumentName">The argumentName to use when expception is thrown</param>
+        /// <param name="argumentName">The argumentName to use when exception is thrown</param>
         /// <exception cref="System.ArgumentNullException">thrown when argumentName is null, or instance is null</exception>
         public static void EnsureIsNotNull(this object instance, string argumentName)
         {
