@@ -89,8 +89,9 @@ task build {
 task appveyor-checkCoverity {
   if($env:APPVEYOR_SCHEDULED_BUILD -eq "True") {
     #download coverity
-    Invoke-WebRequest -Uri "https://scan.coverity.com/download/cxx/win_64" -Body @{ project = "$env:APPVEYOR_REPO_NAME"; token = "$env:COVERITY_TOKEN" } -OutFile "$env:APPVEYOR_BUILD_FOLDER\coverity.zip"
-    
+    # Invoke-WebRequest -Uri "https://scan.coverity.com/download/cxx/win_64" -Body @{ project = "$env:APPVEYOR_REPO_NAME"; token = "$env:COVERITY_TOKEN" } -OutFile "$env:APPVEYOR_BUILD_FOLDER\coverity.zip"
+    Invoke-WebRequest -Uri "https://dl.dropboxusercontent.com/u/19134447/cov-analysis-win64-7.5.0-netonly.zip" -OutFile "$env:APPVEYOR_BUILD_FOLDER\coverity.zip"
+
     Expand-Archive .\coverity.zip
 
     $script:runCoverity = $true
