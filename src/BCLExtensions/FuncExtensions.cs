@@ -31,7 +31,6 @@ namespace BCLExtensions
             return () => function(parameter);
         }
 
-
         /// <summary>
         /// Extension method to expose a <see cref="System.Func{T1,T2,TResult}"/> as an  <see cref="System.Action"/> .
         /// </summary>

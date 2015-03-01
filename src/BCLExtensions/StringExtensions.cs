@@ -110,5 +110,25 @@ namespace BCLExtensions
             if (value == null || String.IsNullOrWhiteSpace(value)) return null;
             return value;
         }
+
+        /// <summary>
+        /// Removes surrounding double or single quotes from a string, if applicable.
+        /// </summary>
+        /// <param name="value">The string to process.</param>
+        /// <returns>input with quotes removed if surrounded by quotes; otherwise original value is returned</returns>
+        public static string Unquoted(this string value)
+        {
+            if (value == null) return null;
+            if (value.Length < 2) return value;
+
+            const char singleQuote = '\'';
+            const char doubleQuote = '"';
+            if ((value[0] == doubleQuote && value[value.Length - 1] == doubleQuote)
+                || (value[0] == singleQuote && value[value.Length - 1] == singleQuote))
+            {
+                return value.Substring(1, value.Length - 2);
+            }
+            return value;
+        }
     }
 }
