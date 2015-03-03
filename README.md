@@ -1,7 +1,7 @@
 BCLExtensions
 =============
 
-<img align="right" width="256px" height="256px" src="http://res.cloudinary.com/csmacnz/image/upload/v1424233820/bclextensions.net-256_pasmpy.svg">
+<img align="right" width="256px" height="256px" src="http://img.csmac.nz/BCLExtensions.net-256.svg">
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://csmacnz.mit-license.org)
 [![NuGet](https://img.shields.io/nuget/v/BCLExtensions.svg)](https://www.nuget.org/packages/BCLExtensions)
