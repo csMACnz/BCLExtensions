@@ -87,8 +87,6 @@ task build {
 }
 
 task setup-coverity-local {
-  $script:runCoverity = $true
-  $script:covbuild = "cov-build"
   $env:APPVEYOR_BUILD_FOLDER = "."
   $env:APPVEYOR_BUILD_VERSION = $script:version
   $env:APPVEYOR_REPO_NAME = "csmacnz/BCLExtensions"
@@ -102,7 +100,7 @@ task coverity -precondition { return $env:APPVEYOR_SCHEDULED_BUILD -eq "True" }{
   $coverityFileName = "BCLExtensions.coverity.$script:nugetVersion.zip"
   $PublishCoverity = (Resolve-Path ".\src\packages\PublishCoverity.*\PublishCoverity.exe").ToString()
 
-  & $script:covbuild --dir cov-int msbuild "/t:Clean;Build" "/p:Configuration=$configuration" $sln_file
+  & cov-build --dir cov-int msbuild "/t:Clean;Build" "/p:Configuration=$configuration" $sln_file
   
   & $PublishCoverity compress -o $coverityFileName
   
