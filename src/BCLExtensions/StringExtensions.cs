@@ -42,6 +42,23 @@ namespace BCLExtensions
         }
 
         /// <summary>
+        /// Gets the the left most characters from the input string to a given length.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="length">The length.</param>
+        /// <returns>The substring from the left of the string.</returns>
+        /// <remarks>When the input length is shorter than the requested length, the original string is returned.</remarks>
+        /// <exception cref="System.ArgumentNullException">Thrown when input is null.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when length is less than zero.</exception>
+        public static string Left(this string input, int length)
+        {
+            input.EnsureIsNotNull("input");
+            return length >= input.Length
+                ? input
+                : input.Substring(0, length);
+        }
+
+        /// <summary>
         /// Removes surrounding double or single quotes from a string, if applicable.
         /// </summary>
         /// <param name="value">The string to process.</param>
