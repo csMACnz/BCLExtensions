@@ -68,6 +68,7 @@
     <Compile Include="FuncExtensions\AsActionUsingTests.cs" />
     <Compile Include="FuncExtensions\AsActionTests.cs" />
     <Compile Include="GenericExtensions\ValueOrDefaultTests.cs" />
+    <Compile Include="StringExtensions\RightTests.cs" />
     <Compile Include="StringExtensions\LeftTests.cs" />
     <Compile Include="StringExtensions\UnquotedTests.cs" />
     <Compile Include="StringExtensions\ValueOrNullIfWhitespaceTests.cs">

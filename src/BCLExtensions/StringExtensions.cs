@@ -53,9 +53,28 @@ namespace BCLExtensions
         public static string Left(this string input, int length)
         {
             input.EnsureIsNotNull("input");
+            if (length < 0) throw new ArgumentOutOfRangeException("length", "Length cannot be less than 0.");
             return length >= input.Length
                 ? input
                 : input.Substring(0, length);
+        }
+
+        /// <summary>
+        /// Gets the the right most characters from the input string to a given length.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="length">The length.</param>
+        /// <returns>The substring from the left of the string.</returns>
+        /// <remarks>When the input length is shorter than the requested length, the original string is returned.</remarks>
+        /// <exception cref="System.ArgumentNullException">Thrown when input is null.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when length is less than zero.</exception>
+        public static string Right(this string input, int length)
+        {
+            input.EnsureIsNotNull("input");
+            if(length < 0) throw new ArgumentOutOfRangeException("length", "Length cannot be less than 0.");
+            return length >= input.Length
+                ? input
+                : input.Substring(input.Length-length, length);
         }
 
         /// <summary>
