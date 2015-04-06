@@ -70,6 +70,8 @@
     <Compile Include="GenericExtensions\ValueOrDefaultTests.cs" />
     <Compile Include="StringExtensions\RightTests.cs" />
     <Compile Include="StringExtensions\LeftTests.cs" />
+    <Compile Include="StringExtensions\SafeTrimEndTests.cs" />
+    <Compile Include="StringExtensions\SafeTrimStartTests.cs" />
     <Compile Include="StringExtensions\SafeTrimTests.cs" />
     <Compile Include="StringExtensions\UnquotedTests.cs" />
     <Compile Include="StringExtensions\ValueOrNullIfWhitespaceTests.cs">

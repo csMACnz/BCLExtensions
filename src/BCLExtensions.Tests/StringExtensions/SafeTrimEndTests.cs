@@ -3,20 +3,20 @@ using Xunit.Extensions;
 
 namespace BCLExtensions.Tests.StringExtensions
 {
-    public class SafeTrimTests
+    public class SafeTrimEndTests
     {
         [Theory]
         [InlineData("", "")]
         [InlineData("Hello World", "Hello World")]
-        [InlineData("\nHello World\n", "Hello World")]
-        [InlineData("\tHello World\t", "Hello World")]
-        [InlineData("  Hello World  ", "Hello World")]
+        [InlineData("\nHello World\n", "\nHello World")]
+        [InlineData("\tHello World\t", "\tHello World")]
+        [InlineData("  Hello World  ", "  Hello World")]
         [InlineData("Hello   ", "Hello")]
-        [InlineData("   World", "World")]
+        [InlineData("   World", "   World")]
         [InlineData("Hello   World", "Hello   World")]
         public void InputReturnsExpectedOutput(string input, string expected)
         {
-            var result = input.SafeTrim();
+            var result = input.SafeTrimEnd();
 
             Assert.Equal(expected, result);
         }
@@ -26,7 +26,7 @@ namespace BCLExtensions.Tests.StringExtensions
         {
             string input = null;
 
-            var result = input.SafeTrim();
+            var result = input.SafeTrimEnd();
 
             Assert.Equal(string.Empty, result);
         }
