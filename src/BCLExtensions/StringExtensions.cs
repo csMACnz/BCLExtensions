@@ -78,6 +78,16 @@ namespace BCLExtensions
         }
 
         /// <summary>
+        /// Safely removes all trailing and leading whitespace characters from the input.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>The whitespace trimmed string, or the empty string if input is null.</returns>
+        public static string SafeTrim(this string input)
+        {
+            return input == null ? string.Empty : input.Trim();
+        }
+
+        /// <summary>
         /// Removes surrounding double or single quotes from a string, if applicable.
         /// </summary>
         /// <param name="value">The string to process.</param>
