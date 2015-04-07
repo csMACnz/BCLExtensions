@@ -36,7 +36,7 @@ namespace BCLExtensions.Tests.StringExtensions
         {
             const string expected = "String Object";
 
-            var result = expected.SafeToString();
+            var result = expected.SafeToString("[NULL]");
 
             Assert.Equal(expected, result);
         }
@@ -47,7 +47,7 @@ namespace BCLExtensions.Tests.StringExtensions
             const string expected = "Test String";
             object value = expected;
 
-            var result = value.SafeToString();
+            var result = value.SafeToString("[NULL]");
 
             Assert.Equal(expected, result);
         }
@@ -57,7 +57,7 @@ namespace BCLExtensions.Tests.StringExtensions
         {
             var value = new TestObject();
 
-            var result = value.SafeToString();
+            var result = value.SafeToString("[NULL]");
 
             Assert.Equal(TestObject.ExpectedString, result);
         }
