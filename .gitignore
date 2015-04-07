@@ -7,6 +7,7 @@ obj
 *.userprefs
 *.user
 *.sln.DotSettings.user
+*.sln.ide
 
 # mstest test results
 TestResults
