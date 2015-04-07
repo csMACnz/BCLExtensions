@@ -118,6 +118,31 @@ namespace BCLExtensions
         }
 
         /// <summary>
+        /// Performs the .ToString() call safely, returning Empty string when null.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="item">The item.</param>
+        /// <returns>The object's ToString() result, or the empty string if null;</returns>
+        public static string SafeToString<T>(this T item)
+        {
+            return item == null ? string.Empty : item.ToString();
+        }
+
+        /// <summary>
+        /// Performs the .ToString() call safely, returning Empty string when null.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="item">The item.</param>
+        /// <param name="nullString">The string to use when item is null.</param>
+        /// <returns>The object's ToString() result, or the empty string if null;</returns>
+        /// <exception cref="System.ArgumentNullException">Thrown when nullString is null.</exception>
+        public static string SafeToString<T>(this T item, string nullString)
+        {
+            nullString.EnsureIsNotNull("nullString");
+            return item == null ? nullString : item.ToString();
+        }
+
+        /// <summary>
         /// Safely removes all trailing and leading whitespace characters from the input.
         /// </summary>
         /// <param name="input">The input.</param>
