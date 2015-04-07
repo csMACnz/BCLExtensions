@@ -13,7 +13,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [InlineData("", 0, "")]
         [InlineData("", 5, "")]
         [InlineData("Becomes Empty String", 0, "")]
-        public void LeftInputReturnsExpectedOutput(string input, int length, string expected)
+        public void InputReturnsExpectedOutput(string input, int length, string expected)
         {
             var formattedString = input.Left(length);
             Assert.Equal(expected, formattedString);

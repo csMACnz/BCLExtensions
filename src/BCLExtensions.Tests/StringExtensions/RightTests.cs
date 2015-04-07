@@ -13,7 +13,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [InlineData("", 0, "")]
         [InlineData("", 5, "")]
         [InlineData("Becomes Empty String", 0, "")]
-        public void RightInputReturnsExpectedOutput(string input, int length, string expected)
+        public void InputReturnsExpectedOutput(string input, int length, string expected)
         {
             var formattedString = input.Right(length);
             Assert.Equal(expected, formattedString);
@@ -22,15 +22,15 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void NullInputThrowsException()
         {
-            Func<string, int, string> Right = BCLExtensions.StringExtensions.Right;
-            Assert.Throws<ArgumentNullException>(Right.AsActionUsing(null, 0).AsThrowsDelegate());
+            Func<string, int, string> right = BCLExtensions.StringExtensions.Right;
+            Assert.Throws<ArgumentNullException>(right.AsActionUsing(null, 0).AsThrowsDelegate());
         }
 
         [Fact]
         public void NegativeLengthThrowsException()
         {
-            Func<string, int, string> Right = BCLExtensions.StringExtensions.Right;
-            Assert.Throws<ArgumentOutOfRangeException>(Right.AsActionUsing("Hello World", -1).AsThrowsDelegate());
+            Func<string, int, string> right = BCLExtensions.StringExtensions.Right;
+            Assert.Throws<ArgumentOutOfRangeException>(right.AsActionUsing("Hello World", -1).AsThrowsDelegate());
         }
     }
 }
