@@ -60,14 +60,18 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ActionExtensions\AsActionUsingTests.cs" />
+    <Compile Include="ActionExtensions\AsActionUsingWithThreeParametersTests.cs" />
     <Compile Include="ActionExtensions\AsActionUsingWithTwoParametersTests.cs" />
     <Compile Include="ArrayExtensions\ClearTests.cs" />
     <Compile Include="ArrayExtensions\OrEmptyIfNullTests.cs" />
     <Compile Include="ArrayExtensions\OrNullIfEmptyTests.cs" />
+    <Compile Include="FuncExtensions\AsActionUsingWithThreeParametersTests.cs" />
     <Compile Include="FuncExtensions\AsActionUsingWithTwoParametersTests.cs" />
     <Compile Include="FuncExtensions\AsActionUsingTests.cs" />
     <Compile Include="FuncExtensions\AsActionTests.cs" />
     <Compile Include="GenericExtensions\ValueOrDefaultTests.cs" />
+    <Compile Include="IntExtensions\IsBetweenExclusiveTests.cs" />
+    <Compile Include="IntExtensions\IsBetweenTests.cs" />
     <Compile Include="StringExtensions\SafeRightTests.cs" />
     <Compile Include="StringExtensions\SafeLeftTests.cs" />
     <Compile Include="StringExtensions\RightTests.cs" />

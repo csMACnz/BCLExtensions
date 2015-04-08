@@ -43,6 +43,7 @@
     <Compile Include="FuncExtensions.cs" />
     <Compile Include="GenericExtensions.cs" />
     <Compile Include="IEnumerableExtensions.cs" />
+    <Compile Include="IntExtensions.cs" />
     <Compile Include="ObjectExtensions.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

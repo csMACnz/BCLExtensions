@@ -32,5 +32,21 @@ namespace BCLExtensions
         {
             return () => action(parameter1, parameter2);
         }
+
+        /// <summary>
+        /// Extension method to expose a <see cref="System.Action{T1,T2}" /> as an  <see cref="System.Action" /> .
+        /// </summary>
+        /// <typeparam name="TParameter1">The type of parameter1.</typeparam>
+        /// <typeparam name="TParameter2">The type of parameter2.</typeparam>
+        /// <typeparam name="TParameter3">The type of parameter3.</typeparam>
+        /// <param name="action">The action.</param>
+        /// <param name="parameter1">The parameter1.</param>
+        /// <param name="parameter2">The parameter2.</param>
+        /// <param name="parameter3">The parameter3.</param>
+        /// <returns></returns>
+        public static Action AsActionUsing<TParameter1, TParameter2, TParameter3>(this Action<TParameter1, TParameter2, TParameter3> action, TParameter1 parameter1, TParameter2 parameter2, TParameter3 parameter3)
+        {
+            return () => action(parameter1, parameter2, parameter3);
+        }
     }
 }
