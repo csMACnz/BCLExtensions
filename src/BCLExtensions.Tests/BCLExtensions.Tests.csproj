@@ -76,6 +76,7 @@
     <Compile Include="FuncExtensions\AsActionUsingTests.cs" />
     <Compile Include="FuncExtensions\AsActionTests.cs" />
     <Compile Include="GenericExtensions\ValueOrDefaultTests.cs" />
+    <Compile Include="IEnumerableExtensions\FullOuterJoinTests.cs" />
     <Compile Include="IntExtensions\EnsureOrderTests.cs" />
     <Compile Include="IntExtensions\IsBetweenExclusiveTests.cs" />
     <Compile Include="IntExtensions\IsBetweenExclusiveExclusiveTests.cs" />
