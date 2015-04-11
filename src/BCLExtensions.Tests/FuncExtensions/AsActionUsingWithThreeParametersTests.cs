@@ -3,7 +3,6 @@ using Xunit;
 
 namespace BCLExtensions.Tests.FuncExtensions
 {
-
     public class AsActionUsingWithThreeParametersTests
     {
         [Fact]
@@ -37,7 +36,6 @@ namespace BCLExtensions.Tests.FuncExtensions
             Assert.True(internalFunctionWasCalled);
         }
 
-
         [Fact]
         public void InternalFunctionCapturesCorrectParameters()
         {
@@ -67,6 +65,5 @@ namespace BCLExtensions.Tests.FuncExtensions
         {
             return 42m;
         }
-
     }
 }
