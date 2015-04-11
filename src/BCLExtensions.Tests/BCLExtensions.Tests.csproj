@@ -60,6 +60,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ActionExtensions\AsActionUsingTests.cs" />
+    <Compile Include="ActionExtensions\AsActionUsingWithSevenParametersTests.cs" />
+    <Compile Include="ActionExtensions\AsActionUsingWithSixParametersTests.cs" />
     <Compile Include="ActionExtensions\AsActionUsingWithFiveParametersTests.cs" />
     <Compile Include="ActionExtensions\AsActionUsingWithFourParametersTests.cs" />
     <Compile Include="ActionExtensions\AsActionUsingWithThreeParametersTests.cs" />
