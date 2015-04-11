@@ -153,11 +153,11 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             AssertAreEqualIgnoringOrdering(
                 new[] {
                     "First|First",
+                    "Second|Second",
+                    "Third|NULL",
                     "Fourth|NULL",
                     "NULL|Fourth",
                     "NULL|Third",
-                    "Second|Second",
-                    "Third|NULL"
                 }, 
                 join
             );
