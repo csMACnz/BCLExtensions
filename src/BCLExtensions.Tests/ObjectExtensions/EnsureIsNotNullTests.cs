@@ -1,4 +1,5 @@
 ﻿using System;
+using BCLExtensions.Tests.TestHelpers;
 using Xunit;
 
 namespace BCLExtensions.Tests.ObjectExtensions
@@ -11,7 +12,8 @@ namespace BCLExtensions.Tests.ObjectExtensions
         public void WhenInstanceIsNullThrowsException()
         {
             object instance = null;
-            Assert.Throws<ArgumentNullException>(() => instance.EnsureIsNotNull());
+            Action<object> action = BCLExtensions.ObjectExtensions.EnsureIsNotNull;
+            Assert.Throws<ArgumentNullException>(action.AsActionUsing(instance).AsThrowsDelegate());
         }
 
         [Fact]
@@ -32,7 +34,8 @@ namespace BCLExtensions.Tests.ObjectExtensions
         public void WhenInstanceIsNullWithNamedArgumentThrowsException()
         {
             object instance = null;
-            Assert.Throws<ArgumentNullException>(() => instance.EnsureIsNotNull(instanceArgumentName));
+            Action<object, string> action = BCLExtensions.ObjectExtensions.EnsureIsNotNull;
+            Assert.Throws<ArgumentNullException>(action.AsActionUsing(instance,instanceArgumentName).AsThrowsDelegate());
         }
 
         [Fact]
@@ -40,7 +43,8 @@ namespace BCLExtensions.Tests.ObjectExtensions
         {
             object instance = null;
 
-            var exception = Assert.Throws<ArgumentNullException>(() => instance.EnsureIsNotNull(instanceArgumentName));
+            Action<object, string> action = BCLExtensions.ObjectExtensions.EnsureIsNotNull;
+            var exception = Assert.Throws<ArgumentNullException>(action.AsActionUsing(instance, instanceArgumentName).AsThrowsDelegate());
 
             Assert.Equal(instanceArgumentName, exception.ParamName);
         }
