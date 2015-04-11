@@ -19,6 +19,17 @@ namespace BCLExtensions
         }
 
         /// <summary>
+        /// Ensures the array result is not null.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items">The items.</param>
+        /// <returns>an empty array if null, otherwise the array is returned.</returns>
+        public static T[] OrEmptyIfNull<T>(this T[] items)
+        {
+            return items ?? new T[0];
+        }
+
+        /// <summary>
         /// Ensures the array result either has items, or references null.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -33,15 +44,5 @@ namespace BCLExtensions
             return null;
         }
 
-        /// <summary>
-        /// Ensures the array result is not null.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="items">The items.</param>
-        /// <returns>an empty array if null, otherwise the array is returned.</returns>
-        public static T[] OrEmptyIfNull<T>(this T[] items)
-        {
-            return items ?? new T[0];
-        }
     }
 }

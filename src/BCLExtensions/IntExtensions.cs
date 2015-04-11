@@ -19,16 +19,6 @@ namespace BCLExtensions
         }
 
         /// <summary>
-        /// Creates an <see cref="InclusiveInteger"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns></returns>
-        public static InclusiveInteger Inclusive(this int value)
-        {
-            return new InclusiveInteger(value);
-        }
-
-        /// <summary>
         /// Creates an <see cref="ExclusiveInteger"/>.
         /// </summary>
         /// <param name="value">The value.</param>
@@ -36,6 +26,16 @@ namespace BCLExtensions
         public static ExclusiveInteger Exclusive(this int value)
         {
             return new ExclusiveInteger(value);
+        }
+
+        /// <summary>
+        /// Creates an <see cref="InclusiveInteger"/>.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        public static InclusiveInteger Inclusive(this int value)
+        {
+            return new InclusiveInteger(value);
         }
 
         /// <summary>
