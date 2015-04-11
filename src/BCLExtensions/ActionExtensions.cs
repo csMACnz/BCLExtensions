@@ -48,5 +48,43 @@ namespace BCLExtensions
         {
             return () => action(parameter1, parameter2, parameter3);
         }
+
+        /// <summary>
+        /// Extension method to expose a <see cref="System.Action{T1,T2,T3,T4}" /> as an  <see cref="System.Action" /> .
+        /// </summary>
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
+        /// <typeparam name="T3">The type of the 3.</typeparam>
+        /// <typeparam name="T4">The type of the 4.</typeparam>
+        /// <param name="action">The action.</param>
+        /// <param name="parameter1">The parameter1.</param>
+        /// <param name="parameter2">The parameter2.</param>
+        /// <param name="parameter3">The parameter3.</param>
+        /// <param name="parameter4">The parameter4.</param>
+        /// <returns></returns>
+        public static Action AsActionUsing<T1, T2, T3,T4>(this Action<T1, T2, T3, T4> action, T1 parameter1, T2 parameter2, T3 parameter3, T4 parameter4)
+        {
+            return () => action(parameter1, parameter2, parameter3, parameter4);
+        }
+
+        /// <summary>
+        /// Extension method to expose a <see cref="System.Action{T1,T2,T3,T4,T5}" /> as an  <see cref="System.Action" /> .
+        /// </summary>
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
+        /// <typeparam name="T3">The type of the 3.</typeparam>
+        /// <typeparam name="T4">The type of the 4.</typeparam>
+        /// <typeparam name="T5">The type of the 5.</typeparam>
+        /// <param name="action">The action.</param>
+        /// <param name="parameter1">The parameter1.</param>
+        /// <param name="parameter2">The parameter2.</param>
+        /// <param name="parameter3">The parameter3.</param>
+        /// <param name="parameter4">The parameter4.</param>
+        /// <param name="parameter5">The parameter5.</param>
+        /// <returns></returns>
+        public static Action AsActionUsing<T1, T2, T3, T4, T5>(this Action<T1, T2, T3, T4, T5> action, T1 parameter1, T2 parameter2, T3 parameter3, T4 parameter4, T5 parameter5)
+        {
+            return () => action(parameter1, parameter2, parameter3, parameter4, parameter5);
+        }
     }
 }
