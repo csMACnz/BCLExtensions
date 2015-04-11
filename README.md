@@ -19,7 +19,7 @@ BCLExtensions
 [![Travis Build Status](https://img.shields.io/travis/csMACnz/BCLExtensions.svg)](https://travis-ci.org/csMACnz/BCLExtensions)
 
 [![Coverage Status](https://img.shields.io/coveralls/csMACnz/BCLExtensions.svg)](https://coveralls.io/r/csMACnz/BCLExtensions?branch=master)
-[![Coverity Scan Build Status](https://scan.coverity.com/projects/3770/badge.svg)](https://scan.coverity.com/projects/3770)
+[![Coverity Scan Build Status](https://img.shields.io/coverity/scan/3770.svg)](https://scan.coverity.com/projects/3770)
 
 Base Class Library Extensions for C# base class library classes, across .Net, Silverlight, WinRT.
 
