@@ -21,12 +21,12 @@ namespace BCLExtensions
         /// <summary>
         /// Extension method to expose a <see cref="System.Func{T,TResult}"/> as an  <see cref="System.Action"/> .
         /// </summary>
-        /// <typeparam name="TOutput">The type of the output.</typeparam>
-        /// <typeparam name="TParameter">The type of the parameter.</typeparam>
+        /// <typeparam name="TResult">The type of the output.</typeparam>
+        /// <typeparam name="T">The type of the parameter.</typeparam>
         /// <param name="function">The function.</param>
         /// <param name="parameter">The parameter.</param>
         /// <returns></returns>
-        public static Action AsActionUsing<TOutput, TParameter>(this Func<TParameter, TOutput> function, TParameter parameter)
+        public static Action AsActionUsing<T, TResult>(this Func<T, TResult> function, T parameter)
         {
             return () => function(parameter);
         }
@@ -34,14 +34,14 @@ namespace BCLExtensions
         /// <summary>
         /// Extension method to expose a <see cref="System.Func{T1,T2,TResult}"/> as an  <see cref="System.Action"/> .
         /// </summary>
-        /// <typeparam name="TOutput">The type of the output.</typeparam>
-        /// <typeparam name="TParameter1">The type of parameter1.</typeparam>
-        /// <typeparam name="TParameter2">The type of parameter2.</typeparam>
+        /// <typeparam name="TResult">The type of the output.</typeparam>
+        /// <typeparam name="T1">The type of parameter1.</typeparam>
+        /// <typeparam name="T2">The type of parameter2.</typeparam>
         /// <param name="function">The function.</param>
         /// <param name="parameter1">The parameter1.</param>
         /// <param name="parameter2">The parameter2.</param>
         /// <returns></returns>
-        public static Action AsActionUsing<TOutput, TParameter1, TParameter2>(this Func<TParameter1, TParameter2, TOutput> function, TParameter1 parameter1, TParameter2 parameter2)
+        public static Action AsActionUsing<T1, T2, TResult>(this Func<T1, T2, TResult> function, T1 parameter1, T2 parameter2)
         {
             return () => function(parameter1, parameter2);
         }
@@ -50,16 +50,16 @@ namespace BCLExtensions
         /// <summary>
         /// Extension method to expose a <see cref="System.Func{T1,T2,T3,TResult}" /> as an  <see cref="System.Action" /> .
         /// </summary>
-        /// <typeparam name="TOutput">The type of the output.</typeparam>
-        /// <typeparam name="TParameter1">The type of parameter1.</typeparam>
-        /// <typeparam name="TParameter2">The type of parameter2.</typeparam>
-        /// <typeparam name="TParameter3">The type of parameter3.</typeparam>
+        /// <typeparam name="TResult">The type of the output.</typeparam>
+        /// <typeparam name="T1">The type of parameter1.</typeparam>
+        /// <typeparam name="T2">The type of parameter2.</typeparam>
+        /// <typeparam name="T3">The type of parameter3.</typeparam>
         /// <param name="function">The function.</param>
         /// <param name="parameter1">The parameter1.</param>
         /// <param name="parameter2">The parameter2.</param>
         /// <param name="parameter3">The parameter3.</param>
         /// <returns></returns>
-        public static Action AsActionUsing<TOutput, TParameter1, TParameter2, TParameter3>(this Func<TParameter1, TParameter2, TParameter3, TOutput> function, TParameter1 parameter1, TParameter2 parameter2, TParameter3 parameter3)
+        public static Action AsActionUsing<T1, T2, T3, TResult>(this Func<T1, T2, T3, TResult> function, T1 parameter1, T2 parameter2, T3 parameter3)
         {
             return () => function(parameter1, parameter2, parameter3);
         }
