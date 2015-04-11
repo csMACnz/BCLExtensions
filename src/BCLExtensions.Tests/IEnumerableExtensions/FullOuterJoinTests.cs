@@ -1,37 +1,71 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BCLExtensions.Tests.TestHelpers;
 using Xunit;
 
 namespace BCLExtensions.Tests.IEnumerableExtensions
 {
     public class FullOuterJoinTests
     {
+        public class NullArgumentTests {
+
+        readonly IEnumerable<int> _nullEnumerable = null;
+        readonly Func<int, int> _nullKeySelector = null;
+        readonly Func<int, int, bool> _nullResultSelector = null;
+
+        readonly int[] _validEnumerable = Enumerable.Empty<int>().ToArray();
+        readonly Func<int, int> _validKeySelector = SelectSelf;
+        readonly Func<int, int, bool> _validResultSelector = NumbersMatch;
+
+        readonly Func<IEnumerable<int>, IEnumerable<int>, Func<int, int>, Func<int, int>, Func<int, int, bool>, IEnumerable<bool>> _fullOuterJoin = FullOuterJoinAndEnumerateResults;
+
         [Fact]
-        public void FailsOnNullInputs()
+        public void NullFirstEnumerableThrowsException()
         {
-            var NULL_Enumerable = (IEnumerable<int>)null;
-            var NULL_KeySelector = (Func<int, int>)null;
-            var NULL_ResultSelector = (Func<int, int, int>)null;
-
-            var validEnumerable = Enumerable.Empty<int>().ToArray();
-            var validKeySelector = new Func<int, int>(v => v);
-            var validResultSelector = new Func<int, int, int>((l, r) => l + r);
-
-            Assert.Throws<ArgumentNullException>(() => NULL_Enumerable.FullOuterJoin(validEnumerable, validKeySelector, validKeySelector, validResultSelector).ToArray());
-            Assert.Throws<ArgumentNullException>(() => validEnumerable.FullOuterJoin(NULL_Enumerable, validKeySelector, validKeySelector, validResultSelector).ToArray());
-            Assert.Throws<ArgumentNullException>(() => validEnumerable.FullOuterJoin(validEnumerable, NULL_KeySelector, validKeySelector, validResultSelector).ToArray());
-            Assert.Throws<ArgumentNullException>(() => validEnumerable.FullOuterJoin(validEnumerable, validKeySelector, NULL_KeySelector, validResultSelector).ToArray());
-            Assert.Throws<ArgumentNullException>(() => validEnumerable.FullOuterJoin(validEnumerable, validKeySelector, validKeySelector, NULL_ResultSelector).ToArray());
-
-            Assert.DoesNotThrow(() => validEnumerable.FullOuterJoin(validEnumerable, validKeySelector, validKeySelector, validResultSelector).ToArray());
+            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_nullEnumerable, _validEnumerable, _validKeySelector, _validKeySelector, _validResultSelector).AsThrowsDelegate());
         }
 
+        [Fact]
+        public void NullSecondEnumerableThrowsException()
+        {
+            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_validEnumerable, _nullEnumerable, _validKeySelector, _validKeySelector, _validResultSelector).AsThrowsDelegate());
+        }
+
+        [Fact]
+        public void NullFirstKeySelectorThrowsException()
+        {
+            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _nullKeySelector, _validKeySelector, _validResultSelector).AsThrowsDelegate());
+        }
+
+        [Fact]
+        public void NullSecondKeySelectorThrowsException()
+        {
+            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _validKeySelector, _nullKeySelector, _validResultSelector).AsThrowsDelegate());
+        }
+
+        [Fact]
+        public void NullResultsSelectorThrowsException()
+        {
+            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _validKeySelector, _validKeySelector, _nullResultSelector).AsThrowsDelegate());
+        }
+
+        [Fact]
+        public void ValidInputReturnsSuccessfully()
+        {
+            Assert.DoesNotThrow(_fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _validKeySelector, _validKeySelector, _validResultSelector).AsThrowsDelegate());
+        }
+
+        private static IEnumerable<bool> FullOuterJoinAndEnumerateResults(IEnumerable<int> firstEnumerable, IEnumerable<int> secondEnumerable, Func<int, int> firstKeySelector, Func<int, int> secondKeySelector, Func<int, int, bool> resultSelector)
+        {
+            return firstEnumerable.FullOuterJoin(secondEnumerable, firstKeySelector, secondKeySelector, resultSelector).ToArray();
+        }
+}
         private static void AssertAreEqualIgnoringOrdering<T>(IEnumerable<T> expected, IEnumerable<T> actual)
         {
             Assert.Equal(
-                expected.OrderBy(v => v),
-                actual.OrderBy(v => v)
+                expected.OrderBy(SelectSelf),
+                actual.OrderBy(SelectSelf)
             );
         }
 
@@ -41,7 +75,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             var left = new[] { 1, 2, 3 };
             var right = new[] { 1, 2, 3 };
 
-            var join = left.FullOuterJoin(right, l => l, r => r, (l, r) => l == r);
+            var join = left.FullOuterJoin(right, SelectSelf, SelectSelf, (l, r) => l == r);
 
 
             AssertAreEqualIgnoringOrdering(new[] { true, true, true }, join);
@@ -53,7 +87,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             var left = new[] { 1, 2, 3, 4 };
             var right = new[] { 1, 2, 3 };
 
-            var join = left.FullOuterJoin(right, l => l, r => r, (l, r) => l == r);
+            var join = left.FullOuterJoin(right, SelectSelf, SelectSelf, (l, r) => l == r);
 
 
             AssertAreEqualIgnoringOrdering(new[] { true, true, true, false }, join);
@@ -65,7 +99,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             var left = new[] { 1, 2, 3 };
             var right = new[] { 1, 2, 3, 4 };
 
-            var join = left.FullOuterJoin(right, l => l, r => r, (l, r) => l == r);
+            var join = left.FullOuterJoin(right, SelectSelf, SelectSelf, (l, r) => l == r);
 
             AssertAreEqualIgnoringOrdering(new[] { true, true, true, false }, join);
         }
@@ -87,7 +121,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             var left = new[] { 4, 2, 3, 1 };
             var right = new[] { 3, 1, 4, 2 };
 
-            var join = left.FullOuterJoin(right, l => l, r => r, (l, r) => l == r);
+            var join = left.FullOuterJoin(right, l => l, r => r, NumbersMatch);
 
             AssertAreEqualIgnoringOrdering(new[] { true, true, true, true }, join);
         }
@@ -107,7 +141,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
         {
             public bool Equals(Tuple<int, string> x, Tuple<int, string> y)
             {
-                return x == null && y == null || x != null && y != null && x.Item1 == y.Item1 && x.Item2 == y.Item2;
+                return x.Item2 == y.Item2;
             }
 
             public int GetHashCode(Tuple<int, string> obj)
@@ -144,9 +178,9 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
 
             var comparer = new IntStringTupleEqualityComparer();
 
-            var join = left.FullOuterJoin(right, 
-                                          l => l,
-                                          r => r,
+            var join = left.FullOuterJoin(right,
+                                          SelectSelf,
+                                          SelectSelf,
                                           (l, r) => String.Format("{0}|{1}", l == null ? "NULL" : l.Item2, r == null ? "NULL" : r.Item2), 
                                           keyEqualityComparer: comparer);
 
@@ -158,9 +192,18 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
                     "Fourth|NULL",
                     "NULL|Third",
                     "NULL|Fourth",
-                }, 
+                },
                 join
             );
         }
+        private static T SelectSelf<T>(T v)
+        {
+            return v;
+        }
+        private static bool NumbersMatch(int l, int r)
+        {
+            return l == r;
+        }
+
     }
 }
