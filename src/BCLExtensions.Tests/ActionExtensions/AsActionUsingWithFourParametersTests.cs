@@ -30,12 +30,11 @@ namespace BCLExtensions.Tests.ActionExtensions
             {
                 internalActionWasCalled = true;
             };
-            var result = action.AsActionUsing(12,"24", false, 3.14m);
+            var result = action.AsActionUsing(12, "24", false, 3.14m);
             result();
 
             Assert.True(internalActionWasCalled);
         }
-
 
         [Fact]
         public void InternalActionCapturesCorrectParameters()

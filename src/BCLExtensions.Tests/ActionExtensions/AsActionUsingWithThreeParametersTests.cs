@@ -36,7 +36,6 @@ namespace BCLExtensions.Tests.ActionExtensions
             Assert.True(internalActionWasCalled);
         }
 
-
         [Fact]
         public void InternalActionCapturesCorrectParameters()
         {
