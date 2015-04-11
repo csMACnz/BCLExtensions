@@ -117,7 +117,7 @@ task test-coveralls -depends coverage, ResolveCoverallsPath {
     exec { & $coveralls --opencover -i BCLExtensionsCoverage.xml --dryrun -o coverallsTestOutput.json --repoToken "NOTAREALTOKEN" }
 }
 
-task coveralls -depends ResolveCoverallsPath -precondition { return $env:APPVEYOR_PULL_REQUEST_NUMBER }{
+task coveralls -depends ResolveCoverallsPath -precondition { return -not $env:APPVEYOR_PULL_REQUEST_NUMBER }{
     exec { & $coveralls --opencover -i BCLExtensionsCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID }
 }
 
