@@ -146,6 +146,7 @@
     <Compile Include="StringExtensions\ValueorIfNullTests.cs" />
     <Compile Include="TestHelpers\ThrowsHelpers.cs" />
     <Compile Include="TestHelperTests\CustomICollectionTests.cs" />
+    <Compile Include="TypeExtensions\IsNullableTests.cs" />
     <Compile Include="TypeExtensions\IsOfTypeTests.cs" />
   </ItemGroup>
   <ItemGroup>
