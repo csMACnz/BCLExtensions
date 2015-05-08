@@ -121,6 +121,10 @@ task coveralls -depends ResolveCoverallsPath -precondition { return -not $env:AP
     exec { & $coveralls --opencover -i BCLExtensionsCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID }
 }
 
+task codecov {
+    codecov -f BCLExtensionsCoverage.xml
+}
+
 task archive -depends build, archive-only
 
 task archive-only {
@@ -156,4 +160,4 @@ task appveyor-install -depends GitVersion, RestoreNuGetPackages
 
 task appveyor-build -depends build
 
-task appveyor-test -depends AppVeyorEnvironmentSettings, postbuild, coverity
+task appveyor-test -depends AppVeyorEnvironmentSettings, postbuild, coverity, codecov
