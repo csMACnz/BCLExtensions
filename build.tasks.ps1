@@ -122,9 +122,8 @@ task coveralls -depends ResolveCoverallsPath -precondition { return -not $env:AP
 }
 
 task codecov {
-    cp BCLExtensionsCoverage.xml codecov.coverage.xml
     Invoke-WebRequest https://codecov.io/bash -OutFile codecov.sh
-    bash codecov.sh
+    bash codecov.sh -v -f BCLExtensionsCoverage.xml
 }
 
 task archive -depends build, archive-only
