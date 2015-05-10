@@ -145,8 +145,10 @@ task pack-only {
     mkdir $nuget_pack_dir
     cp "$nuspec_filename" "$nuget_pack_dir"
 
+    #Profile 328 goes into nuget sub folder "\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1"
     mkdir "$nuget_pack_dir\lib"
-    cp "$build_output_dir\BCLExtensions.dll" "$nuget_pack_dir\lib"
+    mkdir "$nuget_pack_dir\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1"
+    cp "$build_output_dir\BCLExtensions.dll" "$nuget_pack_dir\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1"
 
     $Spec = [xml](get-content "$nuget_pack_dir\$nuspec_filename")
     $Spec.package.metadata.version = ([string]$Spec.package.metadata.version).Replace("{Version}", $script:nugetVersion)
@@ -161,4 +163,4 @@ task appveyor-install -depends GitVersion, RestoreNuGetPackages
 
 task appveyor-build -depends build
 
-task appveyor-test -depends AppVeyorEnvironmentSettings, postbuild, coverity, codecov
+task appveyor-test -depends AppVeyorEnvironmentSettings, postbuild, coverity
