@@ -25,6 +25,7 @@ TestResults
 Package
 coverity.zip
 cov-int
+codecov
 cov-analysis-win64-*
 BCLExtensionsCoverage.xml
 BCLExtensions.*.zip
