@@ -75,6 +75,7 @@
     <Compile Include="ActionExtensions\AsActionUsingWithFourParametersTests.cs" />
     <Compile Include="ActionExtensions\AsActionUsingWithThreeParametersTests.cs" />
     <Compile Include="ActionExtensions\AsActionUsingWithTwoParametersTests.cs" />
+    <Compile Include="ActionExtensions\AsFuncTests.cs" />
     <Compile Include="ArrayExtensions\ClearTests.cs" />
     <Compile Include="ArrayExtensions\OrEmptyIfNullTests.cs" />
     <Compile Include="ArrayExtensions\OrNullIfEmptyTests.cs" />

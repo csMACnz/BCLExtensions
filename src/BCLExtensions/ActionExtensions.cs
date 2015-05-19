@@ -438,5 +438,15 @@ namespace BCLExtensions
         {
             return () => action(parameter1, parameter2, parameter3, parameter4, parameter5, parameter6, parameter7, parameter8, parameter9, parameter10, parameter11, parameter12, parameter13, parameter14, parameter15, parameter16);
         }
+
+        /// <summary>
+        /// Extension method to expose a <see cref="System.Action" /> as an  <see cref="System.Func{Unit}" />.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        /// <returns>A <see cref="System.Func{Unit}" /></returns>
+        public static Func<Unit> AsFunc(this Action action)
+        {
+            return ()=> { action(); return Unit.Default; };
+        }
     }
 }
