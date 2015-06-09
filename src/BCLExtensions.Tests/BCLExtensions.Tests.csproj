@@ -106,6 +106,9 @@
     <Compile Include="IntExtensions\IsBetweenInclusiveExclusiveTests.cs" />
     <Compile Include="IntExtensions\IsBetweenInclusiveInclusiveTests.cs" />
     <Compile Include="IntExtensions\IsBetweenTests.cs" />
+    <Compile Include="IntTimespanExtensions\IsAValidNumberOfDaysForTimeSpanTests.cs" />
+    <Compile Include="IntTimespanExtensions\DayTests.cs" />
+    <Compile Include="IntTimespanExtensions\DaysTests.cs" />
     <Compile Include="StringExtensions\SafeRightTests.cs" />
     <Compile Include="StringExtensions\SafeLeftTests.cs" />
     <Compile Include="StringExtensions\RightTests.cs" />
