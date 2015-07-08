@@ -105,6 +105,12 @@
     <Compile Include="IntExtensions\IsBetweenInclusiveExclusiveTests.cs" />
     <Compile Include="IntExtensions\IsBetweenInclusiveInclusiveTests.cs" />
     <Compile Include="IntExtensions\IsBetweenTests.cs" />
+    <Compile Include="IntTimespanExtensions\MillisecondTests.cs" />
+    <Compile Include="IntTimespanExtensions\MillisecondsTests.cs" />
+    <Compile Include="IntTimespanExtensions\MinuteTests.cs" />
+    <Compile Include="IntTimespanExtensions\SecondTests.cs" />
+    <Compile Include="IntTimespanExtensions\SecondsTests.cs" />
+    <Compile Include="IntTimespanExtensions\MinutesTests.cs" />
     <Compile Include="IntTimespanExtensions\HourTests.cs" />
     <Compile Include="IntTimespanExtensions\HoursTests.cs" />
     <Compile Include="IntTimespanExtensions\IsAValidNumberOfHoursForTimeSpanTests.cs" />
@@ -153,6 +159,7 @@
     <Compile Include="StringExtensions\ValueorIfNullTests.cs" />
     <Compile Include="TestHelpers\ThrowsHelpers.cs" />
     <Compile Include="TestHelperTests\CustomICollectionTests.cs" />
+    <Compile Include="TimeSpanExtensions\AgoTests.cs" />
     <Compile Include="TypeExtensions\IsNullableTests.cs" />
     <Compile Include="TypeExtensions\IsOfTypeTests.cs" />
   </ItemGroup>

@@ -72,6 +72,16 @@ namespace BCLExtensions
         /// </summary>
         /// <param name="numberOfMilliseconds">The number of minutes.</param>
         /// <returns>The <see cref="TimeSpan"/> representation.</returns>
+        public static TimeSpan Millisecond(this int numberOfMilliseconds)
+        {
+            return new TimeSpan(0, 0, 0, 0, numberOfMilliseconds);
+        }
+
+        /// <summary>
+        /// The specified number in minutes as a <see cref="TimeSpan"/>.
+        /// </summary>
+        /// <param name="numberOfMilliseconds">The number of minutes.</param>
+        /// <returns>The <see cref="TimeSpan"/> representation.</returns>
         public static TimeSpan Milliseconds(this int numberOfMilliseconds)
         {
             return new TimeSpan(0, 0, 0, 0, numberOfMilliseconds);
@@ -82,9 +92,29 @@ namespace BCLExtensions
         /// </summary>
         /// <param name="numberOfMinutes">The number of minutes.</param>
         /// <returns>The <see cref="TimeSpan"/> representation.</returns>
+        public static TimeSpan Minute(this int numberOfMinutes)
+        {
+            return new TimeSpan(0, numberOfMinutes, 0);
+        }
+
+        /// <summary>
+        /// The specified number in minutes as a <see cref="TimeSpan"/>.
+        /// </summary>
+        /// <param name="numberOfMinutes">The number of minutes.</param>
+        /// <returns>The <see cref="TimeSpan"/> representation.</returns>
         public static TimeSpan Minutes(this int numberOfMinutes)
         {
             return new TimeSpan(0, numberOfMinutes, 0);
+        }
+
+        /// <summary>
+        /// The specified number in seconds as a <see cref="TimeSpan"/>.
+        /// </summary>
+        /// <param name="numberOfSeconds">The number of seconds.</param>
+        /// <returns>The <see cref="TimeSpan"/> representation.</returns>
+        public static TimeSpan Second(this int numberOfSeconds)
+        {
+            return new TimeSpan(0, 0, numberOfSeconds);
         }
 
         /// <summary>

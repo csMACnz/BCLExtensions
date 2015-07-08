@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="ActionExtensions.cs" />
     <Compile Include="ArrayExtensions.cs" />
+    <Compile Include="TimeSpanExtensions.cs" />
     <Compile Include="ExclusiveInteger.cs" />
     <Compile Include="FuncExtensions.cs" />
     <Compile Include="GenericExtensions.cs" />
