@@ -34,7 +34,7 @@ namespace BCLExtensions
         /// <returns>The <see cref="TimeSpan"/> representation.</returns>
         public static TimeSpan Hour(this int numberOfHours)
         {
-            return new TimeSpan(0, numberOfHours, 0, 0);
+            return new TimeSpan(numberOfHours, 0, 0);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace BCLExtensions
         /// <returns>The <see cref="TimeSpan"/> representation.</returns>
         public static TimeSpan Hours(this int numberOfHours)
         {
-            return new TimeSpan(0, numberOfHours, 0, 0);
+            return new TimeSpan(numberOfHours, 0, 0);
         }
 
         /// <summary>
@@ -70,12 +70,31 @@ namespace BCLExtensions
         /// <summary>
         /// The specified number in minutes as a <see cref="TimeSpan"/>.
         /// </summary>
-        /// <param name="numberOfMinutes">The number of hours.</param>
+        /// <param name="numberOfMilliseconds">The number of minutes.</param>
+        /// <returns>The <see cref="TimeSpan"/> representation.</returns>
+        public static TimeSpan Milliseconds(this int numberOfMilliseconds)
+        {
+            return new TimeSpan(0, 0, 0, 0, numberOfMilliseconds);
+        }
+
+        /// <summary>
+        /// The specified number in minutes as a <see cref="TimeSpan"/>.
+        /// </summary>
+        /// <param name="numberOfMinutes">The number of minutes.</param>
         /// <returns>The <see cref="TimeSpan"/> representation.</returns>
         public static TimeSpan Minutes(this int numberOfMinutes)
         {
-            return new TimeSpan(0, 0, numberOfMinutes, 0);
+            return new TimeSpan(0, numberOfMinutes, 0);
         }
 
+        /// <summary>
+        /// The specified number in seconds as a <see cref="TimeSpan"/>.
+        /// </summary>
+        /// <param name="numberOfSeconds">The number of seconds.</param>
+        /// <returns>The <see cref="TimeSpan"/> representation.</returns>
+        public static TimeSpan Seconds(this int numberOfSeconds)
+        {
+            return new TimeSpan(0, 0, numberOfSeconds);
+        }
     }
 }
