@@ -32,6 +32,16 @@ namespace BCLExtensions
         /// </summary>
         /// <param name="numberOfHours">The number of hours.</param>
         /// <returns>The <see cref="TimeSpan"/> representation.</returns>
+        public static TimeSpan Hour(this int numberOfHours)
+        {
+            return new TimeSpan(0, numberOfHours, 0, 0);
+        }
+
+        /// <summary>
+        /// The specified number in hours as a <see cref="TimeSpan"/>.
+        /// </summary>
+        /// <param name="numberOfHours">The number of hours.</param>
+        /// <returns>The <see cref="TimeSpan"/> representation.</returns>
         public static TimeSpan Hours(this int numberOfHours)
         {
             return new TimeSpan(0, numberOfHours, 0, 0);

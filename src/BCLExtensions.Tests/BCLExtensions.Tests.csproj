@@ -105,6 +105,7 @@
     <Compile Include="IntExtensions\IsBetweenInclusiveExclusiveTests.cs" />
     <Compile Include="IntExtensions\IsBetweenInclusiveInclusiveTests.cs" />
     <Compile Include="IntExtensions\IsBetweenTests.cs" />
+    <Compile Include="IntTimespanExtensions\HourTests.cs" />
     <Compile Include="IntTimespanExtensions\HoursTests.cs" />
     <Compile Include="IntTimespanExtensions\IsAValidNumberOfHoursForTimeSpanTests.cs" />
     <Compile Include="IntTimespanExtensions\IsAValidNumberOfDaysForTimeSpanTests.cs" />
