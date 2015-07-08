@@ -21,6 +21,7 @@ artifacts:
   name: BCLExtensionsCoverage.xml
 - path: BCLExtensions.*.zip
 - path: BCLExtensions.*.nupkg
+deploy:
 - provider: GitHub
   release: $($env:GitVersion_SemVer)
   auth_token:
