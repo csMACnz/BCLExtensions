@@ -30,3 +30,6 @@ cov-analysis-win64-*
 BCLExtensionsCoverage.xml
 BCLExtensions.*.zip
 BCLExtensions.*.nupkg
+*.ncrunchproject
+*.ncrunchsolution
+src/_NCrunch_Beefeater
