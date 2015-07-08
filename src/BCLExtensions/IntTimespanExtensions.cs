@@ -66,5 +66,16 @@ namespace BCLExtensions
         {
             return TimeSpan.MinValue.TotalHours <= numberOfHours && numberOfHours <= TimeSpan.MaxValue.TotalHours;
         }
+
+        /// <summary>
+        /// The specified number in minutes as a <see cref="TimeSpan"/>.
+        /// </summary>
+        /// <param name="numberOfMinutes">The number of hours.</param>
+        /// <returns>The <see cref="TimeSpan"/> representation.</returns>
+        public static TimeSpan Minutes(this int numberOfMinutes)
+        {
+            return new TimeSpan(0, 0, numberOfMinutes, 0);
+        }
+
     }
 }
