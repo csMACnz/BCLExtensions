@@ -126,5 +126,25 @@ namespace BCLExtensions
         {
             return new TimeSpan(0, 0, numberOfSeconds);
         }
+
+        /// <summary>
+        /// The specified number in weeks as a <see cref="TimeSpan" />.
+        /// </summary>
+        /// <param name="numberOfWeeks">The number of weeks.</param>
+        /// <returns>The <see cref="TimeSpan" /> representation.</returns>
+        public static TimeSpan Week(this int numberOfWeeks)
+        {
+            return new TimeSpan(numberOfWeeks*7, 0, 0, 0);
+        }
+
+        /// <summary>
+        /// The specified number in weeks as a <see cref="TimeSpan" />.
+        /// </summary>
+        /// <param name="numberOfWeeks">The number of weeks.</param>
+        /// <returns>The <see cref="TimeSpan" /> representation.</returns>
+        public static TimeSpan Weeks(this int numberOfWeeks)
+        {
+            return new TimeSpan(numberOfWeeks * 7, 0, 0, 0);
+        }
     }
 }
