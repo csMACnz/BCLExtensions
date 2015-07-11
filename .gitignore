@@ -32,4 +32,4 @@ BCLExtensions.*.zip
 BCLExtensions.*.nupkg
 *.ncrunchproject
 *.ncrunchsolution
-src/_NCrunch_Beefeater
+src/_NCrunch_BCLExtensions

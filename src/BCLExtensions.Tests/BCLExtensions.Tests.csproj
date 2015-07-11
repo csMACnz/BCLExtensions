@@ -160,6 +160,9 @@
     <Compile Include="TestHelpers\ThrowsHelpers.cs" />
     <Compile Include="TestHelperTests\CustomICollectionTests.cs" />
     <Compile Include="TimeSpanExtensions\AgoTests.cs" />
+    <Compile Include="TimeSpanExtensions\AfterTests.cs" />
+    <Compile Include="TimeSpanExtensions\BeforeTests.cs" />
+    <Compile Include="TimeSpanExtensions\FromNowTests.cs" />
     <Compile Include="TypeExtensions\IsNullableTests.cs" />
     <Compile Include="TypeExtensions\IsOfTypeTests.cs" />
   </ItemGroup>
