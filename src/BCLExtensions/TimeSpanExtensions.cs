@@ -8,6 +8,18 @@ namespace BCLExtensions
     public static class TimeSpanExtensions
     {
         /// <summary>
+        /// Adds the specified duration from the provided <see cref="System.DateTime" />.
+        /// </summary>
+        /// <param name="duration">The duration.</param>
+        /// <param name="dateTime">The date time.</param>
+        /// <returns>The calculated Result DateTime.</returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static DateTime After(this TimeSpan duration, DateTime dateTime)
+        {
+            return dateTime + duration;
+        }
+
+        /// <summary>
         /// Substracts the specified duration from the current DateTime.Now value.
         /// </summary>
         /// <param name="duration">The duration.</param>
@@ -15,16 +27,6 @@ namespace BCLExtensions
         public static DateTime Ago(this TimeSpan duration)
         {
             return DateTime.Now - duration;
-        }
-
-        /// <summary>
-        /// Adds the specified duration from the current DateTime.Now value.
-        /// </summary>
-        /// <param name="duration">The duration.</param>
-        /// <returns>The calculated Result DateTime.</returns>
-        public static DateTime FromNow(this TimeSpan duration)
-        {
-            return DateTime.Now + duration;
         }
 
         /// <summary>
@@ -40,15 +42,13 @@ namespace BCLExtensions
         }
 
         /// <summary>
-        /// Adds the specified duration from the provided <see cref="System.DateTime" />.
+        /// Adds the specified duration from the current DateTime.Now value.
         /// </summary>
         /// <param name="duration">The duration.</param>
-        /// <param name="dateTime">The date time.</param>
         /// <returns>The calculated Result DateTime.</returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static DateTime After(this TimeSpan duration, DateTime dateTime)
+        public static DateTime FromNow(this TimeSpan duration)
         {
-            return dateTime + duration;
+            return DateTime.Now + duration;
         }
     }
 }
