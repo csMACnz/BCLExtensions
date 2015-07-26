@@ -21,6 +21,17 @@ namespace BCLExtensions.Tests.ActionExtensions
             Assert.NotNull(func);
         }
 
+        [Fact]
+        public void ResultExecutesCorrectly()
+        {
+            Action action = SampleAction;
+
+            var func = action.AsFunc();
+
+            var unit = func();
+            Assert.Equal(Unit.Default, unit);
+        }
+
         private void SampleAction()
         {
         }
