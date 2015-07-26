@@ -157,7 +157,7 @@ task pack-only {
     exec { nuget pack "$nuget_pack_dir\$nuspec_filename" }
 }
 
-task postbuild -depends pack, archive, coverage-only, coveralls
+task postbuild -depends pack, archive, coverage-only, codecov, coveralls
 
 task appveyor-install -depends GitVersion, RestoreNuGetPackages
 
