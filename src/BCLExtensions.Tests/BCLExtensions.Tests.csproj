@@ -97,6 +97,7 @@
     <Compile Include="FuncExtensions\AsActionUsingTests.cs" />
     <Compile Include="FuncExtensions\AsActionTests.cs" />
     <Compile Include="GenericExtensions\ValueOrDefaultTests.cs" />
+    <Compile Include="GenericExtensions\WhenTests.cs" />
     <Compile Include="IEnumerableExtensions\FullOuterJoinTests.cs" />
     <Compile Include="IntExtensions\EnsureOrderTests.cs" />
     <Compile Include="IntExtensions\IsBetweenExclusiveTests.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="TestHelpers\DictionaryProvider.cs" />
     <Compile Include="TestHelpers\EnumerablePermutationData.cs" />
     <Compile Include="TestHelpers\EnumerableProvider.cs" />
+    <Compile Include="TestHelpers\FuncHelpers.cs" />
     <Compile Include="TestHelpers\IntProvider.cs" />
     <Compile Include="TestHelpers\ListProvider.cs" />
     <Compile Include="TestHelpers\StringProvider.cs" />
@@ -161,12 +163,14 @@
     <Compile Include="StringExtensions\ValueorIfNullTests.cs" />
     <Compile Include="TestHelpers\ThrowsHelpers.cs" />
     <Compile Include="TestHelperTests\CustomICollectionTests.cs" />
+    <Compile Include="TestHelperTests\FuncHelperTests.cs" />
     <Compile Include="TimeSpanExtensions\AgoTests.cs" />
     <Compile Include="TimeSpanExtensions\AfterTests.cs" />
     <Compile Include="TimeSpanExtensions\BeforeTests.cs" />
     <Compile Include="TimeSpanExtensions\FromNowTests.cs" />
     <Compile Include="TypeExtensions\IsNullableTests.cs" />
     <Compile Include="TypeExtensions\IsOfTypeTests.cs" />
+    <Compile Include="UnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BCLExtensions\BCLExtensions.csproj">

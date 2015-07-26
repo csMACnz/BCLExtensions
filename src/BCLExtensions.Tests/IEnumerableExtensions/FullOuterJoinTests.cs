@@ -15,7 +15,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
         readonly Func<int, int, bool> _nullResultSelector = null;
 
         readonly int[] _validEnumerable = Enumerable.Empty<int>().ToArray();
-        readonly Func<int, int> _validKeySelector = SelectSelf;
+        readonly Func<int, int> _validKeySelector = FuncHelpers.SelectSelf;
         readonly Func<int, int, bool> _validResultSelector = NumbersMatch;
 
         readonly Func<IEnumerable<int>, IEnumerable<int>, Func<int, int>, Func<int, int>, Func<int, int, bool>, IEnumerable<bool>> _fullOuterJoin = FullOuterJoinAndEnumerateResults;
@@ -64,8 +64,8 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
         private static void AssertAreEqualIgnoringOrdering<T>(IEnumerable<T> expected, IEnumerable<T> actual)
         {
             Assert.Equal(
-                expected.OrderBy(SelectSelf),
-                actual.OrderBy(SelectSelf)
+                expected.OrderBy(FuncHelpers.SelectSelf),
+                actual.OrderBy(FuncHelpers.SelectSelf)
             );
         }
 
@@ -75,7 +75,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             var left = new[] { 1, 2, 3 };
             var right = new[] { 1, 2, 3 };
 
-            var join = left.FullOuterJoin(right, SelectSelf, SelectSelf, (l, r) => l == r);
+            var join = left.FullOuterJoin(right, FuncHelpers.SelectSelf, FuncHelpers.SelectSelf, (l, r) => l == r);
 
 
             AssertAreEqualIgnoringOrdering(new[] { true, true, true }, join);
@@ -87,7 +87,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             var left = new[] { 1, 2, 3, 4 };
             var right = new[] { 1, 2, 3 };
 
-            var join = left.FullOuterJoin(right, SelectSelf, SelectSelf, (l, r) => l == r);
+            var join = left.FullOuterJoin(right, FuncHelpers.SelectSelf, FuncHelpers.SelectSelf, (l, r) => l == r);
 
 
             AssertAreEqualIgnoringOrdering(new[] { true, true, true, false }, join);
@@ -99,7 +99,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             var left = new[] { 1, 2, 3 };
             var right = new[] { 1, 2, 3, 4 };
 
-            var join = left.FullOuterJoin(right, SelectSelf, SelectSelf, (l, r) => l == r);
+            var join = left.FullOuterJoin(right, FuncHelpers.SelectSelf, FuncHelpers.SelectSelf, (l, r) => l == r);
 
             AssertAreEqualIgnoringOrdering(new[] { true, true, true, false }, join);
         }
@@ -179,9 +179,9 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
             var comparer = new IntStringTupleEqualityComparer();
 
             var join = left.FullOuterJoin(right,
-                                          SelectSelf,
-                                          SelectSelf,
-                                          (l, r) => String.Format("{0}|{1}", l == null ? "NULL" : l.Item2, r == null ? "NULL" : r.Item2), 
+                                          FuncHelpers.SelectSelf,
+                                          FuncHelpers.SelectSelf,
+                                          (l, r) => String.Format("{0}|{1}", l == null ? "NULL" : l.Item2, r == null ? "NULL" : r.Item2),
                                           keyEqualityComparer: comparer);
 
             AssertAreEqualIgnoringOrdering(
@@ -195,10 +195,6 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
                 },
                 join
             );
-        }
-        private static T SelectSelf<T>(T v)
-        {
-            return v;
         }
         private static bool NumbersMatch(int l, int r)
         {
