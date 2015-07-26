@@ -22,6 +22,20 @@ namespace BCLExtensions
         }
 
         /// <summary>
+        /// Maps the item through the specified function.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <param name="item">The item.</param>
+        /// <param name="func">The function.</param>
+        /// <returns></returns>
+        public static TResult Map<TSource, TResult>(this TSource item, Func<TSource, TResult> func)
+        {
+            if (func == null) throw new ArgumentNullException("func");
+            return func(item);
+        }
+
+        /// <summary>
         /// Pipes through T and if the predicate is met, pipes it through func.
         /// Otherwise the original T is returned.
         /// </summary>
