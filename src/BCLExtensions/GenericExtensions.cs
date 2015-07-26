@@ -36,6 +36,23 @@ namespace BCLExtensions
         }
 
         /// <summary>
+        /// Allows the item to pipe through the command, and also affect other structures as part of it's action (Tees the data flow).
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="item">The item.</param>
+        /// <param name="action">The action.</param>
+        /// <returns></returns>
+        /// <remarks>
+        /// See the Wikipedia page <see cref="!:https://en.wikipedia.org/wiki/Tee_(command)" /> for further information.
+        /// </remarks>
+        public static T Tee<T>(this T item, Action<T> action)
+        {
+            if (action == null) throw new ArgumentNullException("action");
+            action(item);
+            return item;
+        }
+
+        /// <summary>
         /// Pipes through T and if the predicate is met, pipes it through func.
         /// Otherwise the original T is returned.
         /// </summary>
