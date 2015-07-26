@@ -101,9 +101,9 @@ task coverity -precondition { return $env:APPVEYOR_SCHEDULED_BUILD -eq "True" }{
   $PublishCoverity = (Resolve-Path ".\src\packages\PublishCoverity.*\PublishCoverity.exe").ToString()
 
   & cov-build --dir cov-int msbuild "/t:Clean;Build" "/p:Configuration=$configuration" $sln_file
-  
+
   & $PublishCoverity compress -o $coverityFileName
-  
+
   & $PublishCoverity publish -t $env:COVERITY_TOKEN -e $env:COVERITY_EMAIL -z $coverityFileName -d "AppVeyor scheduled build ($env:APPVEYOR_BUILD_VERSION)." --codeVersion $script:nugetVersion
 }
 
@@ -122,8 +122,8 @@ task coveralls -depends ResolveCoverallsPath -precondition { return -not $env:AP
 }
 
 task codecov {
-    Invoke-WebRequest https://codecov.io/bash -OutFile codecov.sh
-    bash codecov.sh -v -f BCLExtensionsCoverage.xml
+	(New-Object System.Net.WebClient).DownloadFile("https://codecov.io/bash", ".\CodecovUploader.sh")
+    .\CodecovUploader.sh -t $env:CODECOV_TOKEN -f BCLExtensionsCoverage.xml
 }
 
 task archive -depends build, archive-only
