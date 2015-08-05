@@ -30,7 +30,7 @@ task RestoreNuGetPackages {
 }
 
 task GitVersion {
-    GitVersion /output buildserver /updateassemblyinfo true /assemblyVersionFormat Major
+    GitVersion /output buildserver /updateassemblyinfo
 }
 
 task LocalTestSettings {
@@ -122,7 +122,7 @@ task coveralls -depends ResolveCoverallsPath -precondition { return -not $env:AP
 }
 
 task codecov {
-	(New-Object System.Net.WebClient).DownloadFile("https://codecov.io/bash", ".\CodecovUploader.sh")
+    (New-Object System.Net.WebClient).DownloadFile("https://codecov.io/bash", ".\CodecovUploader.sh")
     .\CodecovUploader.sh -t $env:CODECOV_TOKEN -f BCLExtensionsCoverage.xml
 }
 
