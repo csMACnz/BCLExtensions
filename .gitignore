@@ -8,6 +8,7 @@ obj
 *.user
 *.sln.DotSettings.user
 *.sln.ide
+.vs
 
 # mstest test results
 TestResults

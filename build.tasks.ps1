@@ -34,12 +34,12 @@ task GitVersion {
 }
 
 task LocalTestSettings {
-    $script:xunit = "$base_dir/src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe"
+    $script:xunit = "$base_dir/src/packages/xunit.runner.console.2.0.0/tools/xunit.console.exe"
     $script:testOptions = ""
 }
 
 task ResolveCoverallsPath {
-    $script:coveralls = (Resolve-Path "src/packages/coveralls.net.*/csmacnz.coveralls.exe").ToString()
+    $script:coveralls = (Resolve-Path "src/packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
 }
 
 task AppVeyorEnvironmentSettings {
@@ -98,7 +98,7 @@ task test-coverity -depends setup-coverity-local, coverity
 
 task coverity -precondition { return $env:APPVEYOR_SCHEDULED_BUILD -eq "True" }{
   $coverityFileName = "BCLExtensions.coverity.$script:nugetVersion.zip"
-  $PublishCoverity = (Resolve-Path ".\src\packages\PublishCoverity.*\PublishCoverity.exe").ToString()
+  $PublishCoverity = (Resolve-Path ".\src\packages\PublishCoverity.*\tools\PublishCoverity.exe").ToString()
 
   & cov-build --dir cov-int msbuild "/t:Clean;Build" "/p:Configuration=$configuration" $sln_file
 
@@ -135,7 +135,9 @@ task archive-only {
 
     cp "$build_output_dir\BCLExtensions.dll" "$archive_dir"
 
-    Write-Zip -Path "$archive_dir\*" -OutputPath $archive_filename
+    Add-Type -assembly "system.io.compression.filesystem"
+
+    [io.compression.zipfile]::CreateFromDirectory("$archive_dir", $archive_filename)
 }
 
 task pack -depends build, pack-only
