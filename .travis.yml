@@ -9,3 +9,6 @@ script:
   - mono ./src/packages/xunit.runner.console.2.0.0/tools/xunit.console.exe ./src/BCLExtensions.Tests/bin/Release/BCLExtensions.Tests.dll
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+cache:
+  directories:
+  - ./src/packages
