@@ -1,5 +1,6 @@
 language: csharp
 solution: ./src/BCLExtensions.sln
+sudo: false
 install:
   - nuget restore ./src/BCLExtensions.sln
   - chmod +x ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe
