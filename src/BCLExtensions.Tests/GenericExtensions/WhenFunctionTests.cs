@@ -3,7 +3,7 @@ using Xunit;
 
 namespace BCLExtensions.Tests.GenericExtensions
 {
-    public class WhenTests
+    public class WhenFunctionTests
     {
         [Fact]
         public void TruePredicateCallsFunction()

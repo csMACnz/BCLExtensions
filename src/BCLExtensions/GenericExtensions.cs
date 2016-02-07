@@ -24,17 +24,33 @@ namespace BCLExtensions
         /// <summary>
         /// When the predicate returns true, pipes the data through the transform function.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="value">The value.</param>
+        /// <typeparam name="T">The Type of the value</typeparam>
+        /// <param name="value">The value to process.</param>
         /// <param name="predicate">The predicate.</param>
-        /// <param name="function">The function.</param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException">TODO</exception>
+        /// <param name="function">The function that runs when the predicate is true.</param>
+        /// <returns>The original value if the predicate is false, otherwise the result of the function.</returns>
         public static T When<T>(this T value, Func<T, bool> predicate, Func<T, T> function)
         {
             if (predicate(value))
             {
                 return function(value);
+            }
+            return value;
+        }
+
+        /// <summary>
+        /// When the predicate is true, executes the action.
+        /// </summary>
+        /// <typeparam name="T">The Type of the value</typeparam>
+        /// <param name="value">The value to process.</param>
+        /// <param name="predicate">The predicate.</param>
+        /// <param name="function">The function.</param>
+        /// <returns>The original value.</returns>
+        public static T When<T>(this T value, Func<T, bool> predicate, Action<T> function)
+        {
+            if (predicate(value))
+            {
+                function(value);
             }
             return value;
         }
