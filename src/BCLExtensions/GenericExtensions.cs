@@ -31,6 +31,7 @@ namespace BCLExtensions
         /// <returns>The original value if the predicate is false, otherwise the result of the function.</returns>
         public static T When<T>(this T value, Func<T, bool> predicate, Func<T, T> function)
         {
+            if (value == null) throw new ArgumentNullException("value");
             if (predicate(value))
             {
                 return function(value);
@@ -48,6 +49,7 @@ namespace BCLExtensions
         /// <returns>The original value.</returns>
         public static T When<T>(this T value, Func<T, bool> predicate, Action<T> function)
         {
+            if (value == null) throw new ArgumentNullException("value");
             if (predicate(value))
             {
                 function(value);

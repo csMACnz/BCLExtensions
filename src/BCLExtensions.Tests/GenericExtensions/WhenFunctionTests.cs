@@ -1,4 +1,5 @@
 ﻿using System;
+using BCLExtensions.Tests.TestHelpers;
 using Xunit;
 
 namespace BCLExtensions.Tests.GenericExtensions
@@ -6,6 +7,14 @@ namespace BCLExtensions.Tests.GenericExtensions
     public class WhenFunctionTests
     {
         private string _newValue = "New World";
+
+        [Fact]
+        public void ValidateInputCannotBeNull()
+        {
+            string input = null;
+            Func<string, Func<string, bool>, Func<string,string>, string> func = BCLExtensions.GenericExtensions.When;
+            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, AlwaysTrue, ReturnsNewValue).AsThrowsDelegate());
+        }
 
         [Fact]
         public void TruePredicateCallsFunction()

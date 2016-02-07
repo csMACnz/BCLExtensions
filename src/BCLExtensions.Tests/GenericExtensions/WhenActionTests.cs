@@ -1,10 +1,19 @@
 ﻿using System;
+using BCLExtensions.Tests.TestHelpers;
 using Xunit;
 
 namespace BCLExtensions.Tests.GenericExtensions
 {
     public class WhenActionTests
     {
+        [Fact]
+        public void ValidateInputCannotBeNull()
+        {
+            string input = null;
+            Func<string, Func<string,bool>, Action<string>, string> func = BCLExtensions.GenericExtensions.When;
+            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, AlwaysTrue, DoNothing).AsThrowsDelegate());
+        }
+
         [Fact]
         public void TruePredicateCallsAction()
         {
