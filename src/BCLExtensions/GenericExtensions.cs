@@ -20,5 +20,23 @@ namespace BCLExtensions
             if (item != null) return item;
             return defaultValue;
         }
+
+        /// <summary>
+        /// When the predicate returns true, pipes the data through the transform function.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value">The value.</param>
+        /// <param name="predicate">The predicate.</param>
+        /// <param name="function">The function.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException">TODO</exception>
+        public static T When<T>(this T value, Func<T, bool> predicate, Func<T, T> function)
+        {
+            if (predicate(value))
+            {
+                return function(value);
+            }
+            return value;
+        }
     }
 }
