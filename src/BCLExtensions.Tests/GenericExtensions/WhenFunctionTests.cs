@@ -5,6 +5,8 @@ namespace BCLExtensions.Tests.GenericExtensions
 {
     public class WhenFunctionTests
     {
+        private string _newValue = "New World";
+
         [Fact]
         public void TruePredicateCallsFunction()
         {
@@ -13,28 +15,15 @@ namespace BCLExtensions.Tests.GenericExtensions
             Assert.True(executed);
         }
 
-        private bool TestFunctionExecution(Func<string, bool> predicate)
-        {
-            var executed = false;
-            string input = "Hello World";
-
-            input.When(predicate, s =>
-            {
-                executed = true;
-                return s;
-            });
-            return executed;
-        }
-
         [Fact]
         public void TruePredicateReturnsFunctionResult()
         {
             string input = "Hello World";
-            string expected = "New World";
 
-            var result = input.When(AlwaysTrue, s => expected);
+            Func<string, string> function = ReturnsNewValue;
+            var result = input.When(AlwaysTrue, function);
 
-            Assert.Equal(expected, result);
+            Assert.Equal(_newValue, result);
         }
 
         [Fact]
@@ -50,9 +39,28 @@ namespace BCLExtensions.Tests.GenericExtensions
         {
             string input = "Hello World";
 
-            var result = input.When(AlwaysFalse, s => "New World");
+            Func<string,string> function = ReturnsNewValue;
+            var result = input.When(AlwaysFalse, function);
 
             Assert.Equal(input, result);
+        }
+
+        private bool TestFunctionExecution(Func<string, bool> predicate)
+        {
+            var executed = false;
+            string input = "Hello World";
+
+            input.When(predicate, s =>
+            {
+                executed = true;
+                return s;
+            });
+            return executed;
+        }
+
+        private string ReturnsNewValue(string s)
+        {
+            return _newValue;
         }
 
         private bool AlwaysFalse(string s)
