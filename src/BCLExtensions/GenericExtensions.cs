@@ -32,6 +32,8 @@ namespace BCLExtensions
         public static T When<T>(this T value, Func<T, bool> predicate, Func<T, T> function)
         {
             if (value == null) throw new ArgumentNullException("value");
+            if (predicate == null) throw new ArgumentNullException("predicate");
+            if (function == null) throw new ArgumentNullException("action");
             if (predicate(value))
             {
                 return function(value);
@@ -45,14 +47,16 @@ namespace BCLExtensions
         /// <typeparam name="T">The Type of the value</typeparam>
         /// <param name="value">The value to process.</param>
         /// <param name="predicate">The predicate.</param>
-        /// <param name="function">The function.</param>
+        /// <param name="action">The action.</param>
         /// <returns>The original value.</returns>
-        public static T When<T>(this T value, Func<T, bool> predicate, Action<T> function)
+        public static T When<T>(this T value, Func<T, bool> predicate, Action<T> action)
         {
             if (value == null) throw new ArgumentNullException("value");
+            if (predicate == null) throw new ArgumentNullException("predicate");
+            if (action == null) throw new ArgumentNullException("action");
             if (predicate(value))
             {
-                function(value);
+                action(value);
             }
             return value;
         }

@@ -17,6 +17,24 @@ namespace BCLExtensions.Tests.GenericExtensions
         }
 
         [Fact]
+        public void ValidatePredicateCannotBeNull()
+        {
+            string input = "Hello World";
+            Func<string, bool> predicate = null;
+            Func<string, Func<string, bool>, Func<string, string>, string> func = BCLExtensions.GenericExtensions.When;
+            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, predicate, ReturnsNewValue).AsThrowsDelegate());
+        }
+
+        [Fact]
+        public void ValidateActionCannotBeNull()
+        {
+            string input = "Hello World";
+            Func<string, string> action = null;
+            Func<string, Func<string, bool>, Func<string, string>, string> func = BCLExtensions.GenericExtensions.When;
+            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, AlwaysTrue, action).AsThrowsDelegate());
+        }
+
+        [Fact]
         public void TruePredicateCallsFunction()
         {
             var executed = TestFunctionExecution(AlwaysTrue);
