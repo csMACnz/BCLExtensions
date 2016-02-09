@@ -102,7 +102,8 @@
     <Compile Include="GenericExtensions\MapTests.cs" />
     <Compile Include="GenericExtensions\TeeTests.cs" />
     <Compile Include="GenericExtensions\ValueOrDefaultTests.cs" />
-    <Compile Include="GenericExtensions\WhenTests.cs" />
+    <Compile Include="GenericExtensions\WhenActionTests.cs" />
+    <Compile Include="GenericExtensions\WhenFunctionTests.cs" />
     <Compile Include="IEnumerableExtensions\FullOuterJoinTests.cs" />
     <Compile Include="IntExtensions\EnsureOrderTests.cs" />
     <Compile Include="IntExtensions\IsBetweenExclusiveTests.cs" />

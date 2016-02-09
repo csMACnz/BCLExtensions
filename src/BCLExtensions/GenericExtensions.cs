@@ -12,7 +12,7 @@ namespace BCLExtensions
         /// </summary>
         /// <typeparam name="T">Type of the item</typeparam>
         /// <param name="item">The item to check</param>
-        /// <param name="defaultValue">The default value</param>
+        /// <param name="defaultValue">The default item</param>
         /// <returns>item if not null; otherwise defaultValue</returns>
         public static T GetValueOrDefault<T>(this T item, T defaultValue) where T : class
         {
@@ -53,21 +53,40 @@ namespace BCLExtensions
         }
 
         /// <summary>
-        /// Pipes through T and if the predicate is met, pipes it through func.
+        /// Pipes through T and if the predicate is met, pipes it through the function.
         /// Otherwise the original T is returned.
         /// </summary>
-        /// <typeparam name="T">Type of the item</typeparam>
-        /// <param name="item">The item.</param>
+        /// <typeparam name="T">The Type of the item.</typeparam>
+        /// <param name="item">The item to process.</param>
         /// <param name="predicate">The predicate.</param>
-        /// <param name="func">The function.</param>
-        /// <returns></returns>
-        public static T When<T>(this T item, Func<T, bool> predicate, Func<T, T> func)
+        /// <param name="function">The function that runs when the predicate is true.</param>
+        /// <returns>The original value if the predicate is false, otherwise the result of the function.</returns>
+        public static T When<T>(this T item, Func<T, bool> predicate, Func<T, T> function)
         {
             if (predicate == null) throw new ArgumentNullException("predicate");
-            if (func == null) throw new ArgumentNullException("func");
+            if (function == null) throw new ArgumentNullException("function");
             if (predicate(item))
             {
-                item = func(item);
+                item = function(item);
+            }
+            return item;
+        }
+
+        /// <summary>
+        /// When the predicate is true, executes the action.
+        /// </summary>
+        /// <typeparam name="T">The Type of the item.</typeparam>
+        /// <param name="item">The item to process.</param>
+        /// <param name="predicate">The predicate.</param>
+        /// <param name="action">The action that runs when the predicate is true.</param>
+        /// <returns>The original item.</returns>
+        public static T When<T>(this T item, Func<T, bool> predicate, Action<T> action)
+        {
+            if (predicate == null) throw new ArgumentNullException("predicate");
+            if (action == null) throw new ArgumentNullException("action");
+            if (predicate(item))
+            {
+                action(item);
             }
             return item;
         }
