@@ -111,7 +111,7 @@ task coverage -depends LocalTestSettings, build, coverage-only
 
 task coverage-only {
     $opencover = (Resolve-Path ".\src\packages\OpenCover.*\tools\OpenCover.Console.exe").ToString()
-    exec { & $opencover -register:user -target:$script:xunit "-targetargs:""src\BCLExtensions.Tests\bin\$Configuration\BCLExtensions.Tests.dll"" /noshadow $script:testOptions" -filter:"+[BCLExtensions*]*" -output:BCLExtensionsCoverage.xml }
+    exec { & $opencover -register:user -target:$script:xunit "-targetargs:""src\BCLExtensions.Tests\bin\$Configuration\BCLExtensions.Tests.dll"" -noshadow $script:testOptions" -filter:"+[BCLExtensions*]*" -output:BCLExtensionsCoverage.xml }
 }
 
 task test-coveralls -depends coverage, ResolveCoverallsPath {
