@@ -17,7 +17,7 @@ properties {
     # files
     $sln_file = "$base_dir\src\BCLExtensions.sln"
     $nuspec_filename = "BCLExtensions.nuspec"
-    $testOptions = "-noshadow"
+    $testOptions = ""
     $script:xunit = "$base_dir\src\packages\xunit.runners.1.9.2\tools\xunit.console.clr4.exe"
     $script:coveralls = "csmacnz.Coveralls.exe"
 
@@ -60,8 +60,8 @@ task AppVeyorEnvironmentSettings {
         echo "nuget version set to $script:nugetVersion"
     }
 
-    $script:xunit = "xunit.console.clr4.exe"
-    $script:testOptions = "/noshadow /appveyor"
+    $script:xunit = "C:\Tools\xUnit20\xunit.console.exe"
+    $script:testOptions = "-appveyor"
 }
 
 task clean {
@@ -111,7 +111,7 @@ task coverage -depends LocalTestSettings, build, coverage-only
 
 task coverage-only {
     $opencover = (Resolve-Path ".\src\packages\OpenCover.*\tools\OpenCover.Console.exe").ToString()
-    exec { & $opencover -register:user -target:$script:xunit "-targetargs:""src\BCLExtensions.Tests\bin\$Configuration\BCLExtensions.Tests.dll"" $script:testOptions" -filter:"+[BCLExtensions*]*" -output:BCLExtensionsCoverage.xml }
+    exec { & $opencover -register:user -target:$script:xunit "-targetargs:""src\BCLExtensions.Tests\bin\$Configuration\BCLExtensions.Tests.dll"" -noshadow $script:testOptions" -filter:"+[BCLExtensions*]*" -output:BCLExtensionsCoverage.xml }
 }
 
 task test-coveralls -depends coverage, ResolveCoverallsPath {
