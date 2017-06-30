@@ -23,14 +23,14 @@ namespace BCLExtensions.Tests.StringExtensions
         public void NullInputThrowsException()
         {
             Func<string, int, string> right = BCLExtensions.StringExtensions.Right;
-            Assert.Throws<ArgumentNullException>(right.AsActionUsing(null, 0).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(right.AsActionUsing(null, 0));
         }
 
         [Fact]
         public void NegativeLengthThrowsException()
         {
             Func<string, int, string> right = BCLExtensions.StringExtensions.Right;
-            Assert.Throws<ArgumentOutOfRangeException>(right.AsActionUsing("Hello World", -1).AsThrowsDelegate());
+            Assert.Throws<ArgumentOutOfRangeException>(right.AsActionUsing("Hello World", -1));
         }
     }
 }

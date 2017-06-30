@@ -1,224 +1,34 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\xunit.runner.visualstudio.2.0.1\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\packages\xunit.runner.visualstudio.2.0.1\build\net20\xunit.runner.visualstudio.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{99002BEF-4739-458C-B409-B815F70CE3F3}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BCLExtensions.Tests</RootNamespace>
-    <AssemblyName>BCLExtensions.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
-    <IsCodedUITest>False</IsCodedUITest>
-    <TestProjectType>UnitTest</TestProjectType>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+<PropertyGroup>
+    <Product>BCLExtensions</Product>
+    <Copyright>Copyright © csMACnz 2017</Copyright>
+    <Description>Tests for BCLExtensions</Description>
+    <AssemblyTitle>Tests for BCLExtensions</AssemblyTitle>
+    <NeutralLanguage>en-NZ</NeutralLanguage>
+    <Authors>dev-markc</Authors>
+    <TargetFrameworks>netcoreapp1.1</TargetFrameworks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyName>BCLExtensions.Tests</AssemblyName>
+    <PackageId>BCLExtensions.Tests</PackageId>
+    <PackageLicenseUrl>https://github.com/csMACnz/BCLExtensions/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/csMACnz/BCLExtensions</PackageProjectUrl>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="FakeItEasy">
-      <HintPath>..\packages\FakeItEasy.1.25.2\lib\net40\FakeItEasy.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="xunit, Version=1.9.2.1705, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="xunit.extensions, Version=1.9.2.1705, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.extensions.1.9.2\lib\net20\xunit.extensions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+    <PackageReference Include="FakeItEasy" Version="3.4.2" />
   </ItemGroup>
-  <Choose>
-    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-      </ItemGroup>
-    </When>
-    <Otherwise />
-  </Choose>
+
   <ItemGroup>
-    <Compile Include="ActionExtensions\AsActionUsingTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithSixteenParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithFifteenParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithFourteenParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithThirteenParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithTwelveParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithElevenParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithTenParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithNineParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithEightParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithSevenParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithSixParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithFiveParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithFourParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithThreeParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsActionUsingWithTwoParametersTests.cs" />
-    <Compile Include="ActionExtensions\AsFuncTests.cs" />
-    <Compile Include="ArrayExtensions\ClearTests.cs" />
-    <Compile Include="ArrayExtensions\OrEmptyIfNullTests.cs" />
-    <Compile Include="ArrayExtensions\OrNullIfEmptyTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithSixteenParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithFifteenParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithFourteenParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithThirteenParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithTwelveParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithElevenParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithTenParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithNineParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithEightParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithSevenParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithSixParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithFiveParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithFourParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithThreeParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingWithTwoParametersTests.cs" />
-    <Compile Include="FuncExtensions\AsActionUsingTests.cs" />
-    <Compile Include="FuncExtensions\AsActionTests.cs" />
-    <Compile Include="GenericExtensions\MapTests.cs" />
-    <Compile Include="GenericExtensions\TeeTests.cs" />
-    <Compile Include="GenericExtensions\ValueOrDefaultTests.cs" />
-    <Compile Include="GenericExtensions\WhenActionTests.cs" />
-    <Compile Include="GenericExtensions\WhenFunctionTests.cs" />
-    <Compile Include="IEnumerableExtensions\FullOuterJoinTests.cs" />
-    <Compile Include="IntExtensions\EnsureOrderTests.cs" />
-    <Compile Include="IntExtensions\IsBetweenExclusiveTests.cs" />
-    <Compile Include="IntExtensions\IsBetweenExclusiveExclusiveTests.cs" />
-    <Compile Include="IntExtensions\IsBetweenExclusiveInclusiveTests.cs" />
-    <Compile Include="IntExtensions\IsBetweenInclusiveExclusiveTests.cs" />
-    <Compile Include="IntExtensions\IsBetweenInclusiveInclusiveTests.cs" />
-    <Compile Include="IntExtensions\IsBetweenTests.cs" />
-    <Compile Include="IntTimespanExtensions\WeekTests.cs" />
-    <Compile Include="IntTimespanExtensions\WeeksTests.cs" />
-    <Compile Include="IntTimespanExtensions\MillisecondTests.cs" />
-    <Compile Include="IntTimespanExtensions\MillisecondsTests.cs" />
-    <Compile Include="IntTimespanExtensions\MinuteTests.cs" />
-    <Compile Include="IntTimespanExtensions\SecondTests.cs" />
-    <Compile Include="IntTimespanExtensions\SecondsTests.cs" />
-    <Compile Include="IntTimespanExtensions\MinutesTests.cs" />
-    <Compile Include="IntTimespanExtensions\HourTests.cs" />
-    <Compile Include="IntTimespanExtensions\HoursTests.cs" />
-    <Compile Include="IntTimespanExtensions\IsAValidNumberOfHoursForTimeSpanTests.cs" />
-    <Compile Include="IntTimespanExtensions\IsAValidNumberOfDaysForTimeSpanTests.cs" />
-    <Compile Include="IntTimespanExtensions\DayTests.cs" />
-    <Compile Include="IntTimespanExtensions\DaysTests.cs" />
-    <Compile Include="StringExtensions\SafeRightTests.cs" />
-    <Compile Include="StringExtensions\SafeLeftTests.cs" />
-    <Compile Include="StringExtensions\RightTests.cs" />
-    <Compile Include="StringExtensions\LeftTests.cs" />
-    <Compile Include="StringExtensions\SafeToStringWithNullStringTests.cs" />
-    <Compile Include="StringExtensions\SafeTrimEndTests.cs" />
-    <Compile Include="StringExtensions\SafeTrimStartTests.cs" />
-    <Compile Include="StringExtensions\SafeTrimTests.cs" />
-    <Compile Include="StringExtensions\SafeToStringTests.cs" />
-    <Compile Include="StringExtensions\UnquotedTests.cs" />
-    <Compile Include="StringExtensions\ValueOrNullIfWhitespaceTests.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TestHelpers\ArrayProvider.cs" />
-    <Compile Include="TestHelpers\CollectionProvider.cs" />
-    <Compile Include="TestHelpers\CustomICollection.cs" />
-    <Compile Include="TestHelpers\CustomICollectionProvider.cs" />
-    <Compile Include="TestHelpers\DictionaryProvider.cs" />
-    <Compile Include="TestHelpers\EnumerablePermutationData.cs" />
-    <Compile Include="TestHelpers\EnumerableProvider.cs" />
-    <Compile Include="TestHelpers\FuncHelpers.cs" />
-    <Compile Include="TestHelpers\IntProvider.cs" />
-    <Compile Include="TestHelpers\ListProvider.cs" />
-    <Compile Include="TestHelpers\StringProvider.cs" />
-    <Compile Include="TestHelpers\IDataProvider.cs" />
-    <Compile Include="TestHelpers\IItemProvider.cs" />
-    <Compile Include="IEnumerableExtensions\IsNotEmptyTests.cs" />
-    <Compile Include="IEnumerableExtensions\IsNullOrEmptyTests.cs" />
-    <Compile Include="IEnumerableExtensions\OrEmptyIfNullTests.cs" />
-    <Compile Include="IEnumerableExtensions\OrNullIfEmptyTests.cs" />
-    <Compile Include="ObjectExtensions\EnsureIsNotNullTests.cs" />
-    <Compile Include="ObjectExtensions\IsNotNullTests.cs" />
-    <Compile Include="ObjectExtensions\IsNullTests.cs" />
-    <Compile Include="StringExtensions\FormatWithTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringExtensions\IsNullOrWhitespaceTests.cs" />
-    <Compile Include="StringExtensions\IsNotNullOrWhitespaceTests.cs" />
-    <Compile Include="StringExtensions\ValueOrEmptyIfNullOrWhitespaceTests.cs" />
-    <Compile Include="StringExtensions\ValueOrEmptyIfNullTests.cs" />
-    <Compile Include="StringExtensions\ValueOrIfNullOrWhitespaceTests.cs" />
-    <Compile Include="StringExtensions\ValueorIfNullTests.cs" />
-    <Compile Include="TestHelpers\ThrowsHelpers.cs" />
-    <Compile Include="TestHelperTests\CustomICollectionTests.cs" />
-    <Compile Include="TestHelperTests\FuncHelperTests.cs" />
-    <Compile Include="TimeSpanExtensions\AgoTests.cs" />
-    <Compile Include="TimeSpanExtensions\AfterTests.cs" />
-    <Compile Include="TimeSpanExtensions\BeforeTests.cs" />
-    <Compile Include="TimeSpanExtensions\FromNowTests.cs" />
-    <Compile Include="TypeExtensions\IsNullableTests.cs" />
-    <Compile Include="TypeExtensions\IsOfTypeTests.cs" />
-    <Compile Include="UnitTests.cs" />
+    <ProjectReference Include="..\BCLExtensions\BCLExtensions.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BCLExtensions\BCLExtensions.csproj">
-      <Project>{a0469fd6-ce9e-45f0-8b70-46aa69ab97ee}</Project>
-      <Name>BCLExtensions</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
-  <Choose>
-    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </When>
-  </Choose>
-  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\xunit.runner.visualstudio.2.0.1\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.visualstudio.2.0.1\build\net20\xunit.runner.visualstudio.props'))" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

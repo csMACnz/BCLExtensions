@@ -11,7 +11,7 @@ namespace BCLExtensions.Tests.FuncExtensions
         [Fact]
         public void SampleFunctionIsValid()
         {
-            Assert.DoesNotThrow(() => SampleFunction(42, "Test", true, 9.876m, byte.MaxValue, 12, "Foo", false, 3.33333m, ByteValue, 9000, "Test", true, 987.654m, ByteValue));
+            SampleFunction(42, "Test", true, 9.876m, byte.MaxValue, 12, "Foo", false, 3.33333m, ByteValue, 9000, "Test", true, 987.654m, ByteValue);
         }
 
         [Fact]

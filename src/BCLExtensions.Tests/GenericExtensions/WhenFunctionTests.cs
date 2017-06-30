@@ -80,6 +80,7 @@ namespace BCLExtensions.Tests.GenericExtensions
             var result = value.When(v => v.Length > 3, v => v.Substring(0, 3));
             return result;
         }
+		
         private bool TestFunctionExecution(Func<string, bool> predicate)
         {
             var executed = false;

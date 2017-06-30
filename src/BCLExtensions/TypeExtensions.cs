@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace BCLExtensions
 {
@@ -27,7 +28,7 @@ namespace BCLExtensions
         {
             if(type == null) throw new ArgumentNullException("type");
 
-            return !type.IsValueType || Nullable.GetUnderlyingType(type) != null;
+            return !type.GetTypeInfo().IsValueType || Nullable.GetUnderlyingType(type) != null;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace BCLExtensions.Tests.GenericExtensions
 
             Func<string, Action<string>, string> func = BCLExtensions.GenericExtensions.Tee;
 
-            Assert.Throws<ArgumentNullException>(func.AsActionUsing(value, null).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(func.AsActionUsing(value, null));
         }
     }
 }

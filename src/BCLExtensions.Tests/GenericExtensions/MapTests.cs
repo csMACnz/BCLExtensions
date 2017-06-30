@@ -33,7 +33,7 @@ namespace BCLExtensions.Tests.GenericExtensions
 
             Func<string, Func<string, int>, int> func = BCLExtensions.GenericExtensions.Map;
 
-            Assert.Throws<ArgumentNullException>(func.AsActionUsing(value, null).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(func.AsActionUsing(value, null));
         }
     }
 }

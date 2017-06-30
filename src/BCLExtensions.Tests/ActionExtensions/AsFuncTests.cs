@@ -8,7 +8,7 @@ namespace BCLExtensions.Tests.ActionExtensions
         [Fact]
         public void SampleActionIsValid()
         {
-            Assert.DoesNotThrow(SampleAction);
+            SampleAction();
         }
 
         [Fact]

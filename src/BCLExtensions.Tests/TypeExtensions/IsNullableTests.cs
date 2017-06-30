@@ -42,7 +42,7 @@ namespace BCLExtensions.Tests.TypeExtensions
 
             Func<Type, bool> isNullable = BCLExtensions.TypeExtensions.IsNullable;
 
-            Assert.Throws<ArgumentNullException>(isNullable.AsActionUsing(type).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(isNullable.AsActionUsing(type));
         }
     }
 }

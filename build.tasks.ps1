@@ -16,9 +16,6 @@ properties {
 
     # files
     $sln_file = "$base_dir\src\BCLExtensions.sln"
-    $nuspec_filename = "BCLExtensions.nuspec"
-    $testOptions = ""
-    $script:xunit = "$base_dir\src\packages\xunit.runners.1.9.2\tools\xunit.console.clr4.exe"
     $script:coveralls = "csmacnz.Coveralls.exe"
 
 }
@@ -26,7 +23,7 @@ properties {
 task default
 
 task RestoreNuGetPackages {
-    exec { nuget.exe restore $sln_file }
+    exec { dotnet restore $sln_file }
 }
 
 task GitVersion {
@@ -34,8 +31,6 @@ task GitVersion {
 }
 
 task LocalTestSettings {
-    $script:xunit = "$base_dir/src/packages/xunit.runner.console.2.0.0/tools/xunit.console.exe"
-    $script:testOptions = ""
 }
 
 task ResolveCoverallsPath {
@@ -59,9 +54,6 @@ task AppVeyorEnvironmentSettings {
         $script:nugetVersion = $env:APPVEYOR_BUILD_VERSION
         echo "nuget version set to $script:nugetVersion"
     }
-
-    $script:xunit = "C:\Tools\xUnit20\xunit.console.exe"
-    $script:testOptions = "-appveyor"
 }
 
 task clean {
@@ -79,11 +71,11 @@ task clean {
     if (Test-Path $nupkg_filename) {
       Remove-Item $nupkg_filename
     }
-    exec { msbuild "/t:Clean" "/p:Configuration=$configuration" $sln_file }
+    dotnet clean $sln_file
 }
 
 task build {
-    exec { msbuild "/t:Clean;Build" "/p:Configuration=$configuration" $sln_file }
+    exec { dotnet build $sln_file }
 }
 
 task setup-coverity-local {
@@ -146,18 +138,8 @@ task pack -depends build, pack-only
 task pack-only {
 
     mkdir $nuget_pack_dir
-    cp "$nuspec_filename" "$nuget_pack_dir"
 
-    #Profile 328 goes into nuget sub folder "\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1"
-    mkdir "$nuget_pack_dir\lib"
-    mkdir "$nuget_pack_dir\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1"
-    cp "$build_output_dir\BCLExtensions.dll" "$nuget_pack_dir\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1"
-
-    $Spec = [xml](get-content "$nuget_pack_dir\$nuspec_filename")
-    $Spec.package.metadata.version = ([string]$Spec.package.metadata.version).Replace("{Version}", $script:nugetVersion)
-    $Spec.Save("$nuget_pack_dir\$nuspec_filename")
-
-    exec { nuget pack "$nuget_pack_dir\$nuspec_filename" }
+    dotnet pack ".\src\BCLExtensions\BCLExtensions.csproj" --output $nuget_pack_dir
 }
 
 task postbuild -depends pack, archive, coverage-only, codecov, coveralls

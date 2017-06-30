@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Xunit.Extensions;
+using Xunit.Sdk;
 
 namespace BCLExtensions.Tests.TestHelpers
 {
@@ -26,7 +27,7 @@ namespace BCLExtensions.Tests.TestHelpers
             _providers.Add(new DictionaryProvider<int>(new IntProvider()));
         }
 
-        public override IEnumerable<object[]> GetData(MethodInfo methodUnderTest, Type[] parameterTypes)
+        public override IEnumerable<object[]> GetData(MethodInfo methodUnderTest)
         {
             return _providers.Select(provider => new object[] {provider.GetPlaceholder(), provider});
         }

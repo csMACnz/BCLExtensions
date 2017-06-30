@@ -9,7 +9,7 @@ namespace BCLExtensions.Tests.ActionExtensions
         [Fact]
         public void SampleActionIsValid()
         {
-            Assert.DoesNotThrow(() => SampleAction(42, "Test", true, 3.14m, byte.MaxValue));
+            SampleAction(42, "Test", true, 3.14m, byte.MaxValue);
         }
 
         [Fact]

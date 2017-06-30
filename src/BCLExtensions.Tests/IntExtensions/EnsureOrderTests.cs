@@ -20,7 +20,7 @@ namespace BCLExtensions.Tests.IntExtensions
         {
             Action<int, int> ensureOrder = BCLExtensions.IntExtensions.EnsureOrder;
 
-            Assert.Throws<InvalidOperationException>(ensureOrder.AsActionUsing(first, second).AsThrowsDelegate());
+            Assert.Throws<InvalidOperationException>(ensureOrder.AsActionUsing(first, second));
         }
 
         [Theory]
@@ -38,7 +38,8 @@ namespace BCLExtensions.Tests.IntExtensions
         {
             Action<int, int> ensureOrder = BCLExtensions.IntExtensions.EnsureOrder;
 
-            Assert.DoesNotThrow(ensureOrder.AsActionUsing(first, second).AsThrowsDelegate());
+            var action = ensureOrder.AsActionUsing(first, second);
+            action();
         }
     }
 }

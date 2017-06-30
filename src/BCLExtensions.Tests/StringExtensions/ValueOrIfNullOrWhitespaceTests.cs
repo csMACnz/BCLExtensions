@@ -22,7 +22,7 @@ namespace BCLExtensions.Tests.StringExtensions
             public void NullDefaultStringThrowsException()
             {
                 Func<string, string, string> valueOrIfNullOrWhitespace = BCLExtensions.StringExtensions.ValueOrIfNullOrWhitespace;
-                Assert.Throws<ArgumentNullException>(valueOrIfNullOrWhitespace.AsActionUsing(input, null).AsThrowsDelegate());
+                Assert.Throws<ArgumentNullException>(valueOrIfNullOrWhitespace.AsActionUsing(input, null));
             }
 
             [Fact]
@@ -73,7 +73,7 @@ namespace BCLExtensions.Tests.StringExtensions
             public void NullReplacementThrowsArgumentNullException()
             {
                 Func<string, string, string> valueOrIfNullOrWhitespace = BCLExtensions.StringExtensions.ValueOrIfNullOrWhitespace;
-                Assert.Throws<ArgumentNullException>(valueOrIfNullOrWhitespace.AsActionUsing(input, null).AsThrowsDelegate());
+                Assert.Throws<ArgumentNullException>(valueOrIfNullOrWhitespace.AsActionUsing(input, null));
             }
 
             [Fact]

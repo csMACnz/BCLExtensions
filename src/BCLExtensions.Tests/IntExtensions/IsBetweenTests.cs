@@ -42,7 +42,7 @@ namespace BCLExtensions.Tests.IntExtensions
         {
             Func<int, int, int, bool> isBetween = BCLExtensions.IntExtensions.IsBetween;
 
-            Assert.Throws<InvalidOperationException>(isBetween.AsActionUsing(0, 100, 20).AsThrowsDelegate());
+            Assert.Throws<InvalidOperationException>(isBetween.AsActionUsing(0, 100, 20));
         }
     }
 }

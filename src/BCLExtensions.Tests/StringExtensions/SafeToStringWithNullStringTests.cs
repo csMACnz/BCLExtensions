@@ -10,7 +10,7 @@ namespace BCLExtensions.Tests.StringExtensions
         public void NullWithNullNullStringThrowsException()
         {
             Func<string, string, string> safeToString = BCLExtensions.StringExtensions.SafeToString;
-            Assert.Throws<ArgumentNullException>(safeToString.AsActionUsing(null, null).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(safeToString.AsActionUsing(null, null));
         }
 
         [Fact]
@@ -28,7 +28,7 @@ namespace BCLExtensions.Tests.StringExtensions
         public void StringWithNullNullStringThrowsException()
         {
             Func<string, string, string> safeToString = BCLExtensions.StringExtensions.SafeToString;
-            Assert.Throws<ArgumentNullException>(safeToString.AsActionUsing("String Object", null).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(safeToString.AsActionUsing("String Object", null));
         }
 
         [Fact]
@@ -66,7 +66,7 @@ namespace BCLExtensions.Tests.StringExtensions
         public void CustomObjectWithNullNullStringThrowsException()
         {
             Func<TestObject, string, string> safeToString = BCLExtensions.StringExtensions.SafeToString;
-            Assert.Throws<ArgumentNullException>(safeToString.AsActionUsing(new TestObject(), null).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(safeToString.AsActionUsing(new TestObject(), null));
         }
 
         private class TestObject

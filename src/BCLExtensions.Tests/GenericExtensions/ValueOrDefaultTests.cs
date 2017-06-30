@@ -4,6 +4,7 @@ using System.Reflection;
 using BCLExtensions.Tests.TestHelpers;
 using Xunit;
 using Xunit.Extensions;
+using Xunit.Sdk;
 
 namespace BCLExtensions.Tests.GenericExtensions
 {
@@ -16,7 +17,7 @@ namespace BCLExtensions.Tests.GenericExtensions
         public void WhenInputNullAndDefaultValueIsNullThrowsException<T>(T input, T defaultValue) where T : class
         {
             Func<T,T,T> valueOrDefault = BCLExtensions.GenericExtensions.GetValueOrDefault<T>;
-            Assert.Throws<ArgumentNullException>(valueOrDefault.AsActionUsing(input, null).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(valueOrDefault.AsActionUsing(input, null));
         }
 
         [Theory]
@@ -26,7 +27,7 @@ namespace BCLExtensions.Tests.GenericExtensions
         public void WhenValidInputAndDefaultValueIsNullThrowsException<T>(T input, T defaultValue) where T : class
         {
             Func<T, T, T> valueOrDefault = BCLExtensions.GenericExtensions.GetValueOrDefault<T>;
-            Assert.Throws<ArgumentNullException>(valueOrDefault.AsActionUsing(input, null).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(valueOrDefault.AsActionUsing(input, null));
         }
 
         [Theory]
@@ -58,7 +59,7 @@ namespace BCLExtensions.Tests.GenericExtensions
                 _inputIsNull = inputIsNull;
             }
 
-            public override IEnumerable<object[]> GetData(MethodInfo methodUnderTest, Type[] parameterTypes)
+            public override IEnumerable<object[]> GetData(MethodInfo testMethod)
             {
                 yield return new object[]
                 {
@@ -81,7 +82,7 @@ namespace BCLExtensions.Tests.GenericExtensions
                 _inputIsNull = inputIsNull;
             }
 
-            public override IEnumerable<object[]> GetData(MethodInfo methodUnderTest, Type[] parameterTypes)
+            public override IEnumerable<object[]> GetData(MethodInfo methodUnderTest)
             {
                 yield return new object[]
                 {
@@ -104,7 +105,7 @@ namespace BCLExtensions.Tests.GenericExtensions
                 _inputIsNull = inputIsNull;
             }
 
-            public override IEnumerable<object[]> GetData(MethodInfo methodUnderTest, Type[] parameterTypes)
+            public override IEnumerable<object[]> GetData(MethodInfo methodUnderTest)
             {
                 yield return new[]
                 {

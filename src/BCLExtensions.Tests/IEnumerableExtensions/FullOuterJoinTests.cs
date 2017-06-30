@@ -23,37 +23,37 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
         [Fact]
         public void NullFirstEnumerableThrowsException()
         {
-            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_nullEnumerable, _validEnumerable, _validKeySelector, _validKeySelector, _validResultSelector).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_nullEnumerable, _validEnumerable, _validKeySelector, _validKeySelector, _validResultSelector));
         }
 
         [Fact]
         public void NullSecondEnumerableThrowsException()
         {
-            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_validEnumerable, _nullEnumerable, _validKeySelector, _validKeySelector, _validResultSelector).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_validEnumerable, _nullEnumerable, _validKeySelector, _validKeySelector, _validResultSelector));
         }
 
         [Fact]
         public void NullFirstKeySelectorThrowsException()
         {
-            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _nullKeySelector, _validKeySelector, _validResultSelector).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _nullKeySelector, _validKeySelector, _validResultSelector));
         }
 
         [Fact]
         public void NullSecondKeySelectorThrowsException()
         {
-            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _validKeySelector, _nullKeySelector, _validResultSelector).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _validKeySelector, _nullKeySelector, _validResultSelector));
         }
 
         [Fact]
         public void NullResultsSelectorThrowsException()
         {
-            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _validKeySelector, _validKeySelector, _nullResultSelector).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(_fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _validKeySelector, _validKeySelector, _nullResultSelector));
         }
 
         [Fact]
         public void ValidInputReturnsSuccessfully()
         {
-            Assert.DoesNotThrow(_fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _validKeySelector, _validKeySelector, _validResultSelector).AsThrowsDelegate());
+            _fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _validKeySelector, _validKeySelector, _validResultSelector);
         }
 
         private static IEnumerable<bool> FullOuterJoinAndEnumerateResults(IEnumerable<int> firstEnumerable, IEnumerable<int> secondEnumerable, Func<int, int> firstKeySelector, Func<int, int> secondKeySelector, Func<int, int, bool> resultSelector)

@@ -24,7 +24,7 @@ namespace BCLExtensions.Tests.TimeSpanExtensions
                 BCLExtensions.TimeSpanExtensions.Before;
 
             Assert.Throws<ArgumentOutOfRangeException>(
-                beforeAction.AsActionUsing(twoMinutes, startOfTime).AsThrowsDelegate());
+                beforeAction.AsActionUsing(twoMinutes, startOfTime));
         }
     }
 }

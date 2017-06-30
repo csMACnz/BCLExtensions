@@ -12,7 +12,7 @@ namespace BCLExtensions.Tests.GenericExtensions
             string input = "Hello World";
             Func<string,bool> predicate = null;
             Func<string, Func<string, bool>, Action<string>, string> func = BCLExtensions.GenericExtensions.When;
-            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, predicate, DoNothing).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, predicate, DoNothing));
         }
 
         [Fact]
@@ -21,7 +21,7 @@ namespace BCLExtensions.Tests.GenericExtensions
             string input = "Hello World";
             Action<string> action = null;
             Func<string, Func<string, bool>, Action<string>, string> func = BCLExtensions.GenericExtensions.When;
-            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, AlwaysTrue, action).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, AlwaysTrue, action));
         }
 
         [Fact]
