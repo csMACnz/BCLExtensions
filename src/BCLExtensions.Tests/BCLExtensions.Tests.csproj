@@ -31,4 +31,8 @@
     <ProjectReference Include="..\BCLExtensions\BCLExtensions.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.0-beta1-build3642" />
+  </ItemGroup>
+
 </Project>

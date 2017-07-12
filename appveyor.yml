@@ -15,11 +15,11 @@ cache:
 - C:\ProgramData\chocolatey\lib -> build.environment.ps1
 install:
 - ps: .\build.environment.ps1
-- ps: psake .\build.tasks.ps1 appveyor-install
+- ps: psake appveyor-install
 build_script:
-- ps: psake .\build.tasks.ps1 appveyor-build
+- ps: psake appveyor-build
 test_script:
-- ps: psake .\build.tasks.ps1 appveyor-test
+- ps: psake appveyor-test
 artifacts:
 - path: BCLExtensionsCoverage.xml
   name: BCLExtensionsCoverage.xml
