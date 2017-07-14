@@ -27,7 +27,7 @@ artifacts:
 - path: Package\BCLExtensions.*.nupkg
 deploy:
 - provider: GitHub
-  release: $($env:GitVersion_SemVer)
+  release: $(GitVersion_SemVer)
   auth_token:
     secure: hH6A9i7v+sf5mZy9FLQVG7n4UpLWkUhpshIsia7sGi1ONr+iMKroqjkJk0Hsi3nK
   artifact: /.*\.nupkg/
