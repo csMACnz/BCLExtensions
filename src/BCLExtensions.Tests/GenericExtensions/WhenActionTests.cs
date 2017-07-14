@@ -7,20 +7,12 @@ namespace BCLExtensions.Tests.GenericExtensions
     public class WhenActionTests
     {
         [Fact]
-        public void ValidateInputCannotBeNull()
-        {
-            string input = null;
-            Func<string, Func<string,bool>, Action<string>, string> func = BCLExtensions.GenericExtensions.When;
-            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, AlwaysTrue, DoNothing).AsThrowsDelegate());
-        }
-
-        [Fact]
         public void ValidatePredicateCannotBeNull()
         {
             string input = "Hello World";
             Func<string,bool> predicate = null;
             Func<string, Func<string, bool>, Action<string>, string> func = BCLExtensions.GenericExtensions.When;
-            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, predicate, DoNothing).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, predicate, DoNothing));
         }
 
         [Fact]
@@ -29,7 +21,18 @@ namespace BCLExtensions.Tests.GenericExtensions
             string input = "Hello World";
             Action<string> action = null;
             Func<string, Func<string, bool>, Action<string>, string> func = BCLExtensions.GenericExtensions.When;
-            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, AlwaysTrue, action).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, AlwaysTrue, action));
+        }
+
+        [Fact]
+        public void ValidateInputCanBeNull()
+        {
+            string input = null;
+            
+            Action<string> doNothing = DoNothing;
+            var result = input.When(i => i != null, doNothing);
+
+            Assert.Null(result);
         }
 
         [Fact]

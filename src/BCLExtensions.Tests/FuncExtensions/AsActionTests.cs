@@ -9,7 +9,7 @@ namespace BCLExtensions.Tests.FuncExtensions
         [Fact]
         public void SampleFunctionIsValid()
         {
-            Assert.DoesNotThrow(() => SampleFunction());
+            SampleFunction();
         }
 
         [Fact]

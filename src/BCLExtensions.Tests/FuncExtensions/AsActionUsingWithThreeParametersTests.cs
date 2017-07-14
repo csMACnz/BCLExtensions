@@ -3,13 +3,12 @@ using Xunit;
 
 namespace BCLExtensions.Tests.FuncExtensions
 {
-
     public class AsActionUsingWithThreeParametersTests
     {
         [Fact]
         public void SampleFunctionIsValid()
         {
-            Assert.DoesNotThrow(() => SampleFunction(42, "Test", true));
+            SampleFunction(42, "Test", true);
         }
 
         [Fact]
@@ -36,7 +35,6 @@ namespace BCLExtensions.Tests.FuncExtensions
 
             Assert.True(internalFunctionWasCalled);
         }
-
 
         [Fact]
         public void InternalFunctionCapturesCorrectParameters()
@@ -67,6 +65,5 @@ namespace BCLExtensions.Tests.FuncExtensions
         {
             return 42m;
         }
-
     }
 }

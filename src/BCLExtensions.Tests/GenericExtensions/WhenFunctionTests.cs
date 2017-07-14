@@ -1,5 +1,4 @@
 ﻿using System;
-using BCLExtensions.Tests.TestHelpers;
 using Xunit;
 
 namespace BCLExtensions.Tests.GenericExtensions
@@ -9,29 +8,32 @@ namespace BCLExtensions.Tests.GenericExtensions
         private string _newValue = "New World";
 
         [Fact]
-        public void ValidateInputCannotBeNull()
-        {
-            string input = null;
-            Func<string, Func<string, bool>, Func<string,string>, string> func = BCLExtensions.GenericExtensions.When;
-            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, AlwaysTrue, ReturnsNewValue).AsThrowsDelegate());
-        }
-
-        [Fact]
         public void ValidatePredicateCannotBeNull()
         {
             string input = "Hello World";
-            Func<string, bool> predicate = null;
-            Func<string, Func<string, bool>, Func<string, string>, string> func = BCLExtensions.GenericExtensions.When;
-            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, predicate, ReturnsNewValue).AsThrowsDelegate());
+            Func<string,bool> predicate = null;
+            Func<string, Func<string, bool>, Func<string,string>, string> func = BCLExtensions.GenericExtensions.When;
+            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, predicate, ReturnsNewValue));
         }
 
         [Fact]
-        public void ValidateActionCannotBeNull()
+        public void ValidateFunctionCannotBeNull()
         {
             string input = "Hello World";
-            Func<string, string> action = null;
-            Func<string, Func<string, bool>, Func<string, string>, string> func = BCLExtensions.GenericExtensions.When;
-            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, AlwaysTrue, action).AsThrowsDelegate());
+            Func<string,string> function = null;
+            Func<string, Func<string, bool>, Func<string,string>, string> func = BCLExtensions.GenericExtensions.When;
+            Assert.Throws<ArgumentNullException>(func.AsActionUsing(input, AlwaysTrue, function));
+        }
+
+        [Fact]
+        public void ValidateInputCanBeNull()
+        {
+            string input = null;
+            
+            Func<string,string> returnsNewValue = ReturnsNewValue;
+            var result = input.When(i => i != null, returnsNewValue);
+
+            Assert.Null(result);
         }
 
         [Fact]
@@ -71,7 +73,43 @@ namespace BCLExtensions.Tests.GenericExtensions
 
             Assert.Equal(input, result);
         }
+        [Fact]
+        public void GivenANullStringCanConditionalReplaceString()
+        {
+            string input = null;
+            var newString = "New String";
 
+            var result = input.When(i => i == null, i => newString);
+
+            Assert.Equal(newString, result);
+        }
+
+        [Fact]
+        public void GivenALongStringCanConditionalSubString()
+        {
+            var value = "Hello";
+
+            var result = CallLengthWhenOnString(value);
+
+            Assert.Equal("Hel", result);
+        }
+
+        [Fact]
+        public void GivenAShortStringOriginalStringReturns()
+        {
+            var value = "He";
+
+            var result = CallLengthWhenOnString(value);
+
+            Assert.Equal("He", result);
+        }
+
+        private static string CallLengthWhenOnString(string value)
+        {
+            var result = value.When(v => v.Length > 3, v => v.Substring(0, 3));
+            return result;
+        }
+		
         private bool TestFunctionExecution(Func<string, bool> predicate)
         {
             var executed = false;

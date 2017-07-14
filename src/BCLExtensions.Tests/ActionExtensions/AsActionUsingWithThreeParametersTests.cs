@@ -9,7 +9,7 @@ namespace BCLExtensions.Tests.ActionExtensions
         [Fact]
         public void SampleActionIsValid()
         {
-            Assert.DoesNotThrow(() => SampleAction(42, "Test", true));
+            SampleAction(42, "Test", true);
         }
 
         [Fact]
@@ -35,7 +35,6 @@ namespace BCLExtensions.Tests.ActionExtensions
 
             Assert.True(internalActionWasCalled);
         }
-
 
         [Fact]
         public void InternalActionCapturesCorrectParameters()

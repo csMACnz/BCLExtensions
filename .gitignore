@@ -8,6 +8,7 @@ obj
 *.user
 *.sln.DotSettings.user
 *.sln.ide
+.vs
 
 # mstest test results
 TestResults
@@ -22,10 +23,13 @@ TestResults
 #!**/packages/repositories.config
 
 #Build Script Artifacts
+BuildPackages
 Package
+TestResults
 coverity.zip
 cov-int
+codecov
 cov-analysis-win64-*
-BCLExtensionsCoverage.xml
-BCLExtensions.*.zip
-BCLExtensions.*.nupkg
+*.ncrunchproject
+*.ncrunchsolution
+src/_NCrunch_BCLExtensions

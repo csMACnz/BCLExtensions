@@ -3,13 +3,12 @@ using Xunit;
 
 namespace BCLExtensions.Tests.FuncExtensions
 {
-
     public class AsActionUsingTests
     {
         [Fact]
         public void SampleFunctionIsValid()
         {
-            Assert.DoesNotThrow(() => SampleFunction(42));
+            SampleFunction(42);
         }
 
         [Fact]
@@ -20,11 +19,6 @@ namespace BCLExtensions.Tests.FuncExtensions
             var action = function.AsActionUsing(12);
 
             Assert.NotNull(action);
-        }
-
-        private int SampleFunction(int parameter)
-        {
-            return parameter;
         }
 
         [Fact]
@@ -42,7 +36,6 @@ namespace BCLExtensions.Tests.FuncExtensions
             Assert.True(internalFunctionWasCalled);
         }
 
-
         [Fact]
         public void InternalFunctionCapturesCorrectParameter()
         {
@@ -58,6 +51,11 @@ namespace BCLExtensions.Tests.FuncExtensions
             action();
 
             Assert.Equal(expectedParameter, passedParameter);
+        }
+
+        private int SampleFunction(int parameter)
+        {
+            return parameter;
         }
     }
 }

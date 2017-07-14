@@ -22,7 +22,7 @@ namespace BCLExtensions.Tests.StringExtensions
             public void NullDefaultStringThrowsException()
             {
                 Func<string, string, string> valueOrIfNull = BCLExtensions.StringExtensions.ValueOrIfNull;
-                Assert.Throws<ArgumentNullException>(valueOrIfNull.AsActionUsing(_input, null).AsThrowsDelegate());
+                Assert.Throws<ArgumentNullException>(valueOrIfNull.AsActionUsing(_input, null));
             }
 
             [Fact]
@@ -38,7 +38,7 @@ namespace BCLExtensions.Tests.StringExtensions
         {
             var input = "Test";
             Func<string, string, string> valueOrIfNull = BCLExtensions.StringExtensions.ValueOrIfNull;
-            Assert.Throws<ArgumentNullException>(valueOrIfNull.AsActionUsing(input, null).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(valueOrIfNull.AsActionUsing(input, null));
         }
 
         [Fact]

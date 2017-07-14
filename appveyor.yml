@@ -7,15 +7,37 @@ environment:
     secure: ZbRwfjyUYFFxQEIjHf5kwFYzOWcw51aA0DRztbcM3OY=
   COVERITY_EMAIL:
     secure: YNNLrvdTPJBtXcWskGnutoOOXbWeulhguf0c7iX9Gis=
+  CODECOV_TOKEN:
+    secure: D9LlnEw1hjjZ320aASvHsFokCoiEMUEUp4d1M0Q+eufflb39A+TR80w+reBjGP0h
+cache:
+- BuildPackages -> default.ps1
+- C:\ProgramData\chocolatey\bin -> build.environment.ps1
+- C:\ProgramData\chocolatey\lib -> build.environment.ps1
 install:
 - ps: .\build.environment.ps1
-- ps: psake .\build.tasks.ps1 appveyor-install
+- ps: psake appveyor-install
 build_script:
-- ps: psake .\build.tasks.ps1 appveyor-build
+- ps: psake appveyor-build
 test_script:
-- ps: psake .\build.tasks.ps1 appveyor-test
+- ps: psake appveyor-test
 artifacts:
-- path: BCLExtensionsCoverage.xml
+- path: TestResults\BCLExtensionsCoverage.xml
   name: BCLExtensionsCoverage.xml
-- path: BCLExtensions.*.zip
-- path: BCLExtensions.*.nupkg
+- path: Package\BCLExtensions.*.zip
+- path: Package\BCLExtensions.*.nupkg
+deploy:
+- provider: GitHub
+  release: $(GitVersion_SemVer)
+  auth_token:
+    secure: hH6A9i7v+sf5mZy9FLQVG7n4UpLWkUhpshIsia7sGi1ONr+iMKroqjkJk0Hsi3nK
+  artifact: /.*\.nupkg/
+  prerelease: true
+  on:
+    branch: /release-.*/
+    APPVEYOR_REPO_TAG: true
+- provider: NuGet
+  api_key:
+    secure: 4XLKYHbHXYJuc9SCTYZt5VzxE/XDBpjWSttRIK3ZGux5TwIgAnhMBamo16fjVmzS
+  on:
+    branch: /release-.*/
+    APPVEYOR_REPO_TAG: true

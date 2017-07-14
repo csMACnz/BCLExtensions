@@ -13,7 +13,7 @@ namespace BCLExtensions.Tests.ObjectExtensions
         {
             object instance = null;
             Action<object> action = BCLExtensions.ObjectExtensions.EnsureIsNotNull;
-            Assert.Throws<ArgumentNullException>(action.AsActionUsing(instance).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(action.AsActionUsing(instance));
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace BCLExtensions.Tests.ObjectExtensions
         {
             object instance = null;
             Action<object, string> action = BCLExtensions.ObjectExtensions.EnsureIsNotNull;
-            Assert.Throws<ArgumentNullException>(action.AsActionUsing(instance,instanceArgumentName).AsThrowsDelegate());
+            Assert.Throws<ArgumentNullException>(action.AsActionUsing(instance,instanceArgumentName));
         }
 
         [Fact]
@@ -44,7 +44,7 @@ namespace BCLExtensions.Tests.ObjectExtensions
             object instance = null;
 
             Action<object, string> action = BCLExtensions.ObjectExtensions.EnsureIsNotNull;
-            var exception = Assert.Throws<ArgumentNullException>(action.AsActionUsing(instance, instanceArgumentName).AsThrowsDelegate());
+            var exception = Assert.Throws<ArgumentNullException>(action.AsActionUsing(instance, instanceArgumentName));
 
             Assert.Equal(instanceArgumentName, exception.ParamName);
         }

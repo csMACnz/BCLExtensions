@@ -14,7 +14,7 @@ namespace BCLExtensions.Tests.StringExtensions
             public void NoParametersProvidedThowsArgumentNullException()
             {
                 Func<string, object[], string> formatWith = BCLExtensions.StringExtensions.FormatWith;
-                Assert.Throws<ArgumentNullException>(formatWith.AsActionUsing(_myString, new object[0]).AsThrowsDelegate());
+                Assert.Throws<ArgumentNullException>(formatWith.AsActionUsing(_myString, new object[0]));
             }
         }
 
@@ -52,7 +52,7 @@ namespace BCLExtensions.Tests.StringExtensions
             public void NoParametersProvidedThrowsFormatException()
             {
                 Func<string, object[], string> formatWith = BCLExtensions.StringExtensions.FormatWith;
-                Assert.Throws<FormatException>(formatWith.AsActionUsing(_myString, new object[0]).AsThrowsDelegate());
+                Assert.Throws<FormatException>(formatWith.AsActionUsing(_myString, new object[0]));
             }
 
             [Fact]

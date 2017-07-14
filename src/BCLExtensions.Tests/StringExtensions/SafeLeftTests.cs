@@ -36,7 +36,7 @@ namespace BCLExtensions.Tests.StringExtensions
         public void NegativeLengthThrowsException()
         {
             Func<string, int, string> safeLeft = BCLExtensions.StringExtensions.SafeLeft;
-            Assert.Throws<ArgumentOutOfRangeException>(safeLeft.AsActionUsing("Hello World", -1).AsThrowsDelegate());
+            Assert.Throws<ArgumentOutOfRangeException>(safeLeft.AsActionUsing("Hello World", -1));
         }
 
 
@@ -44,7 +44,7 @@ namespace BCLExtensions.Tests.StringExtensions
         public void NegativeLengthOnNullThrowsException()
         {
             Func<string, int, string> safeLeft = BCLExtensions.StringExtensions.SafeLeft;
-            Assert.Throws<ArgumentOutOfRangeException>(safeLeft.AsActionUsing(null, -1).AsThrowsDelegate());
+            Assert.Throws<ArgumentOutOfRangeException>(safeLeft.AsActionUsing(null, -1));
         }
     }
 }

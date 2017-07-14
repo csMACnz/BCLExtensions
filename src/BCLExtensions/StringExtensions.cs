@@ -52,7 +52,7 @@ namespace BCLExtensions
         /// <exception cref="ArgumentOutOfRangeException">Thrown when length is less than zero.</exception>
         public static string Left(this string input, int length)
         {
-            input.EnsureIsNotNull("input");
+            if (input == null) throw new ArgumentNullException("input");
             if (length < 0) throw new ArgumentOutOfRangeException("length", "Length cannot be less than 0.");
             return length >= input.Length
                 ? input
@@ -70,7 +70,7 @@ namespace BCLExtensions
         /// <exception cref="ArgumentOutOfRangeException">Thrown when length is less than zero.</exception>
         public static string Right(this string input, int length)
         {
-            input.EnsureIsNotNull("input");
+            if (input == null) throw new ArgumentNullException("input");
             if(length < 0) throw new ArgumentOutOfRangeException("length", "Length cannot be less than 0.");
             return length >= input.Length
                 ? input
@@ -138,7 +138,7 @@ namespace BCLExtensions
         /// <exception cref="System.ArgumentNullException">Thrown when nullString is null.</exception>
         public static string SafeToString<T>(this T item, string nullString)
         {
-            nullString.EnsureIsNotNull("nullString");
+            if (nullString == null) throw new ArgumentNullException("nullString");
             return item == null ? nullString : item.ToString();
         }
 
