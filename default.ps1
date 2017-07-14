@@ -41,7 +41,7 @@ task InstallOpenCover -depends BootstrapNuget {
 }
 
 task InstallCoverity -depends BootstrapNuget {
-    InstallNugetPackage "PublishCoverity" 0.9.0 $build_packages_dir
+    InstallNugetPackage "PublishCoverity" 0.11.0 $build_packages_dir
 }
 
 task InstallGitVersion -depends BootstrapNuget {
@@ -78,13 +78,13 @@ task AppVeyorEnvironmentSettings {
 
 task clean {
     if (Test-Path $package_dir) {
-      Remove-Item $package_dir -r
+        Remove-Item $package_dir -r
     }
     if (Test-Path $test_results_dir) {
-      Remove-Item $test_results_dir -r
+        Remove-Item $test_results_dir -r
     }
     if (Test-Path $build_packages_dir) {
-      Remove-Item $build_packages_dir -r
+        Remove-Item $build_packages_dir -r
     }
     dotnet clean $sln_file
 }
@@ -94,31 +94,37 @@ task build {
 }
 
 task setup-coverity-local {
-  $env:APPVEYOR_BUILD_FOLDER = "."
-  $env:APPVEYOR_BUILD_VERSION = $script:version
-  $env:APPVEYOR_REPO_NAME = "csmacnz/BCLExtensions"
-  "You should have set the COVERITY_TOKEN and COVERITY_EMAIL environment variable already"
-  $env:APPVEYOR_SCHEDULED_BUILD = "True"
+    $env:APPVEYOR_BUILD_FOLDER = "."
+    $env:APPVEYOR_BUILD_VERSION = $script:version
+    $env:APPVEYOR_REPO_NAME = "csmacnz/BCLExtensions"
+    "You should have set the COVERITY_TOKEN and COVERITY_EMAIL environment variable already"
+    $env:APPVEYOR_SCHEDULED_BUILD = "True"
 }
 
 task test-coverity -depends setup-coverity-local, coverity
 
 task coverity -depends InstallCoverity -precondition { return $env:APPVEYOR_SCHEDULED_BUILD -eq "True" }{
-  $coverityFileName = "BCLExtensions.coverity.$script:nugetVersion.zip"
-  $PublishCoverity = GetCoverityPath $build_packages_dir
+    $coverityFileName = "BCLExtensions.coverity.$script:nugetVersion.zip"
+    $PublishCoverity = GetCoverityPath $build_packages_dir
 
-  & cov-build --dir cov-int msbuild "/t:Clean;Build" "/p:Configuration=$configuration" $sln_file
+    & cov-configure --comptype csc --compiler "C:\Program Files\dotnet\dotnet.exe"
+    & cov-build --dir cov-int dotnet msbuild "/t:Clean;Build" "/p:Configuration=$configuration" $sln_file
 
-  & $PublishCoverity compress -o $coverityFileName
+    if(-not (Test-Path $test_results_dir)) {
+        mkdir $test_results_dir
+    }
 
-  & $PublishCoverity publish -t $env:COVERITY_TOKEN -e $env:COVERITY_EMAIL -z $coverityFileName -d "AppVeyor scheduled build ($env:APPVEYOR_BUILD_VERSION)." --codeVersion $script:nugetVersion
+    & $PublishCoverity compress -o "$test_results_dir\$coverityFileName"
+
+    & $PublishCoverity publish -t "$env:COVERITY_TOKEN" -e "$env:COVERITY_EMAIL" -z "$test_results_dir\$coverityFileName" -d "AppVeyor scheduled build ($env:APPVEYOR_BUILD_VERSION)." --codeVersion "$script:nugetVersion"
 }
 
 task coverage -depends build, coverage-only
 
 task coverage-only -depends InstallOpenCover {
-    
-    mkdir $test_results_dir
+    if(-not (Test-Path $test_results_dir)) {
+        mkdir $test_results_dir
+    }
 
     $opencover = GetOpenCoverPath $build_packages_dir
     exec { 
@@ -169,4 +175,4 @@ task appveyor-install -depends GitVersion, RestoreNuGetPackages
 
 task appveyor-build -depends AppVeyorEnvironmentSettings, build
 
-task appveyor-test -depends AppVeyorEnvironmentSettings, postbuild, coverity
+task appveyor-test -depends AppVeyorEnvironmentSettings, postbuild
