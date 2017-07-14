@@ -53,7 +53,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
         [Fact]
         public void ValidInputReturnsSuccessfully()
         {
-            _fullOuterJoin.AsActionUsing(_validEnumerable, _validEnumerable, _validKeySelector, _validKeySelector, _validResultSelector);
+            _fullOuterJoin(_validEnumerable, _validEnumerable, _validKeySelector, _validKeySelector, _validResultSelector);
         }
 
         private static IEnumerable<bool> FullOuterJoinAndEnumerateResults(IEnumerable<int> firstEnumerable, IEnumerable<int> secondEnumerable, Func<int, int> firstKeySelector, Func<int, int> secondKeySelector, Func<int, int, bool> resultSelector)

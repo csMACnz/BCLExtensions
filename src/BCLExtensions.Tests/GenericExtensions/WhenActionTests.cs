@@ -25,7 +25,7 @@ namespace BCLExtensions.Tests.GenericExtensions
         }
 
         [Fact]
-        public void ValidateInputCannotBeNull()
+        public void ValidateInputCanBeNull()
         {
             string input = null;
             
