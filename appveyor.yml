@@ -10,7 +10,7 @@ environment:
   CODECOV_TOKEN:
     secure: D9LlnEw1hjjZ320aASvHsFokCoiEMUEUp4d1M0Q+eufflb39A+TR80w+reBjGP0h
 cache:
-- src\packages -> **\packages.config
+- BuildPackages -> default.ps1
 - C:\ProgramData\chocolatey\bin -> build.environment.ps1
 - C:\ProgramData\chocolatey\lib -> build.environment.ps1
 install:
