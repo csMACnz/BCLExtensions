@@ -23,17 +23,7 @@ BCLExtensions
 
 Base Class Library Extensions for C# base class library classes, across .Net, Silverlight, WinRT.
 
-For now, this is build upon the most generic PCL possible, but may explore specific additional components if required.
-
-PCL Profile(Profile328)
------------------------
-* .Net Framework 4
-* Silverlight 5
-* Windows 8/8.1(winrt)
-* Windows Phone 8.1
-* Window Phone Silverlight 8
-* Xamarin.Android
-* Xamarin.iOS
+This library is built on `NetStandard1.0` for maximum compatability.
 
 Nuget
 -----
