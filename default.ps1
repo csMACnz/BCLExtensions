@@ -136,12 +136,12 @@ task coverage-only -depends InstallOpenCover {
 
 task test-coveralls -depends coverage, InstallCoveralls {
     $coveralls = GetCoverallsPath $build_packages_dir
-    exec { & $coveralls --opencover -i "$test_results_dir\BCLExtensionsCoverage.xml" --dryrun -o "$test_results_dir\coverallsTestOutput.json" --repoToken "NOTAREALTOKEN" }
+    exec { & $coveralls --opencover -i "$test_results_dir\BCLExtensionsCoverage.xml" --useRelativePaths --dryrun -o "$test_results_dir\coverallsTestOutput.json" --repoToken "NOTAREALTOKEN" }
 }
 
 task coveralls -depends InstallCoveralls -precondition { return -not $env:APPVEYOR_PULL_REQUEST_NUMBER }{
     $coveralls = GetCoverallsPath $build_packages_dir
-    exec { & $coveralls --opencover -i "$test_results_dir\BCLExtensionsCoverage.xml" --treatUploadErrorsAsWarnings }
+    exec { & $coveralls --opencover -i "$test_results_dir\BCLExtensionsCoverage.xml" --useRelativePaths --treatUploadErrorsAsWarnings }
 }
 
 task codecov {
