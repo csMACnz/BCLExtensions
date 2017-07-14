@@ -1,12 +1,13 @@
 language: csharp
-solution: ./src/BCLExtensions.sln
+mono: none
+dotnet: 1.0.4
+dist: trusty
 sudo: false
 install:
-  - nuget restore ./src/BCLExtensions.sln
-  - chmod +x ./src/packages/xunit.runner.console.2.0.0/tools/xunit.console.exe
+  - dotnet restore ./src/BCLExtensions.sln
 script:
-  - xbuild /p:Configuration=Release ./src/BCLExtensions.sln
-  - mono ./src/packages/xunit.runner.console.2.0.0/tools/xunit.console.exe ./src/BCLExtensions.Tests/bin/Release/BCLExtensions.Tests.dll
+  - dotnet build ./src/BCLExtensions.sln
+  - dotnet test ./src/BCLExtensions.Tests/BCLExtensions.Tests.csproj
 cache:
   directories:
-  - ./src/packages
+  - ./BuildPackages
