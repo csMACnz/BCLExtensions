@@ -21,10 +21,10 @@ build_script:
 test_script:
 - ps: psake appveyor-test
 artifacts:
-- path: BCLExtensionsCoverage.xml
+- path: TestResults\BCLExtensionsCoverage.xml
   name: BCLExtensionsCoverage.xml
-- path: BCLExtensions.*.zip
-- path: BCLExtensions.*.nupkg
+- path: Package\BCLExtensions.*.zip
+- path: Package\BCLExtensions.*.nupkg
 deploy:
 - provider: GitHub
   release: $($env:GitVersion_SemVer)
